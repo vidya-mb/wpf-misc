@@ -1,0 +1,43 @@
+﻿<Window x:Class="ICGPerf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ICGPerf"
+        mc:Ignorable="d"
+        Title="Tree View Performance Tests" Height="1000" Width="1000">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TreeView x:Name="treeView" ItemsSource="{Binding Path=Items}" 
+            VirtualizingPanel.IsVirtualizing="True" 
+            VirtualizingPanel.VirtualizationMode="Standard" 
+            VirtualizingPanel.ScrollUnit="Item" Grid.Row="0">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:Node}" ItemsSource="{Binding ChildItems}">
+                    <TextBlock FontSize="6" Text="{Binding Path=Number}"/>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type local:LeafNode}">
+                    <TextBlock FontSize="6" Text="{Binding Path=Number}"/>
+                </DataTemplate>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True"/>
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="Padding" Value="0" />
+                </Style>
+            </TreeView.Resources>
+        </TreeView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Nesting Level : " />
+            <TextBox x:Name="nestingLevelTextBox" Text="20" Width="50" />
+            <TextBlock Text="Total Records : " />
+            <TextBox x:Name="numRecordsTextBox" Text="10000" Width="100" />
+            <Button x:Name="Test1Button" Content="Test 1" Click="Test1Button_Click" Width="50" Margin="2"/>
+            <Button x:Name="Test2Button" Content="Test 2" Click="Test2Button_Click" Width="50" Margin="2"/>
+            <Button x:Name="ClearButton" Content="Clear" Click="ClearButton_Click" Width="50" Margin="2"/>
+            <Button x:Name="ScrollToBottomButton" Content="Scroll End" Click="ScrollToBottomButton_Click" Width="100" Margin="2"/>
+        </StackPanel>
+    </Grid>
+</Window>

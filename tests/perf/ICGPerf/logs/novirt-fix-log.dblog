@@ -1,0 +1,11 @@
+0.000000	2023/06/06 17:22:26.193	0	DebugView++.exe	File Identification Header, DebugView++ Format Version 1
+0.000000	2023/06/06 17:17:05.974	5452	ICGPerf.exe	Add Items Time : 35 ms
+25.309085	2023/06/06 17:17:31.287	5452	ICGPerf.exe	Total Time ( include render ) : 25345 ms
+59.951009	2023/06/06 17:18:05.928	5452	ICGPerf.exe	Add Items Time : 2 ms
+88.646247	2023/06/06 17:18:34.631	5452	ICGPerf.exe	Total Time ( include render ) : 28697 ms
+106.754501	2023/06/06 17:18:52.740	5452	ICGPerf.exe	Add Items Time : 6 ms
+138.830553	2023/06/06 17:19:24.818	5452	ICGPerf.exe	Total Time ( include render ) : 32082 ms
+155.471717	2023/06/06 17:19:41.459	5452	ICGPerf.exe	Add Items Time : 6 ms
+190.040279	2023/06/06 17:20:16.022	5452	ICGPerf.exe	Total Time ( include render ) : 34575 ms
+236.730141	2023/06/06 17:21:02.709	5452	ICGPerf.exe	Add Items Time : 6 ms
+272.435719	2023/06/06 17:21:38.412	5452	ICGPerf.exe	Total Time ( include render ) : 35712 ms

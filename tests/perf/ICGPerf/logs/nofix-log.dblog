@@ -1,0 +1,83 @@
+0.000000	2023/06/06 16:50:07.756	0	DebugView++.exe	File Identification Header, DebugView++ Format Version 1
+0.000000	2023/06/06 16:45:48.006	7908	ICGPerf.exe	Add Items Time : 8 ms
+0.443171	2023/06/06 16:45:48.459	7908	ICGPerf.exe	Total Time ( include render ) : 461 ms
+6.469280	2023/06/06 16:45:54.474	7908	ICGPerf.exe	Add Items Time : 1 ms
+6.654428	2023/06/06 16:45:54.662	7908	ICGPerf.exe	Total Time ( include render ) : 186 ms
+12.117709	2023/06/06 16:46:00.131	7908	ICGPerf.exe	Add Items Time : 1 ms
+12.320782	2023/06/06 16:46:00.334	7908	ICGPerf.exe	Total Time ( include render ) : 204 ms
+14.196861	2023/06/06 16:46:02.209	7908	ICGPerf.exe	Add Items Time : 3 ms
+14.198092	2023/06/06 16:46:02.209	7908	ICGPerf.exe	Total Time ( include render ) : 4 ms
+22.294769	2023/06/06 16:46:10.303	7908	ICGPerf.exe	Add Items Time : 1 ms
+22.454831	2023/06/06 16:46:10.459	7908	ICGPerf.exe	Total Time ( include render ) : 161 ms
+26.807329	2023/06/06 16:46:14.818	7908	ICGPerf.exe	Add Items Time : 1 ms
+27.005313	2023/06/06 16:46:15.022	7908	ICGPerf.exe	Total Time ( include render ) : 199 ms
+31.211945	2023/06/06 16:46:19.224	7908	ICGPerf.exe	Add Items Time : 13 ms
+31.398022	2023/06/06 16:46:19.412	7908	ICGPerf.exe	Total Time ( include render ) : 199 ms
+40.925998	2023/06/06 16:46:28.928	7908	ICGPerf.exe	Add Items Time : 12 ms
+41.122605	2023/06/06 16:46:29.131	7908	ICGPerf.exe	Total Time ( include render ) : 208 ms
+45.754453	2023/06/06 16:46:33.768	7908	ICGPerf.exe	Add Items Time : 1 ms
+45.936695	2023/06/06 16:46:33.943	7908	ICGPerf.exe	Total Time ( include render ) : 183 ms
+51.191136	2023/06/06 16:46:39.205	7908	ICGPerf.exe	Add Items Time : 1 ms
+51.386787	2023/06/06 16:46:39.397	7908	ICGPerf.exe	Total Time ( include render ) : 197 ms
+55.276300	2023/06/06 16:46:43.291	7908	ICGPerf.exe	Add Items Time : 1 ms
+55.476231	2023/06/06 16:46:43.490	7908	ICGPerf.exe	Total Time ( include render ) : 201 ms
+59.226066	2023/06/06 16:46:47.240	7908	ICGPerf.exe	Add Items Time : 1 ms
+59.412450	2023/06/06 16:46:47.428	7908	ICGPerf.exe	Total Time ( include render ) : 188 ms
+70.557215	2023/06/06 16:46:58.571	7908	ICGPerf.exe	Add Items Time : 1 ms
+70.679353	2023/06/06 16:46:58.693	7908	ICGPerf.exe	Total Time ( include render ) : 123 ms
+75.193292	2023/06/06 16:47:03.209	7908	ICGPerf.exe	Add Items Time : 1 ms
+75.377708	2023/06/06 16:47:03.381	7908	ICGPerf.exe	Total Time ( include render ) : 186 ms
+79.306663	2023/06/06 16:47:07.319	7908	ICGPerf.exe	Add Items Time : 1 ms
+79.483135	2023/06/06 16:47:07.490	7908	ICGPerf.exe	Total Time ( include render ) : 178 ms
+83.235548	2023/06/06 16:47:11.250	7908	ICGPerf.exe	Add Items Time : 1 ms
+83.407496	2023/06/06 16:47:11.412	7908	ICGPerf.exe	Total Time ( include render ) : 173 ms
+87.013649	2023/06/06 16:47:15.022	7908	ICGPerf.exe	Add Items Time : 1 ms
+87.145841	2023/06/06 16:47:15.162	7908	ICGPerf.exe	Total Time ( include render ) : 133 ms
+90.815855	2023/06/06 16:47:18.818	7908	ICGPerf.exe	Add Items Time : 9 ms
+90.960946	2023/06/06 16:47:18.975	7908	ICGPerf.exe	Total Time ( include render ) : 154 ms
+95.020467	2023/06/06 16:47:23.037	7908	ICGPerf.exe	Add Items Time : 9 ms
+95.168435	2023/06/06 16:47:23.172	7908	ICGPerf.exe	Total Time ( include render ) : 157 ms
+99.451501	2023/06/06 16:47:27.459	7908	ICGPerf.exe	Add Items Time : 9 ms
+99.589539	2023/06/06 16:47:27.599	7908	ICGPerf.exe	Total Time ( include render ) : 147 ms
+102.947931	2023/06/06 16:47:30.951	7908	ICGPerf.exe	Add Items Time : 13 ms
+103.109615	2023/06/06 16:47:31.115	7908	ICGPerf.exe	Total Time ( include render ) : 174 ms
+107.126340	2023/06/06 16:47:35.131	7908	ICGPerf.exe	Add Items Time : 1 ms
+107.268487	2023/06/06 16:47:35.271	7908	ICGPerf.exe	Total Time ( include render ) : 143 ms
+111.400559	2023/06/06 16:47:39.412	7908	ICGPerf.exe	Add Items Time : 1 ms
+111.553333	2023/06/06 16:47:39.568	7908	ICGPerf.exe	Total Time ( include render ) : 154 ms
+115.147961	2023/06/06 16:47:43.162	7908	ICGPerf.exe	Add Items Time : 1 ms
+115.337136	2023/06/06 16:47:43.349	7908	ICGPerf.exe	Total Time ( include render ) : 190 ms
+118.839916	2023/06/06 16:47:46.854	7908	ICGPerf.exe	Add Items Time : 1 ms
+118.995855	2023/06/06 16:47:47.006	7908	ICGPerf.exe	Total Time ( include render ) : 157 ms
+122.623691	2023/06/06 16:47:50.631	7908	ICGPerf.exe	Add Items Time : 1 ms
+122.769634	2023/06/06 16:47:50.787	7908	ICGPerf.exe	Total Time ( include render ) : 147 ms
+126.005573	2023/06/06 16:47:54.019	7908	ICGPerf.exe	Add Items Time : 1 ms
+126.172106	2023/06/06 16:47:54.178	7908	ICGPerf.exe	Total Time ( include render ) : 168 ms
+130.519618	2023/06/06 16:47:58.522	7908	ICGPerf.exe	Add Items Time : 1 ms
+130.672230	2023/06/06 16:47:58.684	7908	ICGPerf.exe	Total Time ( include render ) : 154 ms
+150.847460	2023/06/06 16:48:18.849	7908	ICGPerf.exe	Add Items Time : 1 ms
+150.996130	2023/06/06 16:48:19.006	7908	ICGPerf.exe	Total Time ( include render ) : 150 ms
+154.705716	2023/06/06 16:48:22.709	7908	ICGPerf.exe	Add Items Time : 1 ms
+154.842824	2023/06/06 16:48:22.849	7908	ICGPerf.exe	Total Time ( include render ) : 138 ms
+158.102350	2023/06/06 16:48:26.115	7908	ICGPerf.exe	Add Items Time : 1 ms
+158.271962	2023/06/06 16:48:26.287	7908	ICGPerf.exe	Total Time ( include render ) : 170 ms
+161.324961	2023/06/06 16:48:29.334	7908	ICGPerf.exe	Add Items Time : 2 ms
+161.477059	2023/06/06 16:48:29.490	7908	ICGPerf.exe	Total Time ( include render ) : 154 ms
+164.734288	2023/06/06 16:48:32.741	7908	ICGPerf.exe	Add Items Time : 1 ms
+164.899347	2023/06/06 16:48:32.912	7908	ICGPerf.exe	Total Time ( include render ) : 166 ms
+168.838320	2023/06/06 16:48:36.849	7908	ICGPerf.exe	Add Items Time : 9 ms
+168.988241	2023/06/06 16:48:36.990	7908	ICGPerf.exe	Total Time ( include render ) : 159 ms
+191.500202	2023/06/06 16:48:59.506	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:48:59 India Standard Time: RemoteSessionHandler::OnChanged
+191.500361	2023/06/06 16:48:59.506	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:48:59 India Standard Time: SessionHandlerBase::EvaluateTargets found removed target
+191.500361	2023/06/06 16:48:59.506	1888	<system>	   Concerning target: Id=0x100, Adapter=10b1c1
+191.518221	2023/06/06 16:48:59.521	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:48:59 India Standard Time: RemoteSessionHandler::OnDisplayStateRequested
+191.518324	2023/06/06 16:48:59.521	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:48:59 India Standard Time: SessionHandlerBase::EvaluateTargets found new target
+191.518324	2023/06/06 16:48:59.521	1888	<system>	   Concerning target: Id=0x100, Adapter=10b1c1 connected to {NOEDID_1414_008B_00000000_FFFFFFFF_100}
+191.544721	2023/06/06 16:48:59.552	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:48:59 India Standard Time: RemoteSessionHandler::OnChanged
+229.270151	2023/06/06 16:49:37.287	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:49:37 India Standard Time: RemoteSessionHandler::OnChanged
+229.270507	2023/06/06 16:49:37.287	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:49:37 India Standard Time: SessionHandlerBase::EvaluateTargets found removed target
+229.270507	2023/06/06 16:49:37.287	1888	<system>	   Concerning target: Id=0x100, Adapter=10b1c1
+229.281274	2023/06/06 16:49:37.287	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:49:37 India Standard Time: RemoteSessionHandler::OnDisplayStateRequested
+229.281578	2023/06/06 16:49:37.287	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:49:37 India Standard Time: SessionHandlerBase::EvaluateTargets found new target
+229.281578	2023/06/06 16:49:37.287	1888	<system>	   Concerning target: Id=0x100, Adapter=10b1c1 connected to {NOEDID_1414_008B_00000000_FFFFFFFF_100}
+229.312178	2023/06/06 16:49:37.318	1888	<system>	DispBroker.Desktop.dll: 06/06/23 16:49:37 India Standard Time: RemoteSessionHandler::OnChanged

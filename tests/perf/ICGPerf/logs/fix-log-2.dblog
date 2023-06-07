@@ -1,0 +1,69 @@
+0.000000	2023/06/06 17:10:39.099	0	DebugView++.exe	File Identification Header, DebugView++ Format Version 1
+0.000000	2023/06/06 17:06:28.977	5632	ICGPerf.exe	Add Items Time : 8 ms
+0.324591	2023/06/06 17:06:29.302	5632	ICGPerf.exe	Total Time ( include render ) : 333 ms
+5.741991	2023/06/06 17:06:34.728	5632	ICGPerf.exe	Add Items Time : 1 ms
+5.919624	2023/06/06 17:06:34.897	5632	ICGPerf.exe	Total Time ( include render ) : 179 ms
+11.182082	2023/06/06 17:06:40.162	5632	ICGPerf.exe	Add Items Time : 1 ms
+11.371503	2023/06/06 17:06:40.350	5632	ICGPerf.exe	Total Time ( include render ) : 191 ms
+15.337724	2023/06/06 17:06:44.324	5632	ICGPerf.exe	Add Items Time : 2 ms
+15.555388	2023/06/06 17:06:44.537	5632	ICGPerf.exe	Total Time ( include render ) : 219 ms
+19.476520	2023/06/06 17:06:48.463	5632	ICGPerf.exe	Add Items Time : 1 ms
+19.655036	2023/06/06 17:06:48.631	5632	ICGPerf.exe	Total Time ( include render ) : 180 ms
+24.089126	2023/06/06 17:06:53.069	5632	ICGPerf.exe	Add Items Time : 1 ms
+24.275019	2023/06/06 17:06:53.256	5632	ICGPerf.exe	Total Time ( include render ) : 187 ms
+28.202156	2023/06/06 17:06:57.178	5632	ICGPerf.exe	Add Items Time : 1 ms
+28.372093	2023/06/06 17:06:57.350	5632	ICGPerf.exe	Total Time ( include render ) : 171 ms
+32.070132	2023/06/06 17:07:01.053	5632	ICGPerf.exe	Add Items Time : 9 ms
+32.251586	2023/06/06 17:07:01.240	5632	ICGPerf.exe	Total Time ( include render ) : 191 ms
+35.704250	2023/06/06 17:07:04.693	5632	ICGPerf.exe	Add Items Time : 9 ms
+35.904562	2023/06/06 17:07:04.881	5632	ICGPerf.exe	Total Time ( include render ) : 209 ms
+41.654871	2023/06/06 17:07:10.631	5632	ICGPerf.exe	Add Items Time : 9 ms
+41.838096	2023/06/06 17:07:10.818	5632	ICGPerf.exe	Total Time ( include render ) : 192 ms
+49.025116	2023/06/06 17:07:18.006	5632	ICGPerf.exe	Add Items Time : 1 ms
+49.188212	2023/06/06 17:07:18.178	5632	ICGPerf.exe	Total Time ( include render ) : 164 ms
+149.466777	2023/06/06 17:08:58.443	5632	ICGPerf.exe	Add Items Time : 1 ms
+149.637574	2023/06/06 17:08:58.615	5632	ICGPerf.exe	Total Time ( include render ) : 172 ms
+154.828615	2023/06/06 17:09:03.818	5632	ICGPerf.exe	Add Items Time : 1 ms
+155.011992	2023/06/06 17:09:03.991	5632	ICGPerf.exe	Total Time ( include render ) : 185 ms
+158.459553	2023/06/06 17:09:07.443	5632	ICGPerf.exe	Add Items Time : 1 ms
+158.606233	2023/06/06 17:09:07.584	5632	ICGPerf.exe	Total Time ( include render ) : 148 ms
+161.559551	2023/06/06 17:09:10.537	5632	ICGPerf.exe	Add Items Time : 9 ms
+161.721280	2023/06/06 17:09:10.709	5632	ICGPerf.exe	Total Time ( include render ) : 171 ms
+166.017611	2023/06/06 17:09:15.006	5632	ICGPerf.exe	Add Items Time : 8 ms
+166.183087	2023/06/06 17:09:15.162	5632	ICGPerf.exe	Total Time ( include render ) : 174 ms
+169.626814	2023/06/06 17:09:18.615	5632	ICGPerf.exe	Add Items Time : 1 ms
+169.800161	2023/06/06 17:09:18.787	5632	ICGPerf.exe	Total Time ( include render ) : 175 ms
+173.070626	2023/06/06 17:09:22.052	5632	ICGPerf.exe	Add Items Time : 1 ms
+173.249998	2023/06/06 17:09:22.225	5632	ICGPerf.exe	Total Time ( include render ) : 181 ms
+176.326227	2023/06/06 17:09:25.312	5632	ICGPerf.exe	Add Items Time : 1 ms
+176.499639	2023/06/06 17:09:25.474	5632	ICGPerf.exe	Total Time ( include render ) : 175 ms
+180.249691	2023/06/06 17:09:29.236	5632	ICGPerf.exe	Add Items Time : 1 ms
+180.400070	2023/06/06 17:09:29.381	5632	ICGPerf.exe	Total Time ( include render ) : 152 ms
+183.755147	2023/06/06 17:09:32.740	5632	ICGPerf.exe	Add Items Time : 2 ms
+183.918292	2023/06/06 17:09:32.897	5632	ICGPerf.exe	Total Time ( include render ) : 165 ms
+187.285989	2023/06/06 17:09:36.271	5632	ICGPerf.exe	Add Items Time : 1 ms
+187.438729	2023/06/06 17:09:36.428	5632	ICGPerf.exe	Total Time ( include render ) : 154 ms
+190.748661	2023/06/06 17:09:39.734	5632	ICGPerf.exe	Add Items Time : 1 ms
+190.930134	2023/06/06 17:09:39.912	5632	ICGPerf.exe	Total Time ( include render ) : 183 ms
+194.445368	2023/06/06 17:09:43.428	5632	ICGPerf.exe	Add Items Time : 1 ms
+194.627711	2023/06/06 17:09:43.615	5632	ICGPerf.exe	Total Time ( include render ) : 184 ms
+198.182823	2023/06/06 17:09:47.162	5632	ICGPerf.exe	Add Items Time : 1 ms
+198.335113	2023/06/06 17:09:47.318	5632	ICGPerf.exe	Total Time ( include render ) : 154 ms
+202.244929	2023/06/06 17:09:51.225	5632	ICGPerf.exe	Add Items Time : 2 ms
+202.404108	2023/06/06 17:09:51.381	5632	ICGPerf.exe	Total Time ( include render ) : 161 ms
+205.765844	2023/06/06 17:09:54.756	5632	ICGPerf.exe	Add Items Time : 7 ms
+205.892551	2023/06/06 17:09:54.881	5632	ICGPerf.exe	Total Time ( include render ) : 134 ms
+209.456054	2023/06/06 17:09:58.443	5632	ICGPerf.exe	Add Items Time : 9 ms
+209.621515	2023/06/06 17:09:58.599	5632	ICGPerf.exe	Total Time ( include render ) : 174 ms
+214.781277	2023/06/06 17:10:03.756	5632	ICGPerf.exe	Add Items Time : 9 ms
+214.921874	2023/06/06 17:10:03.897	5632	ICGPerf.exe	Total Time ( include render ) : 150 ms
+218.642300	2023/06/06 17:10:07.631	5632	ICGPerf.exe	Add Items Time : 1 ms
+218.779416	2023/06/06 17:10:07.756	5632	ICGPerf.exe	Total Time ( include render ) : 138 ms
+223.192624	2023/06/06 17:10:12.178	5632	ICGPerf.exe	Add Items Time : 1 ms
+223.359863	2023/06/06 17:10:12.349	5632	ICGPerf.exe	Total Time ( include render ) : 169 ms
+226.864668	2023/06/06 17:10:15.852	5632	ICGPerf.exe	Add Items Time : 1 ms
+227.027993	2023/06/06 17:10:16.006	5632	ICGPerf.exe	Total Time ( include render ) : 164 ms
+230.091573	2023/06/06 17:10:19.068	5632	ICGPerf.exe	Add Items Time : 1 ms
+230.238010	2023/06/06 17:10:19.224	5632	ICGPerf.exe	Total Time ( include render ) : 148 ms
+234.535364	2023/06/06 17:10:23.521	5632	ICGPerf.exe	Add Items Time : 1 ms
+234.657883	2023/06/06 17:10:23.646	5632	ICGPerf.exe	Total Time ( include render ) : 124 ms

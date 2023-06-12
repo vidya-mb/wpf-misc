@@ -104,9 +104,9 @@ namespace ICGPerfAutomated
                 test = TestFactory.CreateTestInstance(testCase, Items, st);
             }
             
-            nestingLevel = dict.TryGetValue("nesting", out val) ? int.Parse(val) : 20;
-            numRecords = dict.TryGetValue("records", out val) ? int.Parse(val) : 10000;
-            iterations = dict.TryGetValue("iterations", out val) ? int.Parse(val) : 20;
+            nestingLevel = dict.TryGetValue("nesting", out val) ? int.Parse(val) : 10;
+            numRecords = dict.TryGetValue("records", out val) ? int.Parse(val) : 1000;
+            iterations = dict.TryGetValue("iterations", out val) ? int.Parse(val) : 1;
 
             //test.Run(iterations, nestingLevel, numRecords);
 
@@ -121,8 +121,9 @@ namespace ICGPerfAutomated
 
         private void RunTest()
         {
-            test.Configure(nestingLevel, numRecords);
+            test.Configure(this, nestingLevel, numRecords);
             test.PreTest();
+            WaitRenderComplete();
             for (int i = 0; i < iterations; i++)
             {
                 st.Reset();
@@ -132,7 +133,7 @@ namespace ICGPerfAutomated
                 this.Dispatcher.Invoke(DispatcherPriority.Loaded, stopTimer);
                 totalTime = st.ElapsedMilliseconds;
                 test.Reset();
-                this.Dispatcher.Invoke(DispatcherPriority.Loaded, renderComplete);
+                WaitRenderComplete();
                 AddTimeList.Add(addTime);
                 RenderTimeList.Add(totalTime - addTime);
             }
@@ -144,34 +145,22 @@ namespace ICGPerfAutomated
             double renderTimeMean = RenderTimeList.Average();
 
             File.AppendAllText(logFile, $"{testCase},{nestingLevel},{numRecords},{iterations},{addTimeMean:N2},{renderTimeMean:N2}\n");
-            //File.AppendAllLines(logFile, new List<string>
-            //{
-            //    $"Test Case : {testCase}\t\tNesting Level : {nestingLevel}\tRecords : {numRecords}\tIterations : {iterations}",
-            //    $"Mean Addition Time : {addTimeMean}\t\t\tMean Render Time : {renderTimeMean}"
-            //});
+        
         }
 
-        //private void RunTestOnce(int testCase, int nestingLevel, int numRecords)
-        //{
-        //    st.Reset();
-        //    st.Start();
+        private void WaitRenderComplete()
+        {
+            this.Dispatcher.Invoke(DispatcherPriority.Loaded, renderComplete);
+        }
 
-        //    ItemsChange(testCase, nestingLevel, numRecords);
+    }
 
-        //    addTime = st.ElapsedMilliseconds;
-        //    this.Dispatcher.BeginInvoke(DispatcherPriority.Loaded, renderComplete);
-        //    Console.WriteLine("End Test !!");
-        //}
+    #region Action Helpers
 
-        //private void ItemsChange(int testCase, int nestingLevel, int numRecords)
-        //{
+    public class ActionHelpers
+    {
 
-        //}
-
-        #region Action Helpers
-
-
-        private static T FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
+        public static T FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
             {
@@ -190,14 +179,14 @@ namespace ICGPerfAutomated
             return null;
         }
 
-        private enum Pos { Top, Bottom };
+        public enum Pos { Top, Bottom };
 
-        private void ScrollTo(Pos pos)
+        public static void ScrollTo(ScrollViewer scrollViewer, Pos pos)
         {
-            var scrollViewer = FindVisualChild<ScrollViewer>(treeView);
+            //var scrollViewer = FindVisualChild<ScrollViewer>(treeView);
             if (scrollViewer != null)
             {
-                switch(pos)
+                switch (pos)
                 {
                     case Pos.Top:
                         scrollViewer.ScrollToTop();
@@ -208,10 +197,8 @@ namespace ICGPerfAutomated
                 }
             }
         }
-
-        #endregion
-
     }
+    #endregion
 
 
     #region Test Classes
@@ -227,6 +214,7 @@ namespace ICGPerfAutomated
                     test = new AddTestCase0(items, st);
                     break;
                 case "AddTestCase1":
+                    test = new AddTestCase1(items, st);
                     break;
             }
             return test;
@@ -236,13 +224,16 @@ namespace ICGPerfAutomated
     public class ItemsChangeBaseTest
     {
         protected ObservableCollection<IItem> _items;
+        protected Stopwatch st;
 
         protected int nestingLevel;
         protected int numRecords;
+        protected MainWindow mainWindow;
 
         public ItemsChangeBaseTest(ObservableCollection<IItem> items, Stopwatch st)
         {
             _items = items;
+            this.st = st;
         }
 
         public virtual void Run(int iterations, int nestingLevel, int numRecords)
@@ -254,8 +245,9 @@ namespace ICGPerfAutomated
             }
         }
 
-        public virtual void Configure(int nestingLevel, int numRecords)
+        public virtual void Configure(MainWindow mainWindow, int nestingLevel, int numRecords)
         {
+            this.mainWindow = mainWindow;
             this.nestingLevel = nestingLevel;
             this.numRecords = numRecords;
         }
@@ -283,7 +275,7 @@ namespace ICGPerfAutomated
                 curr = new Node(level, iterIndex);
                 if(prev == null)
                 {
-                    _items.Add(curr);
+                    _items.Insert(0, curr);
                     prev = curr;
                     continue;
                 }
@@ -304,76 +296,59 @@ namespace ICGPerfAutomated
         }
     }
 
-    #endregion
-
-
-    #region View Model
-
-    public interface IItem
+    public class AddTestCase1 : AddTestCase0
     {
-        string Number { get; set; }
-    }
-
-    public class Node : INotifyPropertyChanged, IItem
-    {
-        public Node(int number, int iter)
+        public AddTestCase1(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
         {
-            num = $"{iter.ToString()}-{number.ToString()}";
-            childItems = new ObservableCollection<IItem>();
         }
 
-        private string num;
-        public string Number
+        public override void PreTest()
         {
-            get => num;
-            set
+            for (int i = 0; i < 10000; i++)
             {
-                num = value;
-                OnPropertyChanged();
+                _items.Add(new LeafNode(0, 0));
             }
         }
 
-        private ObservableCollection<IItem> childItems;
-        public ObservableCollection<IItem> ChildItems
+        public override void Test(int iterIndex)
         {
-            get => childItems;
-            set => childItems = value;
+            base.Test(iterIndex);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName = null)
+        public override void Reset()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            _items.Remove(_items.First()); 
         }
-
     }
 
-    public class LeafNode : INotifyPropertyChanged, IItem
+    public class AddTestCase2 : AddTestCase1
     {
-        public LeafNode(int number, int click)
+        public AddTestCase2(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
         {
-            num = $"{click.ToString()}-{number.ToString()}";
         }
 
-        private string num;
-        public string Number
+        public override void PreTest()
         {
-            get => num;
-            set
-            {
-                num = value;
-                OnPropertyChanged();
-            }
+            base.PreTest();
+
+            // now I need scrollviewer here ??
+            var scrollViewer = ActionHelpers.FindVisualChild<ScrollViewer>(this.mainWindow.treeView);
+            ActionHelpers.ScrollTo(scrollViewer, ActionHelpers.Pos.Bottom);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName = null)
+        public override void Reset()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            base.Reset();
         }
+    }
+
+    public class RemoveTestCase0 : ItemsChangeBaseTest
+    {
+
     }
 
     #endregion
+
+
+
 }

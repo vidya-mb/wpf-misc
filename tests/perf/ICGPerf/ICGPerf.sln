@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33513.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICGPerf", "ICGPerf.csproj", "{E152EBCB-BDC3-45E0-BE78-48FC928B25AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICGPerfAutomated", "..\ICGPerfAutomated\ICGPerfAutomated.csproj", "{95DABE2C-20C5-404A-B198-017C5415B82F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E152EBCB-BDC3-45E0-BE78-48FC928B25AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E152EBCB-BDC3-45E0-BE78-48FC928B25AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E152EBCB-BDC3-45E0-BE78-48FC928B25AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95DABE2C-20C5-404A-B198-017C5415B82F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95DABE2C-20C5-404A-B198-017C5415B82F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95DABE2C-20C5-404A-B198-017C5415B82F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95DABE2C-20C5-404A-B198-017C5415B82F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

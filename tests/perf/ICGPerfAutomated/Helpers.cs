@@ -34,7 +34,6 @@ namespace ICGPerfAutomated
 
         public static void ScrollTo(ScrollViewer scrollViewer, Pos pos)
         {
-            //var scrollViewer = FindVisualChild<ScrollViewer>(treeView);
             if (scrollViewer != null)
             {
                 switch (pos)

@@ -30,7 +30,6 @@ namespace ICGPerfAutomated
 
         string logFile = null;
 
-
         string testCase;
         int iterations,nestingLevel, numRecords;
         
@@ -56,10 +55,6 @@ namespace ICGPerfAutomated
         public MainWindow()
         {
             InitializeComponent();
-            Closing += MainWindow_Closing;
-
-            string path = Directory.GetCurrentDirectory();
-            logFile = System.IO.Path.Combine(path, "perf_test.csv");
 
             AddTimeList = new List<long>();
             RenderTimeList = new List<long>();
@@ -67,12 +62,6 @@ namespace ICGPerfAutomated
             Items = new ObservableCollection<IItem>();
             st = new Stopwatch();
             this.DataContext = this;
-
-            if(!File.Exists(logFile))
-            {
-                using (File.Create(logFile)) { }
-                File.AppendAllText(logFile, "TestCase,Nesting,Records,Iterations,Mean Add Time,Mean Render Time\n");
-            }
 
             renderComplete = new Action(() =>
             {
@@ -85,9 +74,10 @@ namespace ICGPerfAutomated
             });
         }
 
-        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        private void RunTestButtonClick(object sender, RoutedEventArgs e)
         {
-            return;
+            RunTest();
+            AnalyzeAndLog();
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -101,6 +91,12 @@ namespace ICGPerfAutomated
             }
 
             string val;
+            if(dict.TryGetValue("debug", out val))
+            {
+                while(!Debugger.IsAttached) { Thread.Sleep(100); }
+                Debugger.Break();
+            }
+
             if(!dict.TryGetValue("type", out val))
             {
                 testCase = "AddTestCase0";
@@ -116,6 +112,15 @@ namespace ICGPerfAutomated
             numRecords = dict.TryGetValue("records", out val) ? int.Parse(val) : 1000;
             iterations = dict.TryGetValue("iterations", out val) ? int.Parse(val) : 1;
 
+            string path = Directory.GetCurrentDirectory();
+            logFile = System.IO.Path.Combine(path, $"perf-{testCase}-{nestingLevel}-{numRecords}-{iterations}.csv");
+
+            if (!File.Exists(logFile))
+            {
+                using (File.Create(logFile)) { }
+                File.AppendAllText(logFile, "TestCase,Nesting,Records,Iterations,Mean Add Time,Mean Render Time\n");
+            }
+
 
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
             {
@@ -130,19 +135,19 @@ namespace ICGPerfAutomated
         {
             test.Configure(this, nestingLevel, numRecords);
             test.Startup();
-            WaitRenderComplete();
+            WaitRenderComplete(renderComplete);
             for (int i = 0; i < iterations; i++)
             {
                 test.PreTest();
-                WaitRenderComplete();
+                WaitRenderComplete(renderComplete);
                 st.Reset();
                 st.Start();
                 test.Test(i);
                 addTime = st.ElapsedMilliseconds;
-                this.Dispatcher.Invoke(DispatcherPriority.Loaded, stopTimer);
+                WaitRenderComplete(stopTimer);
                 totalTime = st.ElapsedMilliseconds;
                 test.Reset();
-                WaitRenderComplete();
+                WaitRenderComplete(renderComplete);
                 AddTimeList.Add(addTime);
                 RenderTimeList.Add(totalTime - addTime);
             }
@@ -158,9 +163,9 @@ namespace ICGPerfAutomated
         
         }
 
-        private void WaitRenderComplete()
+        private void WaitRenderComplete(Action action)
         {
-            this.Dispatcher.Invoke(DispatcherPriority.Loaded, renderComplete);
+            this.Dispatcher.Invoke(DispatcherPriority.Loaded, action);
         }
 
     }

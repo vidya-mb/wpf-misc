@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -27,6 +28,15 @@ namespace ICGPerfAutomated
                 case "AddTestCase2":
                     test = new AddTestCase2(items, st);
                     break;
+                case "AddTestCase3":
+                    test = new AddTestCase3(items, st);
+                    break;
+                case "AddTestCase0r":
+                    test = new AddTestCase0r(items, st);
+                    break;
+                case "AddTestCase3r":
+                    test = new AddTestCase3r(items, st);
+                    break;
                 case "RemoveTestCase0":
                     test = new RemoveTestCase0(items, st);
                     break;  
@@ -36,8 +46,17 @@ namespace ICGPerfAutomated
                 case "RemoveTestCase2":
                     test = new RemoveTestCase2(items, st);
                     break;
+                case "RemoveTestCase0r":
+                    test = new RemoveTestCase0r(items, st);
+                    break;
+                case "RemoveTestCase2r":
+                    test = new RemoveTestCase0r(items, st);
+                    break;
                 case "ReplaceTestCase0":
                     test = new ReplaceTestCase0(items, st);
+                    break;
+                case "ReplaceTestCase0r":
+                    test = new ReplaceTestCase0r(items, st);
                     break;
                 case "MoveTestCase0":
                     test = new MoveTestCase0(items, st);
@@ -121,6 +140,11 @@ namespace ICGPerfAutomated
             }
         }
 
+        public void WaitForRender()
+        {
+            this.mainWindow.Dispatcher.Invoke(DispatcherPriority.Loaded, new Action(() => { }));
+        }
+
     }
 
     public class AddTestCase0 : ItemsChangeBaseTest
@@ -160,6 +184,38 @@ namespace ICGPerfAutomated
         }
     }
 
+    public class AddTestCase3 : AddTestCase0
+    {
+        public AddTestCase3(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
+        {
+        }
+
+        public override void Test(int iterIndex)
+        {
+            Node prev = null;
+            Node curr = null;
+
+            for (int level = 0; level < nestingLevel; level++)
+            {
+                curr = new Node(level, iterIndex);
+                if (prev == null)
+                {
+                    _items.Insert(0, curr);
+                    prev = curr;
+                    continue;
+                }
+                prev.ChildItems.Add(curr);
+                prev = curr;
+            }
+
+            for (int i = 0; i < numRecords; i++)
+            {
+                var node = new LeafNode(i, iterIndex);
+                curr.ChildItems.Insert(0, node);
+            }
+        }
+    }
+
     public class AddTestCase1 : AddTestCase0
     {
         public AddTestCase1(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
@@ -196,7 +252,6 @@ namespace ICGPerfAutomated
         public override void Startup()
         {
             base.Startup();
-
             if(scrollViewer == null)
             {
                 scrollViewer = Helpers.FindVisualChild<ScrollViewer>(this.mainWindow.treeView);
@@ -204,17 +259,105 @@ namespace ICGPerfAutomated
             Helpers.ScrollTo(scrollViewer, Helpers.Pos.Bottom);
         }
 
+        public override void PreTest()
+        {
+        }
+
         public override void Test(int iterIndex)
         {
-            base.Test(iterIndex);
-            this.mainWindow.Dispatcher.Invoke(DispatcherPriority.Loaded, new Action(() => { }));
-            Helpers.ScrollTo(scrollViewer, Helpers.Pos.Top);
+            Node prev = null;
+            Node curr = null;
+
+            for (int level = 0; level < nestingLevel; level++)
+            {
+                curr = new Node(level, iterIndex);
+                if (prev == null)
+                {
+                    _items.Insert(0, curr);
+                    prev = curr;
+                    continue;
+                }
+                prev.ChildItems.Add(curr);
+                prev = curr;
+            }
+
+            for (int i = 0; i < numRecords; i++)
+            {
+                var node = new LeafNode(i, iterIndex);
+                curr.ChildItems.Add(node);
+            }
         }
 
         public override void Reset()
         {
-            base.Reset();
-            Helpers.ScrollTo(scrollViewer, Helpers.Pos.Bottom);
+        }
+    }
+
+    public class AddTestCase0r : AddTestCase0
+    {
+        public AddTestCase0r(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
+        {
+        }
+
+        public override void Test(int iterIndex)
+        {
+            Node prev = null;
+            Node curr = null;
+
+            for (int level = 0; level < nestingLevel; level++)
+            {
+                curr = new Node(level, iterIndex);
+                if (prev == null)
+                {
+                    _items.Insert(0, curr);
+                    prev = curr;
+                    continue;
+                }
+                prev.ChildItems.Add(curr);
+                WaitForRender();
+                prev = curr;
+            }
+
+            for (int i = 0; i < numRecords; i++)
+            {
+                var node = new LeafNode(i, iterIndex);
+                curr.ChildItems.Insert(0, node);
+                WaitForRender();
+            }
+        }
+    }
+
+    public class AddTestCase3r : AddTestCase1
+    {
+        public AddTestCase3r(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
+        {
+        }
+
+        public override void Test(int iterIndex)
+        {
+            Node prev = null;
+            Node curr = null;
+
+            for (int level = 0; level<nestingLevel; level++)
+            {
+                curr = new Node(level, iterIndex);
+                if (prev == null)
+                {
+                    _items.Insert(0, curr);
+                    prev = curr;
+                    continue;
+                }
+                prev.ChildItems.Add(curr);
+                WaitForRender();
+                prev = curr;
+            }
+
+            for (int i = 0; i < numRecords; i++)
+            {
+                var node = new LeafNode(i, iterIndex);
+                curr.ChildItems.Insert(0, node);
+                WaitForRender();
+            }
         }
     }
 
@@ -263,25 +406,25 @@ namespace ICGPerfAutomated
             index = iterIndex;
         }
 
-        public Node GetLastNonLeafNode(IItem node)
-        {
-            Node prev = null;
-            Node curr = node as Node;
-
-            // If the nesting level is 0, the the code will crash
-
-            while (curr != null)
-            {
-                prev = curr;
-                curr = curr.ChildItems.Last() as Node;
-            }
-
-            return prev;
-        }
-
         public override void Reset()
         {
             _items.Clear();
+        }
+    }
+
+    public class RemoveTestCase0r : RemoveTestCase0
+    {
+        public RemoveTestCase0r(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
+        { }
+
+        public override void Test(int iterIndex)
+        {
+            while (lastNonLeafNode.ChildItems.Count > 0)
+            {
+                lastNonLeafNode.ChildItems.RemoveAt(0);
+                WaitForRender();
+            }
+            index = iterIndex;
         }
     }
 
@@ -306,7 +449,7 @@ namespace ICGPerfAutomated
 
     public class RemoveTestCase2 : RemoveTestCase0
     {
-        private static ScrollViewer scrollViewer = null;
+        protected static ScrollViewer scrollViewer = null;
 
         public RemoveTestCase2(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
         {
@@ -336,6 +479,23 @@ namespace ICGPerfAutomated
             base.Reset();
             Helpers.ScrollTo(scrollViewer, Helpers.Pos.Bottom);
         }   
+    }
+
+    public class RemoveTestCase2r : RemoveTestCase2
+    {
+        public RemoveTestCase2r(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
+        {
+        }
+
+        public override void Test(int iterIndex)
+        {
+            while (lastNonLeafNode.ChildItems.Count > 0)
+            {
+                lastNonLeafNode.ChildItems.RemoveAt(0);
+                WaitForRender();
+            }
+            index = iterIndex;
+        }
     }
 
     public class ReplaceTestCase0 : ItemsChangeBaseTest
@@ -378,6 +538,22 @@ namespace ICGPerfAutomated
             for(int i=0;i<numRecords;i++)
             {
                 lastNonLeafNode.ChildItems[i] = new LeafNode(i, iterIndex);
+            }
+        }
+    }
+
+    public class ReplaceTestCase0r : ReplaceTestCase0
+    {
+        public ReplaceTestCase0r(ObservableCollection<IItem> items, Stopwatch st) : base(items, st)
+        {
+        }
+
+        public override void Test(int iterIndex)
+        {
+            for (int i = 0; i < numRecords; i++)
+            {
+                lastNonLeafNode.ChildItems[i] = new LeafNode(i, iterIndex);
+                WaitForRender();
             }
         }
     }

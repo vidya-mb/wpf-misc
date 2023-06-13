@@ -9,6 +9,7 @@
     <Grid  Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TreeView x:Name="treeView" ItemsSource="{Binding Path=Items}" 
             VirtualizingPanel.IsVirtualizing="True" 
@@ -28,5 +29,8 @@
                 </Style>
             </TreeView.Resources>
         </TreeView>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" >
+            <Button Content="Run Test" Click="RunTestButtonClick" />
+        </StackPanel>
     </Grid>
 </Window>

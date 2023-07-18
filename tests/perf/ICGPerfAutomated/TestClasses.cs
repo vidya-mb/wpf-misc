@@ -10,10 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace ICGPerfAutomated
+namespace ItemsCollectionChangePerfTest
 {
     public class TestFactory
     {
+        public static IList<string> AllTests = new List<string> { 
+            "AddTestCase0", "AddTestCase1", "AddTestCase2", "AddTestCase3",
+            "AddTestCase0r", "AddTestCase3r", "RemoveTestCase0", "RemoveTestCase1",
+            "RemoveTestCase2", "RemoveTestCase0r", "RemoveTestCase2r",
+            "ReplaceTestCase0", "ReplaceTestCase0r", "MoveTestCase0", "MoveTestCase1"};
+
         public static ItemsChangeBaseTest CreateTestInstance(string testType, ObservableCollection<IItem> items, Stopwatch st)
         {
             ItemsChangeBaseTest test = null;
@@ -590,7 +596,10 @@ namespace ICGPerfAutomated
                 scrollViewer = Helpers.FindVisualChild<ScrollViewer>(this.mainWindow.treeView);
             }
 
-            scrollViewer.ScrollToVerticalOffset(numRecords*3); // Places us somewhere in the node 1 region
+            if (scrollViewer != null)
+            {
+                scrollViewer.ScrollToVerticalOffset(numRecords*3); // Places us somewhere in the node 1 region
+            }
         }
 
         public override void Test(int iterIndex)

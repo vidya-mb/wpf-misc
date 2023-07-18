@@ -20,7 +20,7 @@ using System.Windows.Threading;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace ICGPerfAutomated
+namespace ItemsCollectionChangePerfTest
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -113,12 +113,12 @@ namespace ICGPerfAutomated
             iterations = dict.TryGetValue("iterations", out val) ? int.Parse(val) : 1;
 
             string path = Directory.GetCurrentDirectory();
-            logFile = System.IO.Path.Combine(path, $"perf-{testCase}-{nestingLevel}-{numRecords}-{iterations}.csv");
+            logFile = System.IO.Path.Combine(path, $"perf-{testCase}-{numRecords}.csv");
 
             if (!File.Exists(logFile))
             {
                 using (File.Create(logFile)) { }
-                File.AppendAllText(logFile, "TestCase,Nesting,Records,Iterations,Mean Add Time,Mean Render Time\n");
+                File.AppendAllText(logFile, "TestCase\tNesting\tRecords\tIterations\tMean Add Time\tMean Render Time\n");
             }
 
 
@@ -159,7 +159,7 @@ namespace ICGPerfAutomated
             double addTimeMean = AddTimeList.Average();
             double renderTimeMean = RenderTimeList.Average();
 
-            File.AppendAllText(logFile, $"{testCase},{nestingLevel},{numRecords},{iterations},{addTimeMean:N2},{renderTimeMean:N2}\n");
+            File.AppendAllText(logFile, $"{testCase}\t{nestingLevel}\t{numRecords}\t{iterations}\t{addTimeMean:N2}\t{renderTimeMean:N2}\n");
         
         }
 

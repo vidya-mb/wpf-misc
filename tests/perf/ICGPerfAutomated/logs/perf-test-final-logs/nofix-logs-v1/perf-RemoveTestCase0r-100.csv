@@ -1,0 +1,5 @@
+TestCase	Nesting	Records	Iterations	Mean Add Time	Mean Render Time
+RemoveTestCase0r	10	100	10	963.80	0.10
+RemoveTestCase0r	20	100	10	1,564.50	0.00
+RemoveTestCase0r	40	100	10	2,601.40	0.20
+RemoveTestCase0r	80	100	10	840.80	0.10

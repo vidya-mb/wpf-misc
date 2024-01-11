@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WICInvestigation": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

@@ -19,8 +19,17 @@ namespace WICInvestigation
         public MainWindow()
         {
             InitializeComponent();
+            
+            BitmapImage bmp = new BitmapImage();
+            bmp.BeginInit();
+            bmp.UriSource = new Uri("yr-webp-lossy.webp", UriKind.RelativeOrAbsolute);
+            bmp.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+            bmp.EndInit();
 
-            ImageSource igsrc = new BitmapImage(new Uri("yr-png.png", UriKind.RelativeOrAbsolute));
+            webpi.Source = bmp;
+
+            //var decoder = BitmapDecoder.Create(new Uri(@"yr-png.png", UriKind.RelativeOrAbsolute), BitmapCreateOptions.DelayCreation, BitmapCacheOption.OnDemand);
+            //ImageSource igsrc = new BitmapImage(new Uri("yr-png.png", UriKind.RelativeOrAbsolute));
             //LoadImages();
         }
 

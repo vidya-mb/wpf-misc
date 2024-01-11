@@ -1,0 +1,324 @@
+Csc
+    Assembly = C:\Program Files\dotnet\sdk\8.0.100-rc.2.23502.2\Roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+    Parameters
+        SubsystemVersion = 6.00
+        TreatWarningsAsErrors = False
+        NoStandardLib = True
+        DebugType = full
+        CodeAnalysisRuleSet = ..\IDECodeAnalysis.ruleset
+        EmitDebugInformation = True
+        References
+            E:\repos\MIEngine\IL\GeneratedAssemblies\liblinux.dll
+            C:\Users\test\.nuget\packages\messagepack.annotations\2.2.85\lib\netstandard2.0\MessagePack.Annotations.dll
+            C:\Users\test\.nuget\packages\messagepack\2.2.85\lib\netstandard2.0\MessagePack.dll
+            C:\Users\test\.nuget\packages\microsoft.bcl.asyncinterfaces\5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll
+            C:\Users\test\.nuget\packages\microsoft.build.framework\16.5.0\lib\net472\Microsoft.Build.Framework.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll
+            E:\repos\MIEngine\src\DebugEngineHost.Stub\bin\Debug\Microsoft.DebugEngineHost.dll
+            C:\Users\test\.nuget\packages\microsoft.diagnostics.tracing.eventsource.redist\1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll
+            E:\repos\MIEngine\bin\Debug\Microsoft.MICore.dll
+            C:\Users\test\.nuget\packages\microsoft.servicehub.client\2.8.2019\lib\net472\Microsoft.ServiceHub.Client.dll
+            C:\Users\test\.nuget\packages\microsoft.servicehub.framework\2.8.2019\lib\netstandard2.0\Microsoft.ServiceHub.Framework.dll
+            C:\Users\test\.nuget\packages\microsoft.servicehub.resources\2.8.2019\lib\net472\Microsoft.ServiceHub.Resources.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.componentmodelhost\17.0.82-g2ecf33c7f7\lib\net472\Microsoft.VisualStudio.ComponentModelHost.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.coreutility\17.0.82-g2ecf33c7f7\lib\net472\Microsoft.VisualStudio.CoreUtility.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interop.10.0\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.Interop.10.0.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interop.11.0\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interop.12.0\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.Interop.12.0.dll
+            E:\repos\MIEngine\src\Microsoft.VisualStudio.Debugger.Interop.UnixPortSupplier\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.UnixPortSupplier.DesignTime.dll
+                EmbedInteropTypes = True
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interopa\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.InteropA.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.graphmodel\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.GraphModel.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.imagecatalog\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.ImageCatalog.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.imaging\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Imaging.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.imaging.interop.14.0.designtime\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.interop\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Interop.dll
+            E:\repos\MIEngine\IL\GeneratedAssemblies\Microsoft.VisualStudio.Linux.ConnectionManager.Contracts.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.projectaggregator\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.ProjectAggregator.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.remotecontrol\16.3.32\lib\net45\Microsoft.VisualStudio.RemoteControl.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.rpccontracts\17.0.50-preview-0001-0001\lib\netstandard2.0\Microsoft.VisualStudio.RpcContracts.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.shell.15.0\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Shell.15.0.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.shell.framework\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Shell.Framework.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.telemetry\16.3.176\lib\net45\Microsoft.VisualStudio.Telemetry.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.text.data\17.0.82-g2ecf33c7f7\lib\net472\Microsoft.VisualStudio.Text.Data.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.threading\17.0.17-alpha\lib\net472\Microsoft.VisualStudio.Threading.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.utilities\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Utilities.dll
+            C:\Users\test\.nuget\packages\microsoft.visualstudio.validation\17.0.16-alpha\lib\netstandard2.0\Microsoft.VisualStudio.Validation.dll
+            C:\Users\test\.nuget\packages\microsoft.win32.registry\5.0.0\ref\net461\Microsoft.Win32.Registry.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\mscorlib.dll
+            C:\Users\test\.nuget\packages\nerdbank.streams\2.6.81\lib\netstandard2.0\Nerdbank.Streams.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\netstandard.dll
+            C:\Users\test\.nuget\packages\newtonsoft.json\13.0.1\lib\net45\Newtonsoft.Json.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationFramework.dll
+            C:\Users\test\.nuget\packages\streamjsonrpc\2.7.67\lib\netstandard2.0\StreamJsonRpc.dll
+            C:\Users\test\.nuget\packages\system.buffers\4.5.1\ref\net45\System.Buffers.dll
+            C:\Users\test\.nuget\packages\system.collections.immutable\5.0.0\lib\net461\System.Collections.Immutable.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.ComponentModel.Composition.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Configuration.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Core.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Design.dll
+            C:\Users\test\.nuget\packages\system.diagnostics.diagnosticsource\5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Drawing.Design.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Drawing.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.IO.Compression.FileSystem.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.dll
+            C:\Users\test\.nuget\packages\system.io.pipelines\5.0.1\lib\net461\System.IO.Pipelines.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Management.dll
+            C:\Users\test\.nuget\packages\system.memory\4.5.4\lib\net461\System.Memory.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.WebSockets.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Numerics.dll
+            C:\Users\test\.nuget\packages\system.numerics.vectors\4.5.0\ref\net46\System.Numerics.Vectors.dll
+            C:\Users\test\.nuget\packages\system.runtime.compilerservices.unsafe\5.0.0\ref\net461\System.Runtime.CompilerServices.Unsafe.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Runtime.Serialization.dll
+            C:\Users\test\.nuget\packages\system.security.accesscontrol\5.0.0\ref\net461\System.Security.AccessControl.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Algorithms.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Encoding.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.X509Certificates.dll
+            C:\Users\test\.nuget\packages\system.security.principal.windows\5.0.0\ref\net461\System.Security.Principal.Windows.dll
+            C:\Users\test\.nuget\packages\system.threading.accesscontrol\5.0.0\ref\net461\System.Threading.AccessControl.dll
+            C:\Users\test\.nuget\packages\system.threading.tasks.dataflow\5.0.0\lib\net461\System.Threading.Tasks.Dataflow.dll
+            C:\Users\test\.nuget\packages\system.threading.tasks.extensions\4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Transactions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Controls.Ribbon.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Forms.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xaml.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.Linq.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationClient.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationClientsideProviders.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationProvider.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationTypes.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\Microsoft.Win32.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.AppContext.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.Concurrent.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.NonGeneric.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.Specialized.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.Annotations.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.EventBasedAsync.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.TypeConverter.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Console.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Data.Common.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Contracts.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Debug.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.FileVersionInfo.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Process.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.StackTrace.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.TextWriterTraceListener.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Tools.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.TraceSource.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Drawing.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Dynamic.Runtime.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Globalization.Calendars.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Globalization.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Globalization.Extensions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.Compression.ZipFile.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.DriveInfo.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.Watcher.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.IsolatedStorage.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.MemoryMappedFiles.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.Pipes.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.UnmanagedMemoryStream.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.Expressions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.Parallel.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.Queryable.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Http.Rtc.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.NameResolution.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.NetworkInformation.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Ping.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Requests.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Security.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Sockets.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.WebHeaderCollection.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.WebSockets.Client.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ObjectModel.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Emit.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Emit.ILGeneration.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Emit.Lightweight.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Extensions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Resources.Reader.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Resources.ResourceManager.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Resources.Writer.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.CompilerServices.VisualC.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Extensions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Handles.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.InteropServices.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.InteropServices.RuntimeInformation.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.InteropServices.WindowsRuntime.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Numerics.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Formatters.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Json.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Xml.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Claims.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Csp.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Principal.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.SecureString.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Duplex.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Http.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.NetTcp.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Primitives.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Security.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Text.Encoding.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Text.Encoding.Extensions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Text.RegularExpressions.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Overlapped.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Tasks.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Tasks.Parallel.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Thread.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.ThreadPool.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Timer.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ValueTuple.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.ReaderWriter.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XDocument.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XmlDocument.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XmlSerializer.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XPath.dll
+            C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XPath.XDocument.dll
+        FileAlignment = 512
+        DisabledWarnings = 1701;1702;1701;1702
+        Analyzers
+            C:\Program Files\dotnet\sdk\8.0.100-rc.2.23502.2\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+                IsImplicitlyDefined = true
+            C:\Program Files\dotnet\sdk\8.0.100-rc.2.23502.2\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.NetAnalyzers.dll
+                IsImplicitlyDefined = true
+        UseHostCompilerIfAvailable = True
+        LangVersion = 7.3
+        Optimize = False
+        KeyFile = E:\repos\MIEngine\build\..\Keys\ExternalKey.snk
+        Sources
+            AD7\AD7Enums.cs
+            AD7\AD7Port.cs
+            AD7\AD7PortSupplier.cs
+            AD7\AD7Process.cs
+            AD7\AD7Program.cs
+            AD7\AD7UnixAsyncCommand.cs
+            AD7\AD7UnixAsyncShellCommand.cs
+            CommandFailedException.cs
+            CommandRunner.cs
+            ConnectionManager.cs
+            Docker\DockerConnection.cs
+            Docker\DockerContainerInstance.cs
+            Docker\DockerExecutionManager.cs
+            Docker\DockerHelper.cs
+            Docker\DockerPort.cs
+            Docker\DockerPortPicker.cs
+            Docker\DockerPortSupplier.cs
+            Docker\TransportSettings\DockerContainerTransportSettings.cs
+            Docker\TransportSettings\DockerTransportSettings.cs
+            HR.cs
+            IConnection.cs
+            IPipeTransportSettings.cs
+            LineBuffer.cs
+            LocalProcessAsyncRunner.cs
+            MIEngineLauncher.cs
+            NativeMethods.cs
+            PipeAsyncCommand.cs
+            PipeConnection.cs
+            ProcFSOutputParser.cs
+            Properties\AssemblyInfo.cs
+            PSOutputParser.cs
+            SSH\SSHConnection.cs
+            SSH\SSHHelper.cs
+            SSH\SSHPort.cs
+            SSH\SSHPortSupplier.cs
+            SSH\SSHRemoteShell.cs
+            SSH\SSHUnixAsyncCommand.cs
+            StringResources.Designer.cs
+                AutoGen = True
+                DesignTime = True
+                DependentUpon = StringResources.resx
+            UI\Commands\ContainerUICommand.cs
+            UI\ContainerInstance.cs
+            UI\ContainerPickerDialogWindow.xaml.cs
+            UI\Controls\Automation\ContainerListBoxAutomationPeer.cs
+            UI\Controls\Automation\ContainerListBoxItemAutomationPeer.cs
+            UI\Controls\ContainerListBox.cs
+            UI\Converters\BoolToVisibilityConverter.cs
+            UI\Converters\TextToVisibilityConverter.cs
+            UI\UIResources.Designer.cs
+                AutoGen = True
+                DesignTime = True
+                DependentUpon = UIResources.resx
+            UI\ViewModels\ConnectionViewModel.cs
+            UI\ViewModels\ContainerPickerViewModel.cs
+            UI\ViewModels\ContainerViewModel.cs
+            Utilities\ExitCodes.cs
+            Utilities\StringExtensionMethods.cs
+            Utilities\TelemetryHelper.cs
+            Utilities\VSMessageBoxHelper.cs
+            VSOperationWaiter.cs
+            VsOutputWindowWrapper.cs
+            WSL\WSLCommandLine.cs
+            WSL\WSLConnection.cs
+            WSL\WSLException.cs
+            WSL\WSLPort.cs
+            WSL\WSLPortSupplier.cs
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs
+                Link = ContainerPickerDialogWindow.g.cs
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedInternalTypeHelper.g.cs
+                Link = GeneratedInternalTypeHelper.g.cs
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedAssemblyInfo
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+        HighEntropyVA = True
+        SourceLink = E:\repos\MIEngine\obj\Debug\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.sourcelink.json
+        DefineConstants = TRACE;DEBUG;TRACE;DEBUG;NETFRAMEWORK;NET472;;NET30_OR_GREATER;NET35_OR_GREATER;NET40_OR_GREATER;NET45_OR_GREATER;NET451_OR_GREATER;NET452_OR_GREATER;NET46_OR_GREATER;NET461_OR_GREATER;NET462_OR_GREATER;NET47_OR_GREATER;NET471_OR_GREATER;NET472_OR_GREATER
+        Deterministic = True
+        WarningsAsErrors = ;NU1605
+        Prefer32Bit = False
+        OutputAssembly = E:\repos\MIEngine\obj\Debug\SSHDebugPS\Microsoft.SSHDebugPS.dll
+        ErrorReport = prompt
+        EmbeddedFiles
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs
+                Link = ContainerPickerDialogWindow.g.cs
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedInternalTypeHelper.g.cs
+                Link = GeneratedInternalTypeHelper.g.cs
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedAssemblyInfo
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+        TargetType = Library
+        AnalyzerConfigFiles
+            E:\repos\MIEngine\.editorconfig
+            E:\repos\MIEngine\obj\Debug\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+        GenerateFullPaths = True
+        WarningLevel = 4
+        UseSharedCompilation = True
+        CheckForOverflowUnderflow = False
+        Utf8Output = True
+        AllowUnsafeBlocks = True
+        NoConfig = True
+    CommandLineArguments = C:\Program Files\dotnet\dotnet.exe exec "C:\Program Files\dotnet\sdk\8.0.100-rc.2.23502.2\Roslyn\bincore\csc.dll" /noconfig /unsafe+ /checked- /nowarn:1701,1702,1701,1702 /fullpaths /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE;DEBUG;TRACE;DEBUG;NETFRAMEWORK;NET472;NET30_OR_GREATER;NET35_OR_GREATER;NET40_OR_GREATER;NET45_OR_GREATER;NET451_OR_GREATER;NET452_OR_GREATER;NET46_OR_GREATER;NET461_OR_GREATER;NET462_OR_GREATER;NET47_OR_GREATER;NET471_OR_GREATER;NET472_OR_GREATER /highentropyva+ /reference:E:\repos\MIEngine\IL\GeneratedAssemblies\liblinux.dll /reference:C:\Users\test\.nuget\packages\messagepack.annotations\2.2.85\lib\netstandard2.0\MessagePack.Annotations.dll /reference:C:\Users\test\.nuget\packages\messagepack\2.2.85\lib\netstandard2.0\MessagePack.dll /reference:C:\Users\test\.nuget\packages\microsoft.bcl.asyncinterfaces\5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll /reference:C:\Users\test\.nuget\packages\microsoft.build.framework\16.5.0\lib\net472\Microsoft.Build.Framework.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll" /reference:E:\repos\MIEngine\src\DebugEngineHost.Stub\bin\Debug\Microsoft.DebugEngineHost.dll /reference:C:\Users\test\.nuget\packages\microsoft.diagnostics.tracing.eventsource.redist\1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll /reference:E:\repos\MIEngine\bin\Debug\Microsoft.MICore.dll /reference:C:\Users\test\.nuget\packages\microsoft.servicehub.client\2.8.2019\lib\net472\Microsoft.ServiceHub.Client.dll /reference:C:\Users\test\.nuget\packages\microsoft.servicehub.framework\2.8.2019\lib\netstandard2.0\Microsoft.ServiceHub.Framework.dll /reference:C:\Users\test\.nuget\packages\microsoft.servicehub.resources\2.8.2019\lib\net472\Microsoft.ServiceHub.Resources.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.componentmodelhost\17.0.82-g2ecf33c7f7\lib\net472\Microsoft.VisualStudio.ComponentModelHost.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.coreutility\17.0.82-g2ecf33c7f7\lib\net472\Microsoft.VisualStudio.CoreUtility.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interop.10.0\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.Interop.10.0.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interop.11.0\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.Interop.11.0.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interop.12.0\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.Interop.12.0.dll /link:E:\repos\MIEngine\src\Microsoft.VisualStudio.Debugger.Interop.UnixPortSupplier\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.UnixPortSupplier.DesignTime.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.debugger.interopa\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.Debugger.InteropA.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.graphmodel\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.GraphModel.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.imagecatalog\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.ImageCatalog.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.imaging\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Imaging.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.imaging.interop.14.0.designtime\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.interop\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Interop.dll /reference:E:\repos\MIEngine\IL\GeneratedAssemblies\Microsoft.VisualStudio.Linux.ConnectionManager.Contracts.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.projectaggregator\17.0.0-previews-1-31410-258\lib\net45\Microsoft.VisualStudio.ProjectAggregator.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.remotecontrol\16.3.32\lib\net45\Microsoft.VisualStudio.RemoteControl.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.rpccontracts\17.0.50-preview-0001-0001\lib\netstandard2.0\Microsoft.VisualStudio.RpcContracts.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.shell.15.0\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Shell.15.0.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.shell.framework\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Shell.Framework.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.telemetry\16.3.176\lib\net45\Microsoft.VisualStudio.Telemetry.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.text.data\17.0.82-g2ecf33c7f7\lib\net472\Microsoft.VisualStudio.Text.Data.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.threading\17.0.17-alpha\lib\net472\Microsoft.VisualStudio.Threading.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.utilities\17.0.0-previews-1-31410-258\lib\net472\Microsoft.VisualStudio.Utilities.dll /reference:C:\Users\test\.nuget\packages\microsoft.visualstudio.validation\17.0.16-alpha\lib\netstandard2.0\Microsoft.VisualStudio.Validation.dll /reference:C:\Users\test\.nuget\packages\microsoft.win32.registry\5.0.0\ref\net461\Microsoft.Win32.Registry.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\mscorlib.dll" /reference:C:\Users\test\.nuget\packages\nerdbank.streams\2.6.81\lib\netstandard2.0\Nerdbank.Streams.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\netstandard.dll" /reference:C:\Users\test\.nuget\packages\newtonsoft.json\13.0.1\lib\net45\Newtonsoft.Json.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationFramework.dll" /reference:C:\Users\test\.nuget\packages\streamjsonrpc\2.7.67\lib\netstandard2.0\StreamJsonRpc.dll /reference:C:\Users\test\.nuget\packages\system.buffers\4.5.1\ref\net45\System.Buffers.dll /reference:C:\Users\test\.nuget\packages\system.collections.immutable\5.0.0\lib\net461\System.Collections.Immutable.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.ComponentModel.Composition.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Configuration.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Design.dll" /reference:C:\Users\test\.nuget\packages\system.diagnostics.diagnosticsource\5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Drawing.Design.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Drawing.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.IO.Compression.FileSystem.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.dll" /reference:C:\Users\test\.nuget\packages\system.io.pipelines\5.0.1\lib\net461\System.IO.Pipelines.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Management.dll" /reference:C:\Users\test\.nuget\packages\system.memory\4.5.4\lib\net461\System.Memory.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.WebSockets.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Numerics.dll" /reference:C:\Users\test\.nuget\packages\system.numerics.vectors\4.5.0\ref\net46\System.Numerics.Vectors.dll /reference:C:\Users\test\.nuget\packages\system.runtime.compilerservices.unsafe\5.0.0\ref\net461\System.Runtime.CompilerServices.Unsafe.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Runtime.Serialization.dll" /reference:C:\Users\test\.nuget\packages\system.security.accesscontrol\5.0.0\ref\net461\System.Security.AccessControl.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Algorithms.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Encoding.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.X509Certificates.dll" /reference:C:\Users\test\.nuget\packages\system.security.principal.windows\5.0.0\ref\net461\System.Security.Principal.Windows.dll /reference:C:\Users\test\.nuget\packages\system.threading.accesscontrol\5.0.0\ref\net461\System.Threading.AccessControl.dll /reference:C:\Users\test\.nuget\packages\system.threading.tasks.dataflow\5.0.0\lib\net461\System.Threading.Tasks.Dataflow.dll /reference:C:\Users\test\.nuget\packages\system.threading.tasks.extensions\4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Transactions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Controls.Ribbon.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Forms.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xaml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationClient.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationClientsideProviders.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationProvider.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\UIAutomationTypes.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\Microsoft.Win32.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.AppContext.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.Concurrent.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.NonGeneric.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Collections.Specialized.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.Annotations.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.EventBasedAsync.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ComponentModel.TypeConverter.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Console.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Data.Common.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Contracts.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Debug.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.FileVersionInfo.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Process.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.StackTrace.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.TextWriterTraceListener.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.Tools.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Diagnostics.TraceSource.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Drawing.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Dynamic.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Globalization.Calendars.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Globalization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Globalization.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.Compression.ZipFile.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.DriveInfo.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.Watcher.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.IsolatedStorage.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.MemoryMappedFiles.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.Pipes.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.UnmanagedMemoryStream.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.Expressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.Parallel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Linq.Queryable.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Http.Rtc.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.NameResolution.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.NetworkInformation.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Ping.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Requests.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Security.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.Sockets.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.WebHeaderCollection.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Net.WebSockets.Client.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ObjectModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Emit.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Emit.ILGeneration.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Emit.Lightweight.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Reflection.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Resources.Reader.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Resources.ResourceManager.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Resources.Writer.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.CompilerServices.VisualC.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Handles.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.InteropServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.InteropServices.RuntimeInformation.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Numerics.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Formatters.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Json.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Runtime.Serialization.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Claims.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Cryptography.Csp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.Principal.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Security.SecureString.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Duplex.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.NetTcp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ServiceModel.Security.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Text.Encoding.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Text.Encoding.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Text.RegularExpressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Overlapped.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Tasks.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Tasks.Parallel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Thread.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.ThreadPool.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Threading.Timer.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.ValueTuple.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.ReaderWriter.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XDocument.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XmlDocument.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XmlSerializer.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XPath.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Xml.XPath.XDocument.dll" /debug+ /debug:full /filealign:512 /keyfile:E:\repos\MIEngine\build\..\Keys\ExternalKey.snk /optimize- /out:E:\repos\MIEngine\obj\Debug\SSHDebugPS\Microsoft.SSHDebugPS.dll /ruleset:..\IDECodeAnalysis.ruleset /subsystemversion:6.00 /target:library /warnaserror- /utf8output /deterministic+ /sourcelink:E:\repos\MIEngine\obj\Debug\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.sourcelink.json /langversion:7.3 /embed:E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs /embed:E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedInternalTypeHelper.g.cs /embed:E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedAssemblyInfo /embed:"E:\repos\MIEngine\obj\Debug\SSHDebugPS\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" /analyzerconfig:E:\repos\MIEngine\.editorconfig /analyzerconfig:E:\repos\MIEngine\obj\Debug\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.GeneratedMSBuildEditorConfig.editorconfig /analyzer:"C:\Program Files\dotnet\sdk\8.0.100-rc.2.23502.2\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" /analyzer:"C:\Program Files\dotnet\sdk\8.0.100-rc.2.23502.2\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.NetAnalyzers.dll" AD7\AD7Enums.cs AD7\AD7Port.cs AD7\AD7PortSupplier.cs AD7\AD7Process.cs AD7\AD7Program.cs AD7\AD7UnixAsyncCommand.cs AD7\AD7UnixAsyncShellCommand.cs CommandFailedException.cs CommandRunner.cs ConnectionManager.cs Docker\DockerConnection.cs Docker\DockerContainerInstance.cs Docker\DockerExecutionManager.cs Docker\DockerHelper.cs Docker\DockerPort.cs Docker\DockerPortPicker.cs Docker\DockerPortSupplier.cs Docker\TransportSettings\DockerContainerTransportSettings.cs Docker\TransportSettings\DockerTransportSettings.cs HR.cs IConnection.cs IPipeTransportSettings.cs LineBuffer.cs LocalProcessAsyncRunner.cs MIEngineLauncher.cs NativeMethods.cs PipeAsyncCommand.cs PipeConnection.cs ProcFSOutputParser.cs Properties\AssemblyInfo.cs PSOutputParser.cs SSH\SSHConnection.cs SSH\SSHHelper.cs SSH\SSHPort.cs SSH\SSHPortSupplier.cs SSH\SSHRemoteShell.cs SSH\SSHUnixAsyncCommand.cs StringResources.Designer.cs UI\Commands\ContainerUICommand.cs UI\ContainerInstance.cs UI\ContainerPickerDialogWindow.xaml.cs UI\Controls\Automation\ContainerListBoxAutomationPeer.cs UI\Controls\Automation\ContainerListBoxItemAutomationPeer.cs UI\Controls\ContainerListBox.cs UI\Converters\BoolToVisibilityConverter.cs UI\Converters\TextToVisibilityConverter.cs UI\UIResources.Designer.cs UI\ViewModels\ConnectionViewModel.cs UI\ViewModels\ContainerPickerViewModel.cs UI\ViewModels\ContainerViewModel.cs Utilities\ExitCodes.cs Utilities\StringExtensionMethods.cs Utilities\TelemetryHelper.cs Utilities\VSMessageBoxHelper.cs VSOperationWaiter.cs VsOutputWindowWrapper.cs WSL\WSLCommandLine.cs WSL\WSLConnection.cs WSL\WSLException.cs WSL\WSLPort.cs WSL\WSLPortSupplier.cs E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedInternalTypeHelper.g.cs E:\repos\MIEngine\obj\Debug\SSHDebugPS\GeneratedAssemblyInfo "E:\repos\MIEngine\obj\Debug\SSHDebugPS\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" /warnaserror+:NU1605
+    Microsoft (R) Visual C# Compiler version 4.8.0-3.23471.11 (bdd9c5ba)
+    Copyright (C) Microsoft Corporation. All rights reserved.
+    Errors
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(49,18): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(57,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(65,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(73,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(81,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(89,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(97,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(105,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(113,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(121,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(129,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(137,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(145,19): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(166,21): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+        E:\repos\MIEngine\obj\Debug\SSHDebugPS\UI\ContainerPickerDialogWindow.g.cs(246,23): error CS1504: Source file 'UI\ContainerPickerDialogWindow.xaml' could not be opened -- Could not find file. [E:\repos\MIEngine\src\SSHDebugPS\SSHDebugPS_iec5drrt_wpftmp.csproj]
+    CompilerServer: server - server processed compilation - 0a78e8bd-9bb3-420e-89c4-d77198dea7cb

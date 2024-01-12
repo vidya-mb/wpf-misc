@@ -6,13 +6,13 @@
     <Application.Resources>
          <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ThemesDictionary Theme="Light" />
+                <ThemesDictionary Theme="Dark" />
                 <ControlsDictionary />
 
+                <ResourceDictionary Source="Controls/ControlExample.xaml" />
                 <!-- <syntax:SyntaxHighlightDictionary />
 
                 <ResourceDictionary Source="Controls/GalleryNavigationPresenter.xaml" />
-                <ResourceDictionary Source="Controls/ControlExample.xaml" />
                 <ResourceDictionary Source="Controls/TypographyControl.xaml" />
                 <ResourceDictionary Source="Controls/PageControlDocumentation.xaml" /> -->
             </ResourceDictionary.MergedDictionaries>            

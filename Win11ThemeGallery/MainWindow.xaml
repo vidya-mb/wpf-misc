@@ -4,9 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Win11ThemeGallery"
+        xmlns:controls="clr-namespace:Win11ThemeGallery.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding ViewModel.ApplicationTitle}" 
+        Height="802" 
+        Width="1450"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <DockPanel>
+                <TextBox x:Name="SearchBox" DockPanel.Dock="Top" 
+                         Margin="10" Width="300"
+                         PlaceholderEnabled="True" 
+                         PlaceholderText="Enter the Control Name ..."
+                         IconPlacement="Right"
+                         />
+            </DockPanel>
+            <ListBox x:Name="ControlsList" 
+                     ItemsSource="{Binding ViewModel.Controls}"
+                     SelectedItem="{Binding ViewModel.SelectedControl}"
+                     SelectionChanged="ControlsList_SelectionChanged"
+                     Margin="10"
+                     />
+        </StackPanel>
+        <Border Padding="16" Grid.Column="1" >
+            <Frame x:Name="RootContentFrame"/>
+        </Border>
+        <!--<ContentPresenter x:Name="RootContentDialog" Grid.Column="1"/>-->
     </Grid>
 </Window>

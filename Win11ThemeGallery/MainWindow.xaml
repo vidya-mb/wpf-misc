@@ -1,4 +1,4 @@
-﻿<Window x:Class="Win11ThemeGallery.MainWindow"
+﻿<FluentWindow x:Class="Win11ThemeGallery.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,31 +9,49 @@
         Title="{Binding ViewModel.ApplicationTitle}" 
         Height="802" 
         Width="1450"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ExtendsContentIntoTitleBar="True">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <DockPanel>
-                <TextBox x:Name="SearchBox" DockPanel.Dock="Top" 
-                         Margin="10" Width="300"
-                         PlaceholderEnabled="True" 
-                         PlaceholderText="Enter the Control Name ..."
-                         IconPlacement="Right"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <DockPanel>
+                    <TextBox x:Name="SearchBox" DockPanel.Dock="Top" 
+                             Margin="10" Width="300"
+                             PlaceholderEnabled="True" 
+                             PlaceholderText="Enter the Control Name ..."
+                             IconPlacement="Right"
+                             />
+                </DockPanel>
+                <ListBox x:Name="ControlsList" 
+                         ItemsSource="{Binding ViewModel.Controls}"
+                         SelectedItem="{Binding ViewModel.SelectedControl}"
+                         SelectionChanged="ControlsList_SelectionChanged"
+                         Margin="10"
                          />
-            </DockPanel>
-            <ListBox x:Name="ControlsList" 
-                     ItemsSource="{Binding ViewModel.Controls}"
-                     SelectedItem="{Binding ViewModel.SelectedControl}"
-                     SelectionChanged="ControlsList_SelectionChanged"
-                     Margin="10"
-                     />
-        </StackPanel>
-        <Border Padding="16" Grid.Column="1" >
-            <Frame x:Name="RootContentFrame"/>
-        </Border>
-        <!--<ContentPresenter x:Name="RootContentDialog" Grid.Column="1"/>-->
+            </StackPanel>
+            <Border Padding="16" Grid.Column="1" >
+                <Frame x:Name="RootContentFrame"/>
+            </Border>
+            <!--<ContentPresenter x:Name="RootContentDialog" Grid.Column="1"/>-->
+        </Grid>
+
+        <TitleBar
+            x:Name="TitleBar"
+            Title="{Binding ViewModel.ApplicationTitle}"
+            Grid.Row="0"
+            CloseWindowByDoubleClickOnIcon="True">
+            <TitleBar.Icon>
+                <ImageIcon Source="pack://application:,,,/Assets/win11.png" />
+            </TitleBar.Icon>
+        </TitleBar>
     </Grid>
-</Window>
+</FluentWindow>

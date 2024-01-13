@@ -22,9 +22,9 @@ namespace Win11ThemeGallery
     {
         public ButtonPageViewModel ViewModel { get; }
 
-        public ButtonPage()
+        public ButtonPage(ButtonPageViewModel viewModel)
         {
-            ViewModel = new ButtonPageViewModel();
+            ViewModel = viewModel;
             DataContext = this;
             InitializeComponent();
         }

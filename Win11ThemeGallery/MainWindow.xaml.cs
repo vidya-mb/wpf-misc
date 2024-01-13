@@ -18,13 +18,16 @@ namespace Win11ThemeGallery;
 /// </summary>
 public partial class MainWindow : FluentWindow
 {
-    public MainWindow()
+    public MainWindow(MainWindowViewModel viewModel, IServiceProvider serviceProvider)
     {
         SystemThemeWatcher.Watch(this);
-        ViewModel = new MainWindowViewModel();
+        _serviceProvider = serviceProvider;
+        ViewModel = viewModel;
         DataContext = this;
         InitializeComponent();
     }
+
+    private IServiceProvider _serviceProvider;
 
     public MainWindowViewModel ViewModel { get; }
 
@@ -44,8 +47,9 @@ public partial class MainWindow : FluentWindow
             switch(controlName)
             {
                 case "Button":
-                    // RootContentDialog.Content = new ButtonPage().Content;
-                    RootContentFrame.Source = new Uri(".\\Views\\ButtonPage.xaml", UriKind.RelativeOrAbsolute);
+                    //RootContentFrame.Source = new Uri(".\\Views\\ButtonPage.xaml", UriKind.RelativeOrAbsolute);
+                    //RootContentFrame.DataContext = _serviceProvider.GetRequiredService<ButtonPageViewModel>();
+                    RootContentFrame.Content = _serviceProvider.GetRequiredService<ButtonPage>();
                     break;
                 default:
                     break;

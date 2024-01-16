@@ -7,27 +7,14 @@ using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using Win11ThemeGallery.Navigation;
-// using Wpf.Ui.Controls;
-// using Wpf.Ui.Gallery.Views.Pages;
-// using Wpf.Ui.Gallery.Views.Pages.BasicInput;
-// using Wpf.Ui.Gallery.Views.Pages.Collections;
-// using Wpf.Ui.Gallery.Views.Pages.DateAndTime;
-// using Wpf.Ui.Gallery.Views.Pages.DesignGuidance;
-// using Wpf.Ui.Gallery.Views.Pages.DialogsAndFlyouts;
-// using Wpf.Ui.Gallery.Views.Pages.Layout;
-// using Wpf.Ui.Gallery.Views.Pages.Media;
-// using Wpf.Ui.Gallery.Views.Pages.Navigation;
-// using Wpf.Ui.Gallery.Views.Pages.OpSystem;
-// using Wpf.Ui.Gallery.Views.Pages.StatusAndInfo;
-// using Wpf.Ui.Gallery.Views.Pages.Text;
-// using Wpf.Ui.Gallery.Views.Pages.Windows;
+
 
 namespace Win11ThemeGallery;
 
 public partial class MainWindowViewModel : ObservableObject
 {
     [ObservableProperty]
-    private string _applicationTitle = "WPF UI Gallery - View Model Testing";
+    private string _applicationTitle = "WPF UI Gallery";
 
     [ObservableProperty]
     private ICollection<NavigationItem> _controls = new ObservableCollection<NavigationItem>

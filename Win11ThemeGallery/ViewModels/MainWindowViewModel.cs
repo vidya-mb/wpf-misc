@@ -27,6 +27,10 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("Slider", typeof(SliderPage)),
                 new NavigationItem("Calendar", typeof(CalendarPage)),
                 new NavigationItem("DatePicker", typeof(DatePickerPage)),
+                new NavigationItem("TabControl", typeof(TabControlPage)),
+                new NavigationItem("ProgressBar", typeof(ProgressBarPage)),
+                new NavigationItem("Menu", typeof(MenuPage)),
+                new NavigationItem("ToolTip", typeof(ToolTipPage)),
             }
         },
         new NavigationItem("Settings", typeof(SettingsPage)),

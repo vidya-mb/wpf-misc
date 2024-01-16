@@ -14,10 +14,22 @@
     <Compile Update="Views\DatePickerPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MenuPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProgressBarPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\RadioButtonPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SliderPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TabControlPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ToolTipPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -31,10 +43,22 @@
     <Page Update="Views\ComboBoxPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\MenuPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProgressBarPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\RadioButtonPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SliderPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TabControlPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ToolTipPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

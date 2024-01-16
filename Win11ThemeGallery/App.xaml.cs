@@ -45,6 +45,12 @@ public partial class App : Application
             services.AddTransient<MenuPageViewModel>();
             services.AddTransient<ToolTipPage>();
             services.AddTransient<ToolTipPageViewModel>();
+            services.AddTransient<CanvasPage>();
+            services.AddTransient<CanvasPageViewModel>();
+            services.AddTransient<ExpanderPage>();
+            services.AddTransient<ExpanderPageViewModel>();
+            services.AddTransient<ImagePage>();
+            services.AddTransient<ImagePageViewModel>();
 
 
             services.AddSingleton<SettingsPage>();

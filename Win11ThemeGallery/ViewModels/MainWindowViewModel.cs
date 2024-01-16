@@ -31,6 +31,9 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("ProgressBar", typeof(ProgressBarPage)),
                 new NavigationItem("Menu", typeof(MenuPage)),
                 new NavigationItem("ToolTip", typeof(ToolTipPage)),
+                new NavigationItem("Canvas", typeof(CanvasPage)),
+                new NavigationItem("Expander", typeof(ExpanderPage)),
+                new NavigationItem("Image", typeof(ImagePage)),
             }
         },
         new NavigationItem("Settings", typeof(SettingsPage)),

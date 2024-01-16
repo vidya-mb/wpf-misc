@@ -5,6 +5,9 @@
     <Compile Update="Views\CalendarPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\CanvasPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\CheckBoxPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -12,6 +15,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\DatePickerPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExpanderPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ImagePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MenuPage.xaml.cs">
@@ -37,10 +46,19 @@
     <Page Update="Views\CalendarPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\CanvasPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\CheckBoxPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ComboBoxPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ExpanderPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ImagePage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MenuPage.xaml">

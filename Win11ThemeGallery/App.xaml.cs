@@ -20,6 +20,9 @@ public partial class App : Application
 
             services.AddTransient<ButtonPage>();
             services.AddTransient<ButtonPageViewModel>();
+
+            services.AddSingleton<SettingsPage>();
+            services.AddSingleton<SettingsPageViewModel>();
         }).Build();
 
 

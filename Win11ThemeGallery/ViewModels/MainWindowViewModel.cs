@@ -32,7 +32,8 @@ public partial class MainWindowViewModel : ObservableObject
     private ICollection<string> _controls = new ObservableCollection<string>
     {
         "Button",
-        "TextBlock"
+        "TextBlock",
+        "Settings"
     };
 
     [ObservableProperty]

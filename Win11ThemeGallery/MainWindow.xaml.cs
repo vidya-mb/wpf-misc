@@ -51,6 +51,9 @@ public partial class MainWindow : FluentWindow
                     //RootContentFrame.DataContext = _serviceProvider.GetRequiredService<ButtonPageViewModel>();
                     RootContentFrame.Content = _serviceProvider.GetRequiredService<ButtonPage>();
                     break;
+                case "Settings":
+                    RootContentFrame.Content = _serviceProvider.GetRequiredService<SettingsPage>();
+                    break;
                 default:
                     break;
             }

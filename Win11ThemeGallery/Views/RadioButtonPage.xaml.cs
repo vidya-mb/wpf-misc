@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,20 +15,19 @@ using System.Windows.Shapes;
 
 using Win11ThemeGallery.ViewModels;
 
-namespace Win11ThemeGallery.Views
-{
+namespace Win11ThemeGallery.Views;
     /// <summary>
-    /// Interaction logic for Settings.xaml
+    /// Interaction logic for RadioButtonPage.xaml
     /// </summary>
-    public partial class SettingsPage : Page
+    public partial class RadioButtonPage : Page
     {
-        public SettingsPageViewModel ViewModel { get; }
+    public RadioButtonPageViewModel ViewModel { get; }
 
-        public SettingsPage(SettingsPageViewModel viewModel)
-        {
-            ViewModel = viewModel;
-            DataContext = this;
-            InitializeComponent();
-        }
+    public RadioButtonPage(RadioButtonPageViewModel viewModel)
+    {
+        ViewModel = viewModel;
+        DataContext = this;
+
+        InitializeComponent();
     }
-}
+    }

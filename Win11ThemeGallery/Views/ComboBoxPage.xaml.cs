@@ -13,23 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 using Win11ThemeGallery.ViewModels;
 
-namespace Win11ThemeGallery.Views
-{
-    /// <summary>
-    /// Interaction logic for Button.xaml
-    /// </summary>
-    public partial class ButtonPage : Page
-    {
-        public ButtonPageViewModel ViewModel { get; }
+namespace Win11ThemeGallery.Views;
 
-        public ButtonPage(ButtonPageViewModel viewModel)
-        {
-            ViewModel = viewModel;
-            DataContext = this;
-            InitializeComponent();
-        }
-    }
+/// <summary>
+/// Interaction logic for ComboBox.xaml
+/// </summary>
+public partial class ComboBoxPage : Page
+{
+public ComboBoxPageViewModel ViewModel { get; }
+
+public ComboBoxPage(ComboBoxPageViewModel viewModel)
+{
+    ViewModel = viewModel;
+    DataContext = this;
+
+    InitializeComponent();
+}
 }

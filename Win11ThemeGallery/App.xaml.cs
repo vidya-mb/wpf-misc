@@ -25,6 +25,12 @@ public partial class App : Application
 
             services.AddTransient<ButtonPage>();
             services.AddTransient<ButtonPageViewModel>();
+            services.AddTransient<CheckBoxPage>();
+            services.AddTransient<CheckBoxPageViewModel>();
+            services.AddTransient<ComboBoxPage>();
+            services.AddTransient<ComboBoxPageViewModel>();
+            services.AddTransient<RadioButtonPage>();
+            services.AddTransient<RadioButtonPageViewModel>();
 
             services.AddSingleton<SettingsPage>();
             services.AddSingleton<SettingsPageViewModel>();

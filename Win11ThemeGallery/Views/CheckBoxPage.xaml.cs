@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +18,12 @@ using Win11ThemeGallery.ViewModels;
 namespace Win11ThemeGallery.Views
 {
     /// <summary>
-    /// Interaction logic for Settings.xaml
+    /// Interaction logic for CheckBox.xaml
     /// </summary>
-    public partial class SettingsPage : Page
+    public partial class CheckBoxPage : Page
     {
-        public SettingsPageViewModel ViewModel { get; }
-
-        public SettingsPage(SettingsPageViewModel viewModel)
+        public CheckBoxPageViewModel ViewModel { get; }
+        public CheckBoxPage(CheckBoxPageViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = this;

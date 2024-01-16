@@ -5,16 +5,16 @@
     <Compile Update="Views\CalendarPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\CheckBox.xaml.cs">
+    <Compile Update="Views\CheckBoxPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ComboBox.xaml.cs">
+    <Compile Update="Views\ComboBoxPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\DatePicker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\RadioButton.xaml.cs">
+    <Compile Update="Views\RadioButtonPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SliderPage.xaml.cs">
@@ -25,16 +25,16 @@
     <Page Update="Views\CalendarPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\CheckBox.xaml">
+    <Page Update="Views\CheckBoxPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ComboBox.xaml">
+    <Page Update="Views\ComboBoxPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\DatePicker.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\RadioButton.xaml">
+    <Page Update="Views\RadioButtonPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SliderPage.xaml">

@@ -26,6 +26,9 @@ public partial class MainWindowViewModel : ObservableObject
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Button", typeof(ButtonPage)),
+                new NavigationItem("CheckBox", typeof(CheckBoxPage)),
+                new NavigationItem("ComboBox", typeof(ComboBoxPage)),
+                new NavigationItem("RadioButton", typeof(RadioButtonPage)),
             }
         },
         new NavigationItem("Settings", typeof(SettingsPage)),
@@ -63,7 +66,7 @@ public partial class MainWindowViewModel : ObservableObject
 //                 new NavigationViewItem(nameof(ToggleSwitch), typeof(ToggleSwitchPage)),
 //                 new NavigationViewItem(nameof(CheckBox), typeof(CheckBoxPage)),
 //                 new NavigationViewItem(nameof(ComboBox), typeof(ComboBoxPage)),
-//                 new NavigationViewItem(nameof(RadioButton), typeof(RadioButtonPage)),
+//                 new NavigationViewItem(nameof(RadioButtonPage), typeof(RadioButtonPagePage)),
 //                 new NavigationViewItem(nameof(RatingControl), typeof(RatingPage)),
 //                 new NavigationViewItem(nameof(ThumbRate), typeof(ThumbRatePage)),
 //                 new NavigationViewItem(nameof(SplitButton), typeof(SplitButtonPage)),

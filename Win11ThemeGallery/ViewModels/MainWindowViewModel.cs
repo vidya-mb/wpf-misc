@@ -7,9 +7,9 @@ using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using Win11ThemeGallery.Navigation;
+using Win11ThemeGallery.Views;
 
-
-namespace Win11ThemeGallery;
+namespace Win11ThemeGallery.ViewModels;
 
 public partial class MainWindowViewModel : ObservableObject
 {

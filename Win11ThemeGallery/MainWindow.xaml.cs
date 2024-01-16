@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 
 using System.Windows.Appearance;
 using Win11ThemeGallery.Navigation;
+using Win11ThemeGallery.ViewModels;
 
 namespace Win11ThemeGallery;
 

@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Appearance;
 
-namespace Win11ThemeGallery;
+namespace Win11ThemeGallery.ViewModels;
 
 /// <summary>
 /// Interaction logic for Settings.xaml

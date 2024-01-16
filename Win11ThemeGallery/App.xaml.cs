@@ -3,7 +3,10 @@ using System.Data;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using Win11ThemeGallery.Navigation;
+using Win11ThemeGallery.ViewModels;
+using Win11ThemeGallery.Views;
 
 namespace Win11ThemeGallery;
 

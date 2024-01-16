@@ -1,7 +1,7 @@
 
 using System.Windows.Controls;
 
-namespace Win11ThemeGallery;
+namespace Win11ThemeGallery.ViewModels;
 
 /// <summary>
 /// Interaction logic for Button.xaml

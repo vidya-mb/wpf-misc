@@ -1,0 +1,26 @@
+﻿<Application x:Class="Win11ThemeGallery.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Win11ThemeGallery"
+             xmlns:helpers="clr-namespace:Win11ThemeGallery.Helpers">
+    <Application.Resources>
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ThemesDictionary Theme="Dark" />
+                <ControlsDictionary />
+
+                <ResourceDictionary Source="Controls/ControlExample.xaml" />
+                <!-- <syntax:SyntaxHighlightDictionary />
+
+                <ResourceDictionary Source="Controls/GalleryNavigationPresenter.xaml" />
+                <ResourceDictionary Source="Controls/TypographyControl.xaml" />
+                <ResourceDictionary Source="Controls/PageControlDocumentation.xaml" /> -->
+            </ResourceDictionary.MergedDictionaries>            
+ 
+            <helpers:ThemeToIndexConverter x:Key="ThemeToIndexConverter" />
+            <!--<helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+            <helpers:PaneDisplayModeToIndexConverter x:Key="PaneDisplayModeToIndexConverter" />--> 
+
+         </ResourceDictionary>
+    </Application.Resources>
+</Application>

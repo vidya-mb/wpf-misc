@@ -19,7 +19,15 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     private ICollection<NavigationItem> _controls = new ObservableCollection<NavigationItem>
     {
-        new NavigationItem("Button", typeof(ButtonPage)),
+        new NavigationItem
+        {
+            Name = "Controls",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("Button", typeof(ButtonPage)),
+            }
+        },
         new NavigationItem("Settings", typeof(SettingsPage)),
     };
 

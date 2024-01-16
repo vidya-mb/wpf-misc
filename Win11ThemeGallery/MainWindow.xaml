@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:Win11ThemeGallery"
         xmlns:controls="clr-namespace:Win11ThemeGallery.Controls"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance local:MainWindow,
+                                     IsDesignTimeCreatable=False}"
+        d:DesignHeight="650"
+        d:DesignWidth="1000"
         Title="{Binding ViewModel.ApplicationTitle}" 
         Height="802" 
         Width="1450"
@@ -31,18 +35,21 @@
                              IconPlacement="Right"
                              />
                 </DockPanel>
-                <ListBox x:Name="ControlsList" 
+                <TreeView x:Name="ControlsList" 
                          ItemsSource="{Binding ViewModel.Controls}"
-                         DisplayMemberPath="Name"
-                         SelectedItem="{Binding ViewModel.SelectedControl}"
-                         SelectionChanged="ControlsList_SelectionChanged"
+                         SelectedItemChanged="ControlsList_SelectedItemChanged"
                          Margin="10"
-                         />
+                         >
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                            <TextBlock Text="{Binding Name}" Margin="2"/>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
             </StackPanel>
             <Border Padding="16" Grid.Column="1" >
                 <Frame x:Name="RootContentFrame"/>
             </Border>
-            <!--<ContentPresenter x:Name="RootContentDialog" Grid.Column="1"/>-->
         </Grid>
 
         <TitleBar

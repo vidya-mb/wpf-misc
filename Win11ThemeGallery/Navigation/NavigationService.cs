@@ -1,6 +1,7 @@
 
 
 
+using System.Collections;
 using System.Windows.Controls;
 
 namespace Win11ThemeGallery.Navigation;
@@ -30,9 +31,36 @@ public class NavigationService : INavigationService
 
     public void NavigateTo(Type type)
     {
+        if( type == null ) return;
         var page = _serviceProvider.GetRequiredService(type);
         _frame.Navigate(page);
     }
 }
 
-public record class NavigationItem(string Name, Type PageType);
+public class NavigationItem
+{
+    public string Name { get; set; } = "";
+    public Type? PageType { get; set; } = null;
+
+    public ICollection<NavigationItem> Children { get; set; } = new ObservableCollection<NavigationItem>();
+
+    public NavigationItem() { }
+
+    public NavigationItem(string name, Type pageType)
+    {
+        Name = name;
+        PageType = pageType;
+    }
+
+    public NavigationItem(string name, Type pageType, ObservableCollection<NavigationItem> navItems)
+    {
+        Name = name;
+        PageType = pageType;
+        Children = navItems;
+    }
+
+    public override string ToString()
+    {
+        return Name;
+    }
+}

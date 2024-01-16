@@ -36,7 +36,7 @@ public partial class MainWindow : FluentWindow
 
     public MainWindowViewModel ViewModel { get; }
 
-    private void ControlsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void ControlsList_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
     {
         if (ControlsList.SelectedItem is NavigationItem navItem)
         {

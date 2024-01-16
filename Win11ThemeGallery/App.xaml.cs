@@ -31,6 +31,13 @@ public partial class App : Application
             services.AddTransient<ComboBoxPageViewModel>();
             services.AddTransient<RadioButtonPage>();
             services.AddTransient<RadioButtonPageViewModel>();
+            services.AddTransient<SliderPage>();
+            services.AddTransient<SliderPageViewModel>();
+            services.AddTransient<CalendarPage>();
+            services.AddTransient<CalendarPageViewModel>();
+            services.AddTransient<DatePickerPage>();
+            services.AddTransient<DatePickerPageViewModel>();
+
 
             services.AddSingleton<SettingsPage>();
             services.AddSingleton<SettingsPageViewModel>();

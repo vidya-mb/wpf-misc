@@ -36,24 +36,5 @@
                 <ComboBoxItem Content="High Contrast" />
             </ComboBox>
         </Grid>
-
-        <!--<ui:CardControl Margin="0,0,0,12" Icon="{ui:SymbolIcon AlignSpaceEvenlyVertical20}">
-            <ui:CardControl.Header>
-                <TextBlock
-                    Grid.Row="0"
-                    FontTypography="Body"
-                    Text="Navigation style" />
-            </ui:CardControl.Header>
-            <ComboBox
-                Grid.Column="1"
-                MinWidth="200"
-                SelectedIndex="{Binding ViewModel.CurrentApplicationNavigationStyle, Converter={StaticResource PaneDisplayModeToIndexConverter}, Mode=TwoWay}">
-                <ComboBoxItem Content="Left compact" />
-                <ComboBoxItem Content="Fluent" />
-                <ComboBoxItem Content="Top" />
-                <ComboBoxItem Content="Bottom" />
-            </ComboBox>
-        </ui:CardControl>-->
-
     </StackPanel>
 </Page>

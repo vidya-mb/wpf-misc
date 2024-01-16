@@ -11,7 +11,7 @@
     <Compile Update="Views\ComboBoxPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\DatePicker.xaml.cs">
+    <Compile Update="Views\DatePickerPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\RadioButtonPage.xaml.cs">
@@ -29,9 +29,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ComboBoxPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\DatePicker.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RadioButtonPage.xaml">

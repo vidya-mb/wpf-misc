@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using System.Windows.Appearance;
+using Win11ThemeGallery.Navigation;
 
 namespace Win11ThemeGallery;
 
@@ -18,45 +19,28 @@ namespace Win11ThemeGallery;
 /// </summary>
 public partial class MainWindow : FluentWindow
 {
-    public MainWindow(MainWindowViewModel viewModel, IServiceProvider serviceProvider)
+    public MainWindow(MainWindowViewModel viewModel, IServiceProvider serviceProvider, INavigationService navigationService)
     {
         SystemThemeWatcher.Watch(this);
         _serviceProvider = serviceProvider;
         ViewModel = viewModel;
         DataContext = this;
         InitializeComponent();
+
+        _navigationService = navigationService;
+        _navigationService.SetFrame(this.RootContentFrame);
     }
 
     private IServiceProvider _serviceProvider;
+    private INavigationService _navigationService;
 
     public MainWindowViewModel ViewModel { get; }
 
     private void ControlsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (ControlsList.SelectedItem is string selectedItem)
+        if (ControlsList.SelectedItem is NavigationItem navItem)
         {
-            string? controlName = selectedItem;
-            SetPage(controlName);
-        }
-    }
-
-    private void SetPage(string? controlName)
-    {
-        if (!string.IsNullOrEmpty(controlName))
-        {
-            switch(controlName)
-            {
-                case "Button":
-                    //RootContentFrame.Source = new Uri(".\\Views\\ButtonPage.xaml", UriKind.RelativeOrAbsolute);
-                    //RootContentFrame.DataContext = _serviceProvider.GetRequiredService<ButtonPageViewModel>();
-                    RootContentFrame.Content = _serviceProvider.GetRequiredService<ButtonPage>();
-                    break;
-                case "Settings":
-                    RootContentFrame.Content = _serviceProvider.GetRequiredService<SettingsPage>();
-                    break;
-                default:
-                    break;
-            }
+            _navigationService.NavigateTo(navItem.PageType);
         }
     }
 }

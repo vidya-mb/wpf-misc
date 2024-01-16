@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Win11ThemeGallery.Navigation;
 
 namespace Win11ThemeGallery;
 
@@ -15,6 +16,7 @@ public partial class App : Application
     private static readonly IHost _host = Host.CreateDefaultBuilder()
         .ConfigureServices((context, services) =>
         {
+            services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<MainWindow>();
             services.AddSingleton<MainWindowViewModel>();
 

@@ -6,6 +6,7 @@
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using Win11ThemeGallery.Navigation;
 // using Wpf.Ui.Controls;
 // using Wpf.Ui.Gallery.Views.Pages;
 // using Wpf.Ui.Gallery.Views.Pages.BasicInput;
@@ -29,15 +30,14 @@ public partial class MainWindowViewModel : ObservableObject
     private string _applicationTitle = "WPF UI Gallery - View Model Testing";
 
     [ObservableProperty]
-    private ICollection<string> _controls = new ObservableCollection<string>
+    private ICollection<NavigationItem> _controls = new ObservableCollection<NavigationItem>
     {
-        "Button",
-        "TextBlock",
-        "Settings"
+        new NavigationItem("Button", typeof(ButtonPage)),
+        new NavigationItem("Settings", typeof(SettingsPage)),
     };
 
     [ObservableProperty]
-    private string _selectedControl = "";
+    private NavigationItem _selectedControl;
 
     // [ObservableProperty]
 //     private ICollection<object> _menuItems = new ObservableCollection<object>

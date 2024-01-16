@@ -33,6 +33,7 @@
                 </DockPanel>
                 <ListBox x:Name="ControlsList" 
                          ItemsSource="{Binding ViewModel.Controls}"
+                         DisplayMemberPath="Name"
                          SelectedItem="{Binding ViewModel.SelectedControl}"
                          SelectionChanged="ControlsList_SelectionChanged"
                          Margin="10"

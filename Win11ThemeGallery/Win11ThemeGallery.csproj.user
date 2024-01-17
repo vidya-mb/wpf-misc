@@ -2,36 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\LabelPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\PasswordBoxPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\RichTextEditPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\TextBlockPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\TextBoxPage.xaml.cs">
+    <Compile Update="Views\DashboardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\LabelPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\PasswordBoxPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\RichTextEditPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\TextBlockPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\TextBoxPage.xaml">
+    <Page Update="Views\DashboardPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

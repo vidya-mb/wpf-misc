@@ -14,9 +14,10 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     private ICollection<NavigationItem> _controls = new ObservableCollection<NavigationItem>
     {
+        new NavigationItem("Home", typeof(DashboardPage)),
         new NavigationItem
         {
-            Name = "Controls",
+            Name = "Basic Input",
             PageType = null,
             Children = new ObservableCollection<NavigationItem>
             {
@@ -25,19 +26,68 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("ComboBox", typeof(ComboBoxPage)),
                 new NavigationItem("RadioButton", typeof(RadioButtonPage)),
                 new NavigationItem("Slider", typeof(SliderPage)),
-                new NavigationItem("Calendar", typeof(CalendarPage)),
-                new NavigationItem("DatePicker", typeof(DatePickerPage)),
-                new NavigationItem("TabControl", typeof(TabControlPage)),
-                new NavigationItem("ProgressBar", typeof(ProgressBarPage)),
-                new NavigationItem("Menu", typeof(MenuPage)),
-                new NavigationItem("ToolTip", typeof(ToolTipPage)),
-                new NavigationItem("Canvas", typeof(CanvasPage)),
-                new NavigationItem("Expander", typeof(ExpanderPage)),
-                new NavigationItem("Image", typeof(ImagePage)),
+
+            }
+        },
+        new NavigationItem
+        {
+            Name="Collections",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
                 new NavigationItem("DataGrid", typeof(DataGridPage)),
                 new NavigationItem("ListBox", typeof(ListBoxPage)),
                 new NavigationItem("ListView", typeof(ListViewPage)),
                 new NavigationItem("TreeView", typeof(TreeViewPage)),
+            }
+        },
+        new NavigationItem
+        {
+            Name="Date & Calendar",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("Calendar", typeof(CalendarPage)),
+                new NavigationItem("DatePicker", typeof(DatePickerPage)),
+            }
+        },
+        new NavigationItem
+        {
+            Name = "Layout",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("Expander", typeof(ExpanderPage)),
+            }
+        },
+        new NavigationItem
+        {
+            Name = "Media",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("Canvas", typeof(CanvasPage)),
+                new NavigationItem("Image", typeof(ImagePage)),
+            }
+        },
+        new NavigationItem
+        {
+            Name = "Navigation",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("Menu", typeof(MenuPage)),
+                new NavigationItem("TabControl", typeof(TabControlPage)),
+            }
+        },
+        new NavigationItem
+        {
+            Name = "Status & Info",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("ProgressBar", typeof(ProgressBarPage)),
+                new NavigationItem("ToolTip", typeof(ToolTipPage)),
             }
         },
         new NavigationItem

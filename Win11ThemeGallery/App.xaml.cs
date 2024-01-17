@@ -51,6 +51,14 @@ public partial class App : Application
             services.AddTransient<ExpanderPageViewModel>();
             services.AddTransient<ImagePage>();
             services.AddTransient<ImagePageViewModel>();
+            services.AddTransient<DataGridPage>();
+            services.AddTransient<DataGridPageViewModel>();
+            services.AddTransient<ListBoxPage>();
+            services.AddTransient<ListBoxPageViewModel>();
+            services.AddTransient<ListViewPage>();
+            services.AddTransient<ListViewPageViewModel>();
+            services.AddTransient<TreeViewPage>();
+            services.AddTransient<TreeViewPageViewModel>();
 
 
             services.AddSingleton<SettingsPage>();

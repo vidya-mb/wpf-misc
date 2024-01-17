@@ -15,21 +15,19 @@ using System.Windows.Shapes;
 
 using Win11ThemeGallery.ViewModels;
 
-
 namespace Win11ThemeGallery.Views
 {
     /// <summary>
-    /// Interaction logic for ExpanderPage.xaml
+    /// Interaction logic for TreeViewPage.xaml
     /// </summary>
-    public partial class ExpanderPage : Page
+    public partial class TreeViewPage : Page
     {
-    public ExpanderPage(ExpanderPageViewModel viewModel)
-    {
-        ViewModel = viewModel;
-        DataContext = this;
-        InitializeComponent();
-    }
-
-    public ExpanderPageViewModel ViewModel { get; }
+        public TreeViewPageViewModel ViewModel { get; }
+        public TreeViewPage(TreeViewPageViewModel viewModel)
+        {
+            ViewModel = viewModel;
+DataContext = this;
+InitializeComponent();
+        }
     }
 }

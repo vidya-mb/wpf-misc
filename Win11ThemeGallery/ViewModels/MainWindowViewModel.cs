@@ -34,6 +34,10 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("Canvas", typeof(CanvasPage)),
                 new NavigationItem("Expander", typeof(ExpanderPage)),
                 new NavigationItem("Image", typeof(ImagePage)),
+                new NavigationItem("DataGrid", typeof(DataGridPage)),
+                new NavigationItem("ListBox", typeof(ListBoxPage)),
+                new NavigationItem("ListView", typeof(ListViewPage)),
+                new NavigationItem("TreeView", typeof(TreeViewPage)),
             }
         },
         new NavigationItem("Settings", typeof(SettingsPage)),

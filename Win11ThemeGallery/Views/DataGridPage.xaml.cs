@@ -15,21 +15,19 @@ using System.Windows.Shapes;
 
 using Win11ThemeGallery.ViewModels;
 
-
 namespace Win11ThemeGallery.Views
 {
     /// <summary>
-    /// Interaction logic for ExpanderPage.xaml
+    /// Interaction logic for DataGridPage.xaml
     /// </summary>
-    public partial class ExpanderPage : Page
+    public partial class DataGridPage : Page
     {
-    public ExpanderPage(ExpanderPageViewModel viewModel)
-    {
-        ViewModel = viewModel;
-        DataContext = this;
-        InitializeComponent();
-    }
-
-    public ExpanderPageViewModel ViewModel { get; }
+        public DataGridPageViewModel ViewModel { get; }
+        public DataGridPage(DataGridPageViewModel viewModel)
+        {
+            ViewModel = viewModel;
+DataContext = this;
+InitializeComponent();
+        }
     }
 }

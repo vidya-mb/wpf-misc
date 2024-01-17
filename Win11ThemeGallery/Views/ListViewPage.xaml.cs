@@ -15,21 +15,20 @@ using System.Windows.Shapes;
 
 using Win11ThemeGallery.ViewModels;
 
-
 namespace Win11ThemeGallery.Views
 {
     /// <summary>
-    /// Interaction logic for ExpanderPage.xaml
+    /// Interaction logic for ListViewPage.xaml
     /// </summary>
-    public partial class ExpanderPage : Page
+    public partial class ListViewPage : Page
     {
-    public ExpanderPage(ExpanderPageViewModel viewModel)
-    {
-        ViewModel = viewModel;
-        DataContext = this;
-        InitializeComponent();
-    }
-
-    public ExpanderPageViewModel ViewModel { get; }
+        public ListViewPageViewModel ViewModel { get; }
+    
+        public ListViewPage(ListViewPageViewModel viewModel)
+        {
+            ViewModel = viewModel;
+DataContext = this;
+InitializeComponent();
+        }
     }
 }

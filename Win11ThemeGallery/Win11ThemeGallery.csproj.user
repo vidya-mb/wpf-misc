@@ -2,12 +2,60 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\BasicInputPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CollectionsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\DashboardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DateAndTimePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LayoutPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MediaPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NavigationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StatusAndInfoPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TextPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\BasicInputPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CollectionsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\DashboardPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DateAndTimePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LayoutPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MediaPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NavigationPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StatusAndInfoPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TextPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using System.Windows.Appearance;
 using Win11ThemeGallery.Navigation;
 using Win11ThemeGallery.ViewModels;
+using Win11ThemeGallery.Views;
 
 namespace Win11ThemeGallery;
 
@@ -30,6 +31,7 @@ public partial class MainWindow : FluentWindow
 
         _navigationService = navigationService;
         _navigationService.SetFrame(this.RootContentFrame);
+        _navigationService.NavigateTo(typeof(DashboardPage));
     }
 
     private IServiceProvider _serviceProvider;

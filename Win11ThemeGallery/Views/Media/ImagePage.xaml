@@ -45,7 +45,7 @@
                     <Image
                 Height="200"
                 HorizontalAlignment="Left"
-                Source="pack://application:,,,/Assets/win11.png" />
+                Source="pack://application:,,,/Assets/win11-dashboard.png" />
                 </controls:ControlExample> 
     </StackPanel>
     </ScrollViewer>

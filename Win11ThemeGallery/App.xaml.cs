@@ -22,6 +22,9 @@ public partial class App : Application
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<MainWindow>();
             services.AddSingleton<MainWindowViewModel>();
+            
+            services.AddTransient<DashboardPage>();
+            services.AddTransient<DashboardPageViewModel>();
 
             services.AddTransient<ButtonPage>();
             services.AddTransient<ButtonPageViewModel>();
@@ -69,6 +72,23 @@ public partial class App : Application
             services.AddTransient<RichTextEditPageViewModel>();
             services.AddTransient<PasswordBoxPage>();
             services.AddTransient<PasswordBoxPageViewModel>();
+
+            services.AddTransient<LayoutPage>();
+            services.AddTransient<LayoutPageViewModel>();
+            services.AddTransient<BasicInputPage>();
+            services.AddTransient<BasicInputPageViewModel>();
+            services.AddTransient<CollectionsPage>();
+            services.AddTransient<CollectionsPageViewModel>();
+            services.AddTransient<MediaPage>();
+            services.AddTransient<MediaPageViewModel>();
+            services.AddTransient<NavigationPage>();
+            services.AddTransient<NavigationPageViewModel>();
+            services.AddTransient<TextPage>();
+            services.AddTransient<TextPageViewModel>();
+            services.AddTransient<DateAndTimePage>();
+            services.AddTransient<DateAndTimePageViewModel>();
+            services.AddTransient<StatusAndInfoPage>();
+            services.AddTransient<StatusAndInfoPageViewModel>();
 
             services.AddSingleton<SettingsPage>();
             services.AddSingleton<SettingsPageViewModel>();

@@ -1,17 +1,25 @@
 ## WPF Win11 Theme Gallery App
 
-#### Current Issues
+### Current Issues
 
+#### Urgent
 - [] Scrollbar over stackpanel for control pages
 - [] Treeview no gap between elements
 - [] Listbox scrollbar above items
 - [] TextBlock colour on load is not as per theme
-- [] TextBox border liner gradient not applied
+- [] Missing CornerRadius in Image
+#### Important
+- [] TextBox border linear gradient not applied
+- [] TextBlock margin and padding both set only then work ?
 
-#### Work Items for the app
+### Work Items for the app
 
-- [] Dashboard, other control collection pages
+- [x] Dashboard, other control collection pages
 - [] Backdrop change from settings page
 - [] Settings page styling
-- [] Image change in image page
+- [x] Image change in image page
 - [] Canvas path change canvas page
+- [] Settings at the bottom
+- [] Navigation back and forward buttons ?
+
+- [] Use built-in WPF navigation

@@ -10,16 +10,11 @@
                 <ControlsDictionary />
 
                 <ResourceDictionary Source="Controls/ControlExample.xaml" />
-                <!-- <syntax:SyntaxHighlightDictionary />
+                <ResourceDictionary Source="Controls/PageStyles.xaml" />
 
-                <ResourceDictionary Source="Controls/GalleryNavigationPresenter.xaml" />
-                <ResourceDictionary Source="Controls/TypographyControl.xaml" />
-                <ResourceDictionary Source="Controls/PageControlDocumentation.xaml" /> -->
             </ResourceDictionary.MergedDictionaries>            
  
             <helpers:ThemeToIndexConverter x:Key="ThemeToIndexConverter" />
-            <!--<helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
-            <helpers:PaneDisplayModeToIndexConverter x:Key="PaneDisplayModeToIndexConverter" />--> 
 
          </ResourceDictionary>
     </Application.Resources>

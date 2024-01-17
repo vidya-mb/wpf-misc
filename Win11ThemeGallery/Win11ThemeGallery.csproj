@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 		<Resource Include="Assets\win11.png" />
+		<Resource Include="Assets\win11-dashboard.png" />
 	</ItemGroup>
 	
 	<PropertyGroup>

@@ -18,7 +18,7 @@ public partial class MainWindowViewModel : ObservableObject
         new NavigationItem
         {
             Name = "Basic Input",
-            PageType = null,
+            PageType = typeof(BasicInputPage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Button", typeof(ButtonPage)),
@@ -26,13 +26,12 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("ComboBox", typeof(ComboBoxPage)),
                 new NavigationItem("RadioButton", typeof(RadioButtonPage)),
                 new NavigationItem("Slider", typeof(SliderPage)),
-
             }
         },
         new NavigationItem
         {
             Name="Collections",
-            PageType = null,
+            PageType = typeof(CollectionsPage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("DataGrid", typeof(DataGridPage)),
@@ -44,7 +43,7 @@ public partial class MainWindowViewModel : ObservableObject
         new NavigationItem
         {
             Name="Date & Calendar",
-            PageType = null,
+            PageType = typeof(DateAndTimePage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Calendar", typeof(CalendarPage)),
@@ -54,7 +53,7 @@ public partial class MainWindowViewModel : ObservableObject
         new NavigationItem
         {
             Name = "Layout",
-            PageType = null,
+            PageType = typeof(LayoutPage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Expander", typeof(ExpanderPage)),
@@ -63,7 +62,7 @@ public partial class MainWindowViewModel : ObservableObject
         new NavigationItem
         {
             Name = "Media",
-            PageType = null,
+            PageType = typeof(MediaPage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Canvas", typeof(CanvasPage)),
@@ -73,7 +72,7 @@ public partial class MainWindowViewModel : ObservableObject
         new NavigationItem
         {
             Name = "Navigation",
-            PageType = null,
+            PageType = typeof(NavigationPage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Menu", typeof(MenuPage)),
@@ -83,7 +82,7 @@ public partial class MainWindowViewModel : ObservableObject
         new NavigationItem
         {
             Name = "Status & Info",
-            PageType = null,
+            PageType = typeof(StatusAndInfoPage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("ProgressBar", typeof(ProgressBarPage)),
@@ -93,7 +92,7 @@ public partial class MainWindowViewModel : ObservableObject
         new NavigationItem
         {
             Name = "Text",
-            PageType = null,
+            PageType = typeof(TextPage),
             Children = new ObservableCollection<NavigationItem>
             {
                 new NavigationItem("Label", typeof(LabelPage)),

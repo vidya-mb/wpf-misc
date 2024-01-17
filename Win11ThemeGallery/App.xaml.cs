@@ -59,7 +59,16 @@ public partial class App : Application
             services.AddTransient<ListViewPageViewModel>();
             services.AddTransient<TreeViewPage>();
             services.AddTransient<TreeViewPageViewModel>();
-
+            services.AddTransient<LabelPage>();
+            services.AddTransient<LabelPageViewModel>();
+            services.AddTransient<TextBoxPage>();
+            services.AddTransient<TextBoxPageViewModel>();
+            services.AddTransient<TextBlockPage>();
+            services.AddTransient<TextBlockPageViewModel>();
+            services.AddTransient<RichTextEditPage>();
+            services.AddTransient<RichTextEditPageViewModel>();
+            services.AddTransient<PasswordBoxPage>();
+            services.AddTransient<PasswordBoxPageViewModel>();
 
             services.AddSingleton<SettingsPage>();
             services.AddSingleton<SettingsPageViewModel>();

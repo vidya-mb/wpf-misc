@@ -40,6 +40,19 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("TreeView", typeof(TreeViewPage)),
             }
         },
+        new NavigationItem
+        {
+            Name = "Text",
+            PageType = null,
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("Label", typeof(LabelPage)),
+                new NavigationItem("TextBox", typeof(TextBoxPage)),
+                new NavigationItem("TextBlock", typeof(TextBlockPage)),
+                new NavigationItem("RichTextEdit", typeof(RichTextEditPage)),
+                new NavigationItem("PasswordBox", typeof(PasswordBoxPage)),
+            }
+        },
         new NavigationItem("Settings", typeof(SettingsPage)),
     };
 

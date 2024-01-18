@@ -58,7 +58,7 @@
                          Margin="10" Grid.Row="1"
                          >
                     <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <HierarchicalDataTemplate ItemsSource="{Binding Children}" >
                             <TextBlock Text="{Binding Name}" Margin="2"/>
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>

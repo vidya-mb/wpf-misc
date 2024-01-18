@@ -49,7 +49,7 @@
                 FontSize="32"
                 FontWeight="Bold"
                Text="{Binding ViewModel.PageTitle}" />
-                <TextBlock FontWeight="Light" Foreground="{DynamicResource TextFillColorPrimaryBrush}">PresentationFramework.dll</TextBlock>
+                <TextBlock FontWeight="Light" Text="{Binding ViewModel.PageDescription}" />
             </StackPanel>
 
         </Grid>
@@ -126,7 +126,7 @@
                 <controls:ControlExample
             Margin="0,32,0,0"
             HeaderText="WPF Button with ImageIcon"
-            XamlCode="&lt;ui:Button Appearance=&quot;Primary&quot; /&gt;">
+            XamlCode="&lt;Button Appearance=&quot;Primary&quot; /&gt;">
                     <Button
                 Content="ImageIcon Button">
                         <Button.Icon>
@@ -136,17 +136,17 @@
 
                 </controls:ControlExample>
 
-                <controls:ControlExample
+                <!-- <controls:ControlExample
             Margin="0,32,0,0"
-            HeaderText="WPF UI button with modified content template."
-            XamlCode="&lt;ui:Button Appearance=&quot;Primary&quot; /&gt;">
+            HeaderText="WPF button with modified content template."
+            XamlCode="&lt;Button Appearance=&quot;Primary&quot; /&gt;">
                     <Button Width="40" Appearance="Danger" ContentTemplate="{StaticResource ViewBoxCustomButtonContentTemplate}">
                         <Canvas Width="47" Height="99">
                             <Path Data="M0,19H18V84h29v15H0V19Z" Fill="{DynamicResource TextFillColorSecondaryBrush}" />
                             <Path Data="M46,80H29V15H0V0H46V80Z" Fill="{DynamicResource TextFillColorSecondaryBrush}" />
                         </Canvas>
                     </Button>
-                </controls:ControlExample>
+                </controls:ControlExample> -->
             </StackPanel>
         </ScrollViewer>
     </Grid>

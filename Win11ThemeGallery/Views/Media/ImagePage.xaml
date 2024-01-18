@@ -31,7 +31,7 @@
 
       <StackPanel Grid.Column="0">
         <TextBlock Grid.Column="0" FontSize="32" FontWeight="Bold" Text="{Binding ViewModel.PageTitle}" />
-        <TextBlock FontWeight="Light" Foreground="{DynamicResource TextFillColorPrimaryBrush}">PresentationFramework.dll</TextBlock>
+        <TextBlock FontWeight="Light" Text="{Binding ViewModel.PageDescription}" />
       </StackPanel>
 
     </Grid>

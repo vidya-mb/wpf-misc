@@ -22,7 +22,7 @@
       </Grid.ColumnDefinitions>
 
       <StackPanel Grid.Column="0">
-        <TextBlock Grid.Column="0" FontSize="32" FontWeight="Bold" Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="RichTextEdit" />
+        <TextBlock Grid.Column="0" FontSize="32" FontWeight="Bold" Text="{Binding ViewModel.PageTitle}" />
         <TextBlock FontWeight="Light" Foreground="{DynamicResource TextFillColorPrimaryBrush}">PresentationFramework.dll</TextBlock>
       </StackPanel>
 

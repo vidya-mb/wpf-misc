@@ -7,8 +7,14 @@ using System.Windows.Controls;
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class ComboBoxPageViewModel : ObservableObject
+public partial class ComboBoxPageViewModel : ObservableObject 
 {
+	[ObservableProperty]
+	private string _pageTitle = "ComboBox";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
     [ObservableProperty]
     private IList<string> _comboBoxFontFamilies = new ObservableCollection<string>
     {

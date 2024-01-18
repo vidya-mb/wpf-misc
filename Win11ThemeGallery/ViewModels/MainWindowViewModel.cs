@@ -120,12 +120,10 @@ public partial class MainWindowViewModel : ObservableObject
         _navigationService.NavigateBack();
     }
 
-    partial void OnSelectedControlChanged(NavigationItem value)
+    [RelayCommand]
+    public void Forward()
     {
-        if(value != null)
-        {
-            _navigationService.NavigateTo(value.PageType);
-        }
+        _navigationService.NavigateForward();
     }
 
     public MainWindowViewModel(INavigationService navigationService)

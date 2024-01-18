@@ -5,4 +5,14 @@
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class ProgressBarPageViewModel : ObservableObject { }
+public partial class ProgressBarPageViewModel : ObservableObject 
+{
+	[ObservableProperty]
+	private string _pageTitle = "ProgressBar";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
+
+}
+

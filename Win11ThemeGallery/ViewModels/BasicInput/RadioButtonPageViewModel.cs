@@ -7,8 +7,14 @@ using System.Windows.Controls;
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class RadioButtonPageViewModel : ObservableObject
+public partial class RadioButtonPageViewModel : ObservableObject 
 {
+	[ObservableProperty]
+	private string _pageTitle = "RadioButton";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
     [ObservableProperty]
     private bool _isRadioButtonEnabled = true;
 

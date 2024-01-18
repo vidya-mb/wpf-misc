@@ -6,8 +6,14 @@ namespace Win11ThemeGallery.ViewModels;
 /// <summary>
 /// Interaction logic for Button.xaml
 /// </summary>
-public partial class ButtonPageViewModel : ObservableObject
+public partial class ButtonPageViewModel : ObservableObject 
 {
+	[ObservableProperty]
+	private string _pageTitle = "Button";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
     [ObservableProperty]
     private string _message = "Hello World!";
 

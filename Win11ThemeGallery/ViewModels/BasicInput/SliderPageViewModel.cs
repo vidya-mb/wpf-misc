@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 namespace Win11ThemeGallery.ViewModels;
 
 
-public partial class SliderPageViewModel : ObservableObject
+public partial class SliderPageViewModel : ObservableObject 
 {
+	[ObservableProperty]
+	private string _pageTitle = "Slider";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
     [ObservableProperty]
     private int _simpleSliderValue = 0;
 

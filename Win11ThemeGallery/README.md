@@ -24,7 +24,6 @@
 - [DONE] Image change in image page
 - [] Search box functionality
 - [] Connect navigation with mainwindow
-
 - [] Canvas path change canvas page
 
 - [] Use built-in WPF navigation

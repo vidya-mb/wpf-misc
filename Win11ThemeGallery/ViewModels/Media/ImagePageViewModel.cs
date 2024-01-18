@@ -7,4 +7,13 @@ using System.Windows.Controls;
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class ImagePageViewModel : ObservableObject { }
+public partial class ImagePageViewModel : ObservableObject 
+{
+	[ObservableProperty]
+	private string _pageTitle = "Image";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
+
+}

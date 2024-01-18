@@ -5,4 +5,14 @@
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class MenuPageViewModel : ObservableObject { }
+public partial class MenuPageViewModel : ObservableObject 
+{
+	[ObservableProperty]
+	private string _pageTitle = "Menu";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
+
+}
+

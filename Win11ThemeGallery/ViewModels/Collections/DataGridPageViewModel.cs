@@ -9,8 +9,14 @@ using Win11ThemeGallery.Models;
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class DataGridPageViewModel : ObservableObject
+public partial class DataGridPageViewModel : ObservableObject 
 {
+	[ObservableProperty]
+	private string _pageTitle = "DataGrid";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
     [ObservableProperty]
     private ObservableCollection<Product> _productsCollection;
 

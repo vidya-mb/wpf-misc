@@ -7,4 +7,13 @@ using System.Windows.Controls;
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class DatePickerPageViewModel : ObservableObject { }
+public partial class DatePickerPageViewModel : ObservableObject 
+{
+	[ObservableProperty]
+	private string _pageTitle = "DatePicker";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
+
+}

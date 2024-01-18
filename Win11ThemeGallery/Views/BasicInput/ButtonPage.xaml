@@ -48,8 +48,7 @@
                 Grid.Column="0"
                 FontSize="32"
                 FontWeight="Bold"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                Text="Button" />
+               Text="{Binding ViewModel.PageTitle}" />
                 <TextBlock FontWeight="Light" Foreground="{DynamicResource TextFillColorPrimaryBrush}">PresentationFramework.dll</TextBlock>
             </StackPanel>
 

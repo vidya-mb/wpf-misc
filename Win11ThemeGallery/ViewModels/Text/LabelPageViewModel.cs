@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Win11ThemeGallery.ViewModels
 {
-    public partial class LabelPageViewModel : ObservableObject
-    {
+    public partial class LabelPageViewModel : ObservableObject 
+{
+	[ObservableProperty]
+	private string _pageTitle = "Label";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
     }
 }

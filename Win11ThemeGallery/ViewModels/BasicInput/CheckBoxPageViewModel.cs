@@ -7,8 +7,14 @@ using System.Windows.Controls;
 
 namespace Win11ThemeGallery.ViewModels;
 
-public partial class CheckBoxPageViewModel : ObservableObject
+public partial class CheckBoxPageViewModel : ObservableObject 
 {
+	[ObservableProperty]
+	private string _pageTitle = "CheckBox";
+
+	[ObservableProperty]
+	private string _pageDescription = "";
+
     [ObservableProperty]
     private bool? _selectAllCheckBoxChecked = null;
 

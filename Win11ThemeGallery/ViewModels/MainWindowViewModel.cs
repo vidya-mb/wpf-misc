@@ -59,16 +59,16 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("Expander", typeof(ExpanderPage)),
             }
         },
-        new NavigationItem
-        {
-            Name = "Media",
-            PageType = typeof(MediaPage),
-            Children = new ObservableCollection<NavigationItem>
-            {
-                new NavigationItem("Canvas", typeof(CanvasPage)),
-                new NavigationItem("Image", typeof(ImagePage)),
-            }
-        },
+        // new NavigationItem
+        // {
+        //     Name = "Media",
+        //     PageType = typeof(MediaPage),
+        //     Children = new ObservableCollection<NavigationItem>
+        //     {
+        //         new NavigationItem("Canvas", typeof(CanvasPage)),
+        //         new NavigationItem("Image", typeof(ImagePage)),
+        //     }
+        // },
         new NavigationItem
         {
             Name = "Navigation",

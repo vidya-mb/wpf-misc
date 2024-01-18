@@ -43,13 +43,13 @@ namespace Win11ThemeGallery.ViewModels
                 Icon = new SymbolIcon { Symbol = SymbolRegular.News24 },
                 Description = "Expander"
             },
-            new NavigationCard
-            {
-                Name = "Media",
-                PageType = typeof(MediaPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.PlayCircle24 },
-                Description = "Canvas, Image"
-            },
+            // new NavigationCard
+            // {
+            //     Name = "Media",
+            //     PageType = typeof(MediaPage),
+            //     Icon = new SymbolIcon { Symbol = SymbolRegular.PlayCircle24 },
+            //     Description = "Canvas, Image"
+            // },
             new NavigationCard
             {
                 Name = "Navigation",

@@ -23,7 +23,7 @@
 
       <StackPanel Grid.Column="0">
         <TextBlock Grid.Column="0" FontSize="32" FontWeight="Bold" Text="{Binding ViewModel.PageTitle}" />
-        <TextBlock FontWeight="Light" Foreground="{DynamicResource TextFillColorPrimaryBrush}">PresentationFramework.dll</TextBlock>
+        <TextBlock FontWeight="Light" Text="{Binding ViewModel.PageDescription}" />
       </StackPanel>
 
     </Grid>
@@ -36,15 +36,15 @@
 
         <controls:ControlExample
             Margin="0,36,0,0"
-            HeaderText="A WPF UI TextBox."
-            XamlCode="&lt;ui:TextBox PlaceholderText=&quot;Type something...&quot; /&gt;">
+            HeaderText="A WPF TextBox."
+            XamlCode="&lt;TextBox PlaceholderText=&quot;Type something...&quot; /&gt;">
             <TextBox PlaceholderText="Type something..." />
         </controls:ControlExample>
 
         <controls:ControlExample
             Margin="0,36,0,0"
             HeaderText="A multi-line TextBox."
-            XamlCode="&lt;ui:TextBox PlaceholderText=&quot;Type something...&quot;TextWrapping=&quot;Wrap&quot; /&gt;">
+            XamlCode="&lt;TextBox PlaceholderText=&quot;Type something...&quot;TextWrapping=&quot;Wrap&quot; /&gt;">
             <TextBox PlaceholderText="Type something..." TextWrapping="Wrap" />
         </controls:ControlExample>
     </StackPanel>

@@ -24,7 +24,7 @@
 
       <StackPanel Grid.Column="0">
         <TextBlock Grid.Column="0" FontSize="32" FontWeight="Bold" Text="{Binding ViewModel.PageTitle}" />
-        <TextBlock FontWeight="Light" Foreground="{DynamicResource TextFillColorPrimaryBrush}">PresentationFramework.dll</TextBlock>
+        <TextBlock FontWeight="Light" Text="{Binding ViewModel.PageDescription}" />
       </StackPanel>
 
     </Grid>
@@ -36,8 +36,8 @@
                 &lt;Menu&gt;\n
                 \t&lt;MenuItem Header=&quot;File&quot; /&gt;\n
                 \t&lt;MenuItem Header=&quot;Edit&quot; /&gt;\n
-                \t&lt;ui:MenuItem Header=&quot;Icon&quot; SymbolIcon=&quot;Fluent24&quot; /&gt;\n
-                \t&lt;ui:MenuItem SymbolIcon=&quot;Fluent24&quot; /&gt;\n
+                \t&lt;MenuItem Header=&quot;Icon&quot; SymbolIcon=&quot;Fluent24&quot; /&gt;\n
+                \t&lt;MenuItem SymbolIcon=&quot;Fluent24&quot; /&gt;\n
                 &lt;/Menu&gt;
             </controls:ControlExample.XamlCode>
             <Menu FontSize="14">

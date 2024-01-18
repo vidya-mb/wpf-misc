@@ -27,9 +27,9 @@
                     <Button Style="{StaticResource CardButton}" Icon="{Binding Icon}"
                          Command="{Binding ViewModel.NavigateCommand, RelativeSource={RelativeSource AncestorType={x:Type local:DashboardPage}}}"
                          CommandParameter="{Binding PageType}">
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Name}" />
-                            <TextBlock FontWeight="Normal" Text="{Binding Description}" />
+                        <StackPanel Orientation="Vertical" Margin="10 0 10 0">
+                            <TextBlock FontSize="16" Margin="0 0 0 2" Text="{Binding Name}" />
+                            <TextBlock FontSize="12" FontWeight="Normal" Text="{Binding Description}" />
                         </StackPanel>
                     </Button>
                 </DataTemplate>

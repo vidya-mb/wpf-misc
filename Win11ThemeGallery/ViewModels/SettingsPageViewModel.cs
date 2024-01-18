@@ -10,6 +10,9 @@ namespace Win11ThemeGallery.ViewModels;
 public partial class SettingsPageViewModel : ObservableObject
 {
     [ObservableProperty]
+    private string _pageTitle = "Settings";
+
+    [ObservableProperty]
     private ApplicationTheme _currentApplicationTheme = ApplicationTheme.Unknown;
 
     private void OnThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)

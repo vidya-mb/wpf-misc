@@ -9,14 +9,15 @@
         <Setter Property="Width" Value="400"/>
         <Setter Property="Height" Value="100"/>
         <Setter Property="Margin" Value="10"/>
-        <Setter Property="Padding" Value="10" />
-        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="20 10" />
+        <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
 
     <Style x:Key="ControlGroupPageTitle" TargetType="{x:Type TextBlock}"
             >
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Margin" Value="10 0 0 0"/>
@@ -30,6 +31,7 @@
 
     <Style x:Key="ControlGroupPageDescription" TargetType="{x:Type TextBlock}"
             >
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Margin" Value="10 0 0 0"/>

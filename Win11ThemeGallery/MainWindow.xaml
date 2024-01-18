@@ -14,6 +14,7 @@
         Height="802" 
         Width="1450"
         WindowStartupLocation="CenterScreen"
+              WindowBackdropType="Mica"
         ExtendsContentIntoTitleBar="True">
     <Grid>
         <Grid.RowDefinitions>
@@ -26,19 +27,35 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <DockPanel>
-                    <TextBox x:Name="SearchBox" DockPanel.Dock="Top" 
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                    
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="BackButton" 
+                            Margin="10 0 5 5"
+                            Icon="{SymbolIcon ArrowLeft24}"
+                            Command="{Binding ViewModel.BackCommand}"/>
+                    <Button x:Name="ForwardButton" 
+                            Margin="5 0 0 5"
+                            Icon="{SymbolIcon ArrowRight24}"
+                            Command="{Binding ViewModel.ForwardCommand}"/>
+                    </StackPanel>
+                    <TextBox x:Name="SearchBox" 
                              Margin="10" Width="300"
                              PlaceholderEnabled="True" 
                              PlaceholderText="Enter the Control Name ..."
                              IconPlacement="Right"
                              />
-                </DockPanel>
+                </StackPanel>
                 <TreeView x:Name="ControlsList" 
                          ItemsSource="{Binding ViewModel.Controls}"
                          SelectedItemChanged="ControlsList_SelectedItemChanged"
-                         Margin="10"
+                         Margin="10" Grid.Row="1"
                          >
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
@@ -46,7 +63,16 @@
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
                 </TreeView>
-            </StackPanel>
+                <DockPanel Grid.Row="2">
+                    <Button x:Name="SettingsButton" DockPanel.Dock="Bottom" 
+                            Margin="10" Width="300"
+                            Content="Settings"
+                            Icon="{SymbolIcon Settings24}"
+                            HorizontalContentAlignment="Left"
+                            Command="{Binding ViewModel.SettingsCommand}"
+                            />
+                </DockPanel>
+            </Grid>
             <Border Padding="16" Grid.Column="1" >
                 <Frame x:Name="RootContentFrame"/>
             </Border>

@@ -3,23 +3,28 @@
 ### Current Issues
 
 #### Urgent
-- [] Scrollbar over stackpanel for control pages
-- [] Treeview no gap between elements
-- [] Listbox scrollbar above items
-- [] TextBlock colour on load is not as per theme
-- [] Missing CornerRadius in Image
+- [] Mica backdrop -> navigation -> backdrop off.
+
+- [DONE] TextBlock colour on load is not as per theme
+- [DONE] Scrollbar over stackpanel for control pages
+- [DONE] Listbox scrollbar above items
+- [PARTIAL] Treeview no gap between elements
 #### Important
+- [] Missing CornerRadius in Image
 - [] TextBox border linear gradient not applied
 - [] TextBlock margin and padding both set only then work ?
 
 ### Work Items for the app
 
-- [x] Dashboard, other control collection pages
-- [] Backdrop change from settings page
-- [] Settings page styling
-- [x] Image change in image page
+- [DONE] Dashboard, other control collection pages
+- [DONE] Settings page styling
+- [DONE] Settings at the bottom
+- [DONE] Navigation back and forward buttons ?
+- [DROP] Backdrop change from settings page
+- [DONE] Image change in image page
+- [] Search box functionality
+- [] Connect navigation with mainwindow
+
 - [] Canvas path change canvas page
-- [] Settings at the bottom
-- [] Navigation back and forward buttons ?
 
 - [] Use built-in WPF navigation

@@ -9,7 +9,7 @@ namespace Win11ThemeGallery.ViewModels;
 public partial class MainWindowViewModel : ObservableObject
 {
     [ObservableProperty]
-    private string _applicationTitle = "WPF UI Gallery";
+    private string _applicationTitle = "WPF Win11 Theme Gallery";
 
     [ObservableProperty]
     private ICollection<NavigationItem> _controls = new ObservableCollection<NavigationItem>
@@ -102,10 +102,34 @@ public partial class MainWindowViewModel : ObservableObject
                 new NavigationItem("PasswordBox", typeof(PasswordBoxPage)),
             }
         },
-        new NavigationItem("Settings", typeof(SettingsPage)),
     };
 
     [ObservableProperty]
-    private NavigationItem _selectedControl;
+    private NavigationItem? _selectedControl;
+    private INavigationService _navigationService;
 
+    [RelayCommand]
+    public void Settings()
+    {
+        _navigationService.NavigateTo(typeof(SettingsPage));
+    }
+
+    [RelayCommand]
+    public void Back()
+    {
+        _navigationService.NavigateBack();
+    }
+
+    partial void OnSelectedControlChanged(NavigationItem value)
+    {
+        if(value != null)
+        {
+            _navigationService.NavigateTo(value.PageType);
+        }
+    }
+
+    public MainWindowViewModel(INavigationService navigationService)
+    {
+        _navigationService = navigationService;
+    }
 }

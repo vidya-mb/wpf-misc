@@ -30,8 +30,53 @@ public partial class MainWindow : FluentWindow
         InitializeComponent();
 
         _navigationService = navigationService;
+        _navigationService.NavigationOccured += _navigationService_NavigationOccured;
         _navigationService.SetFrame(this.RootContentFrame);
         _navigationService.NavigateTo(typeof(DashboardPage));
+    }
+
+    private bool _selectionChangedFromSource = false;
+
+    private void _navigationService_NavigationOccured(object? sender, NavigationOccuredEventArgs e)
+    {
+        NavigationItem navItem = ViewModel.GetNavigationItemFromPageType(e.PageType);
+        if (navItem != null)
+        {
+            _selectionChangedFromSource = true;
+            var _item = ControlsList.ItemContainerGenerator.ContainerFromItem(navItem);
+
+
+            Queue<TreeViewItem> _queue = new Queue<TreeViewItem>();
+            ItemsControl itemsControl = ControlsList;
+
+            foreach(object item in itemsControl.Items)
+            {
+                _queue.Enqueue(itemsControl.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem);
+            }
+
+            while(_queue.Count > 0)
+            {
+                TreeViewItem item = _queue.Dequeue();
+                if(item != null)
+                {
+                    if (item.DataContext == navItem)
+                    {
+                        item.IsSelected = true;
+                        item.IsExpanded = true;
+                        item.UpdateLayout();
+                        break;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < item.Items.Count; i++)
+                        {
+                            _queue.Enqueue(item.ItemContainerGenerator.ContainerFromIndex(i) as TreeViewItem);
+                        }
+                    }
+                }
+            }
+
+        }
     }
 
     private IServiceProvider _serviceProvider;
@@ -41,6 +86,12 @@ public partial class MainWindow : FluentWindow
 
     private void ControlsList_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
     {
+        if (_selectionChangedFromSource)
+        {
+            _selectionChangedFromSource = false;
+            return;
+        }
+
         if (ControlsList.SelectedItem is NavigationItem navItem)
         {
             _navigationService.NavigateTo(navItem.PageType);

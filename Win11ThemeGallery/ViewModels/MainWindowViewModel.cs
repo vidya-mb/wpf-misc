@@ -181,4 +181,35 @@ public partial class MainWindowViewModel : ObservableObject
         }
         return null;
     }
+
+    private NavigationItem? GetNavigationItemFromType(Type pageType, ICollection<NavigationItem> pages)
+    {
+        NavigationItem? _item = null;
+
+        if (pages == null)
+        {
+            return null;
+        }
+
+        foreach (var item in pages)
+        {
+            if (item.PageType == pageType)
+            {
+                return item;
+            }
+
+            _item = GetNavigationItemFromType(pageType, item.Children);
+
+            if (_item != null)
+            {
+                return _item;
+            }
+        }
+        return null;
+    }
+
+    internal NavigationItem? GetNavigationItemFromPageType(Type? pageType)
+    {
+        return GetNavigationItemFromType(pageType, _controls);
+    }
 }

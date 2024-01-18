@@ -13,6 +13,7 @@ public interface INavigationService
 
     void NavigateForward();
 
+    event EventHandler<NavigationOccuredEventArgs> NavigationOccured;
 }
 
 
@@ -28,6 +29,7 @@ public class NavigationService : INavigationService
 
     private readonly IServiceProvider _serviceProvider;
 
+    public event EventHandler<NavigationOccuredEventArgs> NavigationOccured;
 
     public NavigationService(IServiceProvider serviceProvider)
     {
@@ -50,6 +52,7 @@ public class NavigationService : INavigationService
             _currentPageType = type;
             var page = _serviceProvider.GetRequiredService(type);
             _frame.Navigate(page);
+            RaiseNavigationOccured(type);
         }
     }
 
@@ -65,6 +68,7 @@ public class NavigationService : INavigationService
                 _currentPageType = type;
                 var page = _serviceProvider.GetRequiredService(type);
                 _frame.Navigate(page);
+                RaiseNavigationOccured(type);
             }
         }
     }
@@ -81,8 +85,14 @@ public class NavigationService : INavigationService
                 _currentPageType = type;
                 var page = _serviceProvider.GetRequiredService(type);
                 _frame.Navigate(page);
+                RaiseNavigationOccured(type);
             }
         }
+    }
+
+    public void RaiseNavigationOccured(Type type)
+    {
+        NavigationOccured?.Invoke(this, new NavigationOccuredEventArgs(type));
     }
 
 }

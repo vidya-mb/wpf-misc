@@ -55,27 +55,33 @@ public class NavigationService : INavigationService
 
     public void NavigateBack()
     {
-        Type type = _history.Peek();
-        if (type != null)
+        if(_history.Count > 0)
         {
-            _history.Pop();
-            _future.Push(_currentPageType);
-            _currentPageType = type;
-            var page = _serviceProvider.GetRequiredService(type);
-            _frame.Navigate(page);
+            Type type = _history.Peek();
+            if (type != null)
+            {
+                _history.Pop();
+                _future.Push(_currentPageType);
+                _currentPageType = type;
+                var page = _serviceProvider.GetRequiredService(type);
+                _frame.Navigate(page);
+            }
         }
     }
 
     public void NavigateForward()
     {
-        Type type = _future.Peek();
-        if (type != null)
+        if(_future.Count > 0)
         {
-            _future.Pop();
-            _history.Push(_currentPageType);
-            _currentPageType = type;
-            var page = _serviceProvider.GetRequiredService(type);
-            _frame.Navigate(page);
+            Type type = _future.Peek();
+            if (type != null)
+            {
+                _future.Pop();
+                _history.Push(_currentPageType);
+                _currentPageType = type;
+                var page = _serviceProvider.GetRequiredService(type);
+                _frame.Navigate(page);
+            }
         }
     }
 

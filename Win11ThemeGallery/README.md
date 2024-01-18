@@ -20,8 +20,10 @@
 - [DONE] Settings page styling
 - [DONE] Settings at the bottom
 - [DONE] Navigation back and forward buttons ?
-- [DROP] Backdrop change from settings page
 - [DONE] Image change in image page
+
+- [DROP] Backdrop change from settings page
+
 - [] Search box functionality
 - [] Connect navigation with mainwindow
 - [] Canvas path change canvas page

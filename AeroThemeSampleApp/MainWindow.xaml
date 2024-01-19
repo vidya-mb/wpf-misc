@@ -1,0 +1,72 @@
+﻿<Window x:Class="AeroThemeSampleApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AeroThemeSampleApp"
+        mc:Ignorable="d"
+        Height="802" 
+        Width="1450"
+        WindowStartupLocation="CenterScreen"
+        Title="{Binding ViewModel.ApplicationTitle}" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10">
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="BackButton" 
+                            Margin="10 0 5 5"
+                            Content="Back"
+                            Command="{Binding ViewModel.BackCommand}"/>
+                        <Button x:Name="ForwardButton" 
+                            Margin="5 0 0 5"
+                            Content="Forward"
+                            Command="{Binding ViewModel.ForwardCommand}"/>
+                    </StackPanel>
+                    <TextBox x:Name="SearchBox" 
+                             Margin="10" Width="300"
+                             KeyUp="SearchBox_KeyUp"
+                             LostFocus="SearchBox_LostFocus" />
+                </StackPanel>
+                <TreeView x:Name="ControlsList" 
+                         ItemsSource="{Binding ViewModel.Controls}"
+                         SelectedItemChanged="ControlsList_SelectedItemChanged"
+                         Margin="10" Grid.Row="1">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Children}" >
+                            <TextBlock Text="{Binding Name}" Margin="2"/>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+                <DockPanel Grid.Row="2">
+                    <Button x:Name="SettingsButton" DockPanel.Dock="Bottom" 
+                            Margin="10" Width="300"
+                            Content="Settings"
+                            HorizontalContentAlignment="Left"
+                            Command="{Binding ViewModel.SettingsCommand}"/>
+                </DockPanel>
+            </Grid>
+            <Border Padding="16" Grid.Column="1" >
+                <Frame x:Name="RootContentFrame"/>
+            </Border>
+        </Grid>
+    </Grid>
+
+
+</Window>

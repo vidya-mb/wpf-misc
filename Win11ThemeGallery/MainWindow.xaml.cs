@@ -24,6 +24,7 @@ public partial class MainWindow : FluentWindow
     public MainWindow(MainWindowViewModel viewModel, IServiceProvider serviceProvider, INavigationService navigationService)
     {
         SystemThemeWatcher.Watch(this);
+        ApplicationThemeManager.Apply(ApplicationTheme.Dark);
         _serviceProvider = serviceProvider;
         ViewModel = viewModel;
         DataContext = this;

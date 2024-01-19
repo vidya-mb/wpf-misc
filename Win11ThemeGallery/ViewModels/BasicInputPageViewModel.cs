@@ -31,28 +31,28 @@ namespace Win11ThemeGallery.ViewModels
             new NavigationCard
             {
                 Name = "CheckBox",
-                PageType = typeof(ButtonPage),
+                PageType = typeof(NavigationPage),
                 Icon = new SymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
                 Description = "Button with binary choice"
             },
             new NavigationCard
             {
                 Name = "ComboBox",
-                PageType = typeof(ButtonPage),
+                PageType = typeof(ComboBoxPage),
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Filter16 },
                 Description = "Select item from a list"
             },
             new NavigationCard
             {
                 Name = "RadioButton",
-                PageType = typeof(ButtonPage),
+                PageType = typeof(RadioButtonPage),
                 Icon = new SymbolIcon { Symbol = SymbolRegular.RadioButton24 },
                 Description = "Set of mutually exclusive choices"
             },
             new NavigationCard
             {
                 Name = "Slider",
-                PageType = typeof(ButtonPage),
+                PageType = typeof(SliderPage),
                 Icon = new SymbolIcon { Symbol = SymbolRegular.HandDraw24 },
                 Description = "Sliding value selector"
             },

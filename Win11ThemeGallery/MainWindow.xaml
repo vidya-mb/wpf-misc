@@ -48,8 +48,11 @@
                     <TextBox x:Name="SearchBox" 
                              Margin="10" Width="300"
                              PlaceholderEnabled="True" 
-                             PlaceholderText="Enter the Control Name ..."
+                             PlaceholderText="Search..."
                              IconPlacement="Right"
+                             KeyUp="SearchBox_KeyUp"
+                             LostFocus="SearchBox_LostFocus"
+                             Icon="{SymbolIcon Search24}"
                              />
                 </StackPanel>
                 <TreeView x:Name="ControlsList" 

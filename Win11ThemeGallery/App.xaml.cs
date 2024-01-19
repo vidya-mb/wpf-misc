@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Win11ThemeGallery.Navigation;
 using Win11ThemeGallery.ViewModels;
 using Win11ThemeGallery.Views;
+using Win11ThemeGallery.Views.Samples;
+using Win11ThemeGallery.ViewModels.Samples;
 
 namespace Win11ThemeGallery;
 
@@ -89,6 +91,11 @@ public partial class App : Application
             services.AddTransient<DateAndTimePageViewModel>();
             services.AddTransient<StatusAndInfoPage>();
             services.AddTransient<StatusAndInfoPageViewModel>();
+            services.AddTransient<SamplesPage>();
+            services.AddTransient<SamplesPageViewModel>();
+
+            services.AddTransient<UserDashboardPage>();
+            services.AddTransient<UserDashboardPageViewModel>();
 
             services.AddSingleton<SettingsPage>();
             services.AddSingleton<SettingsPageViewModel>();

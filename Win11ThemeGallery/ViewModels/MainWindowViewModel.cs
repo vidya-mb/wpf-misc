@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using Win11ThemeGallery.Navigation;
 using Win11ThemeGallery.Views;
+using Win11ThemeGallery.Views.Samples;
 
 namespace Win11ThemeGallery.ViewModels;
 
@@ -11,10 +12,23 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     private string _applicationTitle = "WPF Win11 Theme Gallery";
 
+    private DispatcherTimer _timer;
+
+    private string _searchText = string.Empty;
+
     [ObservableProperty]
     private ICollection<NavigationItem> _controls = new ObservableCollection<NavigationItem>
     {
         new NavigationItem("Home", typeof(DashboardPage)),
+        new NavigationItem
+        {
+            Name = "Samples",
+            PageType = typeof(SamplesPage),
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("User Dashboard", typeof(UserDashboardPage)),
+            }
+        },
         new NavigationItem
         {
             Name = "Basic Input",
@@ -129,5 +143,52 @@ public partial class MainWindowViewModel : ObservableObject
     public MainWindowViewModel(INavigationService navigationService)
     {
         _navigationService = navigationService;
+        _timer = new DispatcherTimer();
+        _timer.Interval = TimeSpan.FromMilliseconds(400);
+        _timer.Tick += PerformSearchNavigation;
+    }
+
+    public void UpdateSearchText(string searchText)
+    {
+        _searchText = searchText;
+        _timer.Stop();
+        _timer.Start();
+    }
+
+    private void PerformSearchNavigation(object? sender, EventArgs e)
+    {
+        _timer.Stop();
+        if (string.IsNullOrWhiteSpace(_searchText))
+        {
+            return;
+        }
+
+        _navigationService.NavigateTo(GetNavigationPageTypeFromName(_searchText, _controls));
+    }
+
+    private Type? GetNavigationPageTypeFromName(string name, ICollection<NavigationItem> pages)
+    {
+        Type? type = null;
+
+        if(pages == null)
+        {
+            return null;
+        }
+
+        foreach(var item in pages)
+        {
+            if (item.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+            {
+                return item.PageType!;
+            }
+
+            type = GetNavigationPageTypeFromName(name, item.Children);
+
+            if(type != null)
+            {
+                return type;
+            }
+        }
+        return null;
     }
 }

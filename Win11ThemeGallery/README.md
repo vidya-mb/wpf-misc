@@ -31,27 +31,6 @@
 - [PARTIAL] Connect navigation with mainwindow
 - [DROP] Use built-in WPF navigation
 
-<<<<<<< HEAD
-- [] Use built-in WPF navigation
-
-
-### Suggestions 
-
-Start with light theme. Then once on the page where you can switch, there we can show the switching of theme and SystemThemewatcher functionality.
-[DONE] Basic Input Page Button Heading is coming black in dark theme. (Happening on every page)
-[DONE] Button Page - WPF Ui button with modified content template - Doesn't show up something good. We can get rid of that.
-[DONE] DLL name is showing up at the top below the heading, not required in sample app.(on every page)
-Datagrid sorting and arrow marks absent. May be noticed. Unable to differentiate between header and normal rows.
-[DROP] Media Canvas doesn't show up something meaningful, might need to make it better or just drop it.
-[DROP] Not sure if we have done any changes for image, if there is nothing then showing in the sample app - maybe just drop. 
-Menu Page - Colors and background black, unable to see the text.
-Tab control page = tab boundaries not showing up properly in dark theme.
-[DONE] Progress Bar = Only showing indeterminate, maybe we can show regular progress bar with some progress.
-[DONE] TextBox = why are we mentioning WPFUI text box? Just WPF Text box should be fine.
-[DONE] textblock = color is black on dark, not visible.
-Password Box - not looking good. should be dropped for demo in my understanding.
-High Contrast - datepicker control rendering red background. Datagrid red as well. Make sure we don't; show this in demo.
-=======
 
 ### Suggestions 
 
@@ -79,4 +58,3 @@ High Contrast - datepicker control rendering red background. Datagrid red as wel
 
 [DONE] (Suggestion) Can we add a slightly different background to the side menu so that it separates from the body and looks disconnected from it.
 [] Datagrid Styling - DataGridCell/DataGridHeader Borders does not look consistent. (Could be by design)
->>>>>>> 48a55d625508c913f6e8bc71b24ba1af040ebf2b

@@ -22,7 +22,7 @@
 	</ItemGroup>
 	
 	<PropertyGroup>
-		<WpfRepoRoot>C:\Users\hmishra\Desktop\Git\win11\ashish-wpf</WpfRepoRoot>
+		<WpfRepoRoot>E:\repos\wpf</WpfRepoRoot>
 	</PropertyGroup>
 	<Import Project="$(WpfRepoRoot)\eng\wpf-debug.targets" />
 

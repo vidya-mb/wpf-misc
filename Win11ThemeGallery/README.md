@@ -5,10 +5,13 @@
 #### Urgent
 - [] Mica backdrop -> navigation -> backdrop off.
 
-- [DONE] TextBlock colour on load is not as per theme
+- [DONE] TextBlock colour on load is not as per theme 
+    - For this uncomment line 12 in TextBlock.xaml in WPF.
+    - However doing this creates issue for buttons ( Mismatch in icon and text colour )
 - [DONE] Scrollbar over stackpanel for control pages
 - [DONE] Listbox scrollbar above items
 - [PARTIAL] Treeview no gap between elements
+
 #### Important
 - [] Missing CornerRadius in Image
 - [] TextBox border linear gradient not applied
@@ -25,8 +28,8 @@
 
 - [DROP] Backdrop change from settings page
 
-- [] Connect navigation with mainwindow
-- [] Use built-in WPF navigation
+- [PARTIAL] Connect navigation with mainwindow
+- [DROP] Use built-in WPF navigation
 
 
 ### Suggestions 

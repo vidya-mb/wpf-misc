@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using Win11ThemeGallery.Navigation;
 using Win11ThemeGallery.Views;
+using Win11ThemeGallery.Views.Samples;
 
 namespace Win11ThemeGallery.ViewModels;
 
@@ -19,6 +20,15 @@ public partial class MainWindowViewModel : ObservableObject
     private ICollection<NavigationItem> _controls = new ObservableCollection<NavigationItem>
     {
         new NavigationItem("Home", typeof(DashboardPage)),
+        new NavigationItem
+        {
+            Name = "Samples",
+            PageType = typeof(SamplesPage),
+            Children = new ObservableCollection<NavigationItem>
+            {
+                new NavigationItem("User Dashboard", typeof(UserDashboardPage)),
+            }
+        },
         new NavigationItem
         {
             Name = "Basic Input",

@@ -34,19 +34,18 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Orientation="Vertical">
-                    
-                <StackPanel Orientation="Horizontal">
-                    <Button x:Name="BackButton" 
-                            Margin="10 0 5 5"
-                            Icon="{SymbolIcon ArrowLeft24}"
-                            Command="{Binding ViewModel.BackCommand}"/>
-                    <Button x:Name="ForwardButton" 
-                            Margin="5 0 0 5"
-                            Icon="{SymbolIcon ArrowRight24}"
-                            Command="{Binding ViewModel.ForwardCommand}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="BackButton" 
+                                Margin="10 0 5 5"
+                                Icon="{SymbolIcon ArrowLeft24}"
+                                Command="{Binding ViewModel.BackCommand}"/>
+                        <Button x:Name="ForwardButton" 
+                                Margin="5 0 0 5"
+                                Icon="{SymbolIcon ArrowRight24}"
+                                Command="{Binding ViewModel.ForwardCommand}"/>
                     </StackPanel>
                     <TextBox x:Name="SearchBox" 
-                             Margin="10" Width="300"
+                             Margin="10" Width="250"
                              PlaceholderEnabled="True" 
                              PlaceholderText="Search..."
                              IconPlacement="Right"
@@ -68,7 +67,7 @@
                 </TreeView>
                 <DockPanel Grid.Row="2">
                     <Button x:Name="SettingsButton" DockPanel.Dock="Bottom" 
-                            Margin="10" Width="300"
+                            Margin="10" Width="250"
                             Content="Settings"
                             Icon="{SymbolIcon Settings24}"
                             HorizontalContentAlignment="Left"

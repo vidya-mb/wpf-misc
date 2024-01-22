@@ -16,6 +16,12 @@ public class User
 
     public string Name => FirstName + " " + LastName;
 
+    public string ImageId { get; set; } = "91";
+
+    public string ImageKey => $"p{ImageId}";
+
+    //public string ImageUrl => $"pack://application:,,,/Assets/{ImageId}-100x100.jpg";
+
     // TextBox
     public string? Company { get; set; }
 
@@ -42,6 +48,7 @@ public class User
 
     public User(User user)
     {
+        ImageId = user.ImageId;
         UserAvatarColor = user.UserAvatarColor;
         FirstName = user.FirstName;
         LastName = user.LastName;
@@ -63,6 +70,16 @@ public class User
     public User(AvatarColor avatarColor, string? firstName, string? lastName, string? company, string? address, bool isNewGraduate= false)
     {
         UserAvatarColor = avatarColor;
+        FirstName = firstName;
+        LastName = lastName;
+        Company = company;
+        Address = address;
+        IsNewGraduate = isNewGraduate;
+    }
+
+    public User(string imageID, string? firstName, string? lastName, string? company, string? address, bool isNewGraduate = false)
+    {
+        ImageId = imageID;
         FirstName = firstName;
         LastName = lastName;
         Company = company;

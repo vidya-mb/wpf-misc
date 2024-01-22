@@ -83,6 +83,9 @@ namespace AeroThemeSampleApp.ViewModels
             var random = new Random();
             var users = new ObservableCollection<User>();
 
+            var imageids = new[] { "64","65", "91", "103", "177", "334", "338", "342", "349", "366", "367", "373",
+                                    "375", "378", "399", "447", "453", "473", "469", "505"};
+
             var names = new[]
             {
                 "John",
@@ -149,7 +152,7 @@ namespace AeroThemeSampleApp.ViewModels
             for (int i = 0; i < 20; i++)
                 users.Add(
                     new User(
-                        (AvatarColor)random.Next(ncolors),
+                        imageids[random.Next(0, imageids.Length)],
                         names[random.Next(0, names.Length)],
                         surnames[random.Next(0, surnames.Length)],
                         companies[random.Next(0, companies.Length)],

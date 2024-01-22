@@ -19,6 +19,7 @@
 	<ItemGroup>
 		<Resource Include="Assets\win11.png" />
 		<Resource Include="Assets\win11-dashboard.png" />
+		<Resource Include="Assets\*-100x100.jpg" />
 	</ItemGroup>
 	
 	<PropertyGroup>

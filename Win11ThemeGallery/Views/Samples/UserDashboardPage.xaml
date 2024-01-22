@@ -8,8 +8,8 @@
     xmlns:helpers="clr-namespace:Win11ThemeGallery.Helpers" mc:Ignorable="d" Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     d:DesignHeight="450" d:DesignWidth="800" Title="UserDashboardPage">
     <Page.Resources>
+        <helpers:ImageIdToBrushConverter x:Key="ImageIdToBrushConverter" />
         <helpers:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
-        <helpers:AvatarColorToGradientConverter x:Key="AvatarColorToGradientConverter" />
     </Page.Resources>
 
     <Grid>
@@ -36,8 +36,11 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Ellipse x:Name="Ellipse" Grid.RowSpan="2" Width="32" Height="32" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                     Fill="{Binding UserAvatarColor, Converter={StaticResource AvatarColorToGradientConverter}}" />
+                            <Ellipse x:Name="Ellipse" Grid.RowSpan="2" Width="32" Height="32" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Ellipse.Fill>
+                                    <Binding Path="ImageKey" Converter="{StaticResource ImageIdToBrushConverter}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
                             <TextBlock Grid.Row="0" Grid.Column="1" Margin="12,6,0,0" FontWeight="Bold" Text="{Binding Name, Mode=OneWay}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" Margin="12,0,0,6" Foreground="{x:ThemeResource TextFillColorSecondaryBrush}" Text="{Binding Company, Mode=OneWay}" />
                         </Grid>
@@ -62,8 +65,11 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                        <Ellipse x:Name="UserAvatar" Width="96" Height="96" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                 Fill="{Binding ViewModel.SelectedUser.UserAvatarColor, Converter={StaticResource AvatarColorToGradientConverter}}" />
+                        <Ellipse x:Name="UserAvatar" Width="96" Height="96" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <Binding Path="ViewModel.SelectedUser.ImageKey" Converter="{StaticResource ImageIdToBrushConverter}" />
+                            </Ellipse.Fill>
+                        </Ellipse>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock FontSize="24" Text="{Binding ViewModel.SelectedUser.Name}" />
                             <TextBlock FontSize="16" Text="{Binding ViewModel.SelectedUser.Company}" />
@@ -72,53 +78,32 @@
 
                     <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="Address :" Width="100" FontWeight="SemiBold" />
+                            <Label Content="Address :" Width="80" FontWeight="SemiBold" />
                             <TextBlock Text="{Binding ViewModel.SelectedUser.Address}" MaxWidth="250" TextWrapping="Wrap"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="Age :" Width="100" FontWeight="SemiBold" />
+                            <Label Content="Age :" Width="80" FontWeight="SemiBold" />
                             <TextBlock Text="{Binding ViewModel.SelectedUser.Age}" MaxWidth="300" TextWrapping="Wrap"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="Date of Joining :" Width="100" FontWeight="SemiBold" />
+                            <Label Content="DOJ :" Width="80" FontWeight="SemiBold" />
                             <TextBlock Text="{Binding ViewModel.SelectedUser.DateOfJoining, StringFormat='D'}" MaxWidth="300" TextWrapping="Wrap"/>
                         </StackPanel>
                     </StackPanel>
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="Edit" Command="{Binding ViewModel.EditUserStartCommand}" Appearance="Primary" Margin="10"/>
-                    <Button Content="Delete" Command="{Binding ViewModel.RemoveUserCommand}" CommandParameter="{Binding ViewModel.SelectedUser}" Appearance="Danger" Margin="10"/>
+                    <Button Content="Edit" Command="{Binding ViewModel.EditUserStartCommand}" Margin="10"/>
+                    <Button Content="Delete" Command="{Binding ViewModel.RemoveUserCommand}" CommandParameter="{Binding ViewModel.SelectedUser}" Margin="10"/>
                 </StackPanel>
             </StackPanel>
 
             <Grid Grid.Row="1" Margin="20 10 20 10"
                   Visibility="{Binding ViewModel.EditableUser, Converter={StaticResource NullToVisibilityConverter}}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <Ellipse x:Name="EditUserAvatar" Width="96" Height="96" 
-                         Margin="12" HorizontalAlignment="Center" 
-                         Fill="{Binding ViewModel.EditableUser.UserAvatarColor, Converter={StaticResource AvatarColorToGradientConverter}}" />
-                    <!--<WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                        <Ellipse Width="24" Height="24" Margin="2" Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
-                    </WrapPanel>-->
-                    <ComboBox ItemsSource="{Binding ViewModel.AvatarColors}" 
-                              SelectedItem="{Binding ViewModel.EditableUser.UserAvatarColor}" />
-                </StackPanel>
                 <ScrollViewer Grid.Column="1">
                     <StackPanel Margin="20 0 20 0">
                         <Grid>
@@ -155,8 +140,8 @@
                         </StackPanel>
                         
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Appearance="Primary" Content="Save" Command="{Binding ViewModel.EditUserCommitCommand}" Margin="10"/>
-                            <Button Appearance="Danger" Content="Cancel" Command="{Binding ViewModel.EditUserCancelCommand}" Margin="10"/>
+                            <Button Content="Save" Command="{Binding ViewModel.EditUserCommitCommand}" Margin="10"/>
+                            <Button Content="Cancel" Command="{Binding ViewModel.EditUserCancelCommand}" Margin="10"/>
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>

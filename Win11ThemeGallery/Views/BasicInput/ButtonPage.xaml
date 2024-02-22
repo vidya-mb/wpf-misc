@@ -104,7 +104,7 @@
             HeaderText="WPF Accent Button"
             XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF Accent Button&quot; Icon=&quot;Fluent24&quot; /&gt;">
                     <Button
-                Appearance="Primary"
+                Style="{StaticResource DefaultAccentUiButtonStyle}"
                 Content="WPF Accent Button"
                 Icon="{SymbolIcon Fluent24}" />
                 </controls:ControlExample>
@@ -114,7 +114,7 @@
             HeaderText="WPF Button with FontIcon"
             XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF FontIcon Button&quot; /&gt;">
                     <Button
-                Appearance="Primary"
+                Style="{StaticResource DefaultAccentUiButtonStyle}"
                 Content="FontIcon Button"
                 >
                         <Button.Icon>

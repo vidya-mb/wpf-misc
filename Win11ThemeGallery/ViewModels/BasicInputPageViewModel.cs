@@ -31,7 +31,7 @@ namespace Win11ThemeGallery.ViewModels
             new NavigationCard
             {
                 Name = "CheckBox",
-                PageType = typeof(NavigationPage),
+                PageType = typeof(CheckBoxPage),
                 Icon = new SymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
                 Description = "Button with binary choice"
             },

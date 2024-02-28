@@ -87,15 +87,18 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Button
-                    Grid.Column="0"
-                    Content="Font Icon Button"
-                    Icon="{SymbolIcon Fluent24}"
-                    IsEnabled="{Binding ViewModel.IsUiButtonEnabled, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ButtonPage}, Mode=OneWay}" />
+                            Grid.Column="0"
+                            IsEnabled="{Binding ViewModel.IsUiButtonEnabled, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ButtonPage}, Mode=OneWay}">
+                            <StackPanel Orientation="Horizontal">
+                                <!--<SymbolIcon Symbol="Fluent24" />-->
+                                <TextBlock Text="Font Icon Button" />
+                            </StackPanel>
+                        </Button>
                         <CheckBox
-                    Grid.Column="1"
-                    Command="{Binding ViewModel.UiButtonCheckboxCheckedCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ButtonPage}, Mode=OneWay}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource Self}, Mode=OneWay}"
-                    Content="Disable button" />
+                            Grid.Column="1"
+                            Command="{Binding ViewModel.UiButtonCheckboxCheckedCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ButtonPage}, Mode=OneWay}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Self}, Mode=OneWay}"
+                            Content="Disable button" />
                     </Grid>
                 </controls:ControlExample>
 
@@ -103,43 +106,52 @@
             Margin="0,32,0,0"
             HeaderText="WPF Accent Button"
             XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF Accent Button&quot; Icon=&quot;Fluent24&quot; /&gt;">
-                    <Button
-                Style="{StaticResource DefaultAccentUiButtonStyle}"
-                Content="WPF Accent Button"
-                Icon="{SymbolIcon Fluent24}" />
-                </controls:ControlExample>
-
-                <controls:ControlExample
-            Margin="0,32,0,0"
-            HeaderText="WPF Button with FontIcon"
-            XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF FontIcon Button&quot; /&gt;">
-                    <Button
-                Style="{StaticResource DefaultAccentUiButtonStyle}"
-                Content="FontIcon Button"
-                >
-                        <Button.Icon>
-                            <FontIcon Glyph="&#x1F308;" />
-                        </Button.Icon>
+                    <Button Style="{StaticResource DefaultAccentUiButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<SymbolIcon Symbol="Fluent24" />-->
+                            <TextBlock Foreground="{DynamicResource AccentButtonForeground}" Text="WPF Accent Button" />
+                        </StackPanel>
                     </Button>
                 </controls:ControlExample>
 
                 <controls:ControlExample
-            Margin="0,32,0,0"
-            HeaderText="WPF Button with ImageIcon"
-            XamlCode="&lt;Button Appearance=&quot;Primary&quot; /&gt;">
-                    <Button
-                Content="ImageIcon Button">
-                        <Button.Icon>
+                    Margin="0,32,0,0"
+                    HeaderText="WPF Button with FontIcon"
+                    XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF FontIcon Button&quot; /&gt;">
+                    <Button Style="{StaticResource DefaultAccentUiButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#x1F308;" />
+                            <TextBlock Text="FontIcon Button" />
+                        </StackPanel>
+                    </Button>
+                </controls:ControlExample>
+
+                <controls:ControlExample
+                    Margin="0,32,0,0"
+                    HeaderText="WPF Button with FontIcon"
+                    XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF FontIcon Button&quot; /&gt;">
+                    <Button Style="{StaticResource DefaultAccentUiButtonStyle}">
+                        <TextBlock Text="FontIcon Button" />
+                    </Button>
+                </controls:ControlExample>
+
+                <controls:ControlExample
+                    Margin="0,32,0,0"
+                    HeaderText="WPF Button with ImageIcon"
+                    XamlCode="&lt;Button Appearance=&quot;Primary&quot; /&gt;">
+                    <Button>
+                        <StackPanel Orientation="Horizontal">
                             <ImageIcon Height="24" Width="24" Source="pack://application:,,,/Assets/win11.png" />
-                        </Button.Icon>
+                            <TextBlock Text="ImageIcon Button" />
+                        </StackPanel>
                     </Button>
 
                 </controls:ControlExample>
 
                 <!-- <controls:ControlExample
-            Margin="0,32,0,0"
-            HeaderText="WPF button with modified content template."
-            XamlCode="&lt;Button Appearance=&quot;Primary&quot; /&gt;">
+                    Margin="0,32,0,0"
+                    HeaderText="WPF button with modified content template."
+                    XamlCode="&lt;Button Appearance=&quot;Primary&quot; /&gt;">
                     <Button Width="40" Appearance="Danger" ContentTemplate="{StaticResource ViewBoxCustomButtonContentTemplate}">
                         <Canvas Width="47" Height="99">
                             <Path Data="M0,19H18V84h29v15H0V19Z" Fill="{DynamicResource TextFillColorSecondaryBrush}" />

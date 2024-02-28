@@ -25,14 +25,14 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Canvas",
                 PageType = typeof(CanvasPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.InkStroke24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.InkStroke24 },
                 Description = "Canvas presenter"
             },
             new NavigationCard
             {
                 Name = "Image",
                 PageType = typeof(ImagePage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.ImageMultiple24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.ImageMultiple24 },
                 Description = "Image presente"
             },
         };

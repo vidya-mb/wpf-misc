@@ -25,14 +25,14 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "ProgressBar",
                 PageType = typeof(ProgressBarPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.ArrowDownload24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.ArrowDownload24 },
                 Description = "Shows the app progress on a task"
             },
             new NavigationCard
             {
                 Name = "ToolTip",
                 PageType = typeof(ToolTipPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Comment24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.Comment24 },
                 Description = "Information in popup window"
             },
         };

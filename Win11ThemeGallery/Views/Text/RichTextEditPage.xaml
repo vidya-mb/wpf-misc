@@ -34,14 +34,14 @@
                   Margin="0"
                   HeaderText="A simple RichTextBox"
                   XamlCode="&lt;RichTextBox /&gt;">
-                    <RichTextBox IsTextSelectionEnabled="False"/>
+                    <RichTextBox/>
                 </controls:ControlExample>
 
                 <controls:ControlExample
                   Margin="0"
                   HeaderText="A simple RichTextBox"
                   XamlCode="&lt;RichTextBox /&gt;">
-                    <RichTextBox IsTextSelectionEnabled="True"/>
+                    <RichTextBox/>
                 </controls:ControlExample>
             </StackPanel>
         </ScrollViewer>

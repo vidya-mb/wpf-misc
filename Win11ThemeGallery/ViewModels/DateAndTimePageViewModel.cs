@@ -25,14 +25,14 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Calendar",
                 PageType = typeof(CalendarPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.CalendarLtr24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.CalendarLtr24 },
                 Description = "Presents a calendar to the user"
             },
             new NavigationCard
             {
                 Name = "DatePicker",
                 PageType = typeof(DatePickerPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.CalendarSearch20 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.CalendarSearch20 },
                 Description = "Control that lets pick a date"
             },
         };

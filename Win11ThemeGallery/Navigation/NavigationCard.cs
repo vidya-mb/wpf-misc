@@ -25,13 +25,13 @@ namespace Win11ThemeGallery.Navigation
             Description = description;
         }
 
-        public NavigationCard(string name, Type pageType, SymbolRegular icon, string description = "")
-        {
-            Name = name;
-            PageType = pageType;
-            Description = description;
-            Icon = new SymbolIcon { Symbol = icon };
-        }
+        //public NavigationCard(string name, Type pageType, SymbolRegular icon, string description = "")
+        //{
+        //    Name = name;
+        //    PageType = pageType;
+        //    Description = description;
+        //   // Icon = newSymbolIcon { Symbol = icon };
+        //}
 
         public override string ToString()
         {

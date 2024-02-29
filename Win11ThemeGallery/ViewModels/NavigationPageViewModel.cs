@@ -25,14 +25,14 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Menu",
                 PageType = typeof(MenuPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.RowTriple24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.RowTriple24 },
                 Description = "Contains a collection of MenuItem elements"
             },
             new NavigationCard
             {
                 Name = "TabControl",
                 PageType = typeof(TabControlPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.TabDesktopBottom24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.TabDesktopBottom24 },
                 Description = "Tab control like in browser"
             },
         };

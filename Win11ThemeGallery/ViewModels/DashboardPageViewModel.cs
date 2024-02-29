@@ -19,56 +19,56 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Basic Input",
                 PageType = typeof(BasicInputPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
                 Description = "Button, CheckBox, Slider..."
             },
             new NavigationCard
             {
                 Name = "Collections",
                 PageType = typeof(CollectionsPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Table24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.Table24 },
                 Description = "DataGrid, ListBox..."
             },
             new NavigationCard
             {
                 Name = "Date & Time",
                 PageType = typeof(DateAndTimePage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.CalendarClock24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.CalendarClock24 },
                 Description = "Calendar, DatePicker"
             },
             new NavigationCard
             {
                 Name = "Layout",
                 PageType = typeof(LayoutPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.News24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.News24 },
                 Description = "Expander"
             },
             // new NavigationCard
             // {
             //     Name = "Media",
             //     PageType = typeof(MediaPage),
-            //     Icon = new SymbolIcon { Symbol = SymbolRegular.PlayCircle24 },
+            //     Icon = newSymbolIcon { Symbol = SymbolRegular.PlayCircle24 },
             //     Description = "Canvas, Image"
             // },
             new NavigationCard
             {
                 Name = "Navigation",
                 PageType = typeof(NavigationPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Navigation24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.Navigation24 },
                 Description = "Menu, TabControl"
             },
             new NavigationCard
             {
                 Name = "Status & Info",
                 PageType = typeof(StatusAndInfoPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.ChatBubblesQuestion24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.ChatBubblesQuestion24 },
                 Description = "ProgressBar, ToolTip"
             },
             new NavigationCard
             {
                 Name = "Text",
                 PageType = typeof(TextPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.DrawText24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.DrawText24 },
                 Description = "Label, TextBox, ..."
             },
         };

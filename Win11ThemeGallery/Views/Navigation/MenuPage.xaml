@@ -41,7 +41,7 @@
                 &lt;/Menu&gt;
             </controls:ControlExample.XamlCode>
             <Menu FontSize="14">
-                <MenuItem Header="File" Icon="{SymbolIcon DocumentSplitHint20}">
+                    <MenuItem Header="File" Icon="{x:FontIcon '&#xE8A5;', FontFamily='Segoe Fluent Icons'}">
                     <MenuItem Header="New" />
                     <MenuItem Header="New window" />
                     <MenuItem Header="Open..." />
@@ -50,7 +50,7 @@
                     <Separator />
                     <MenuItem Header="Exit" />
                 </MenuItem>
-                <MenuItem Header="Edit" Icon="{SymbolIcon DocumentEdit20}">
+                <MenuItem Header="Edit" Icon="{x:FontIcon '&#xE70F;', FontFamily='Segoe Fluent Icons'}">
                     <MenuItem Header="Undo" />
                     <Separator />
                     <MenuItem Header="Cut" />
@@ -65,9 +65,9 @@
                     <MenuItem Header="Select All" />
                 </MenuItem>
                 <Separator />
-                <MenuItem Icon="{SymbolIcon TextBold20}" />
-                <MenuItem Icon="{SymbolIcon TextItalic20}" />
-                <MenuItem Icon="{SymbolIcon TextUnderline20}" />
+                        <MenuItem Icon="{x:FontIcon '&#xE8DD;', FontFamily='Segoe Fluent Icons'}" />
+                        <MenuItem Icon="{x:FontIcon '&#xE8DB;', FontFamily='Segoe Fluent Icons'}" />
+                        <MenuItem Icon="{x:FontIcon '&#xE8DC;', FontFamily='Segoe Fluent Icons'}" />
             </Menu>
         </controls:ControlExample>
     </Grid>

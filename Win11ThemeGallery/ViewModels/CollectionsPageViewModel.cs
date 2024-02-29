@@ -26,28 +26,28 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Data Grid",
                 PageType = typeof(DataGridPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.GridKanban20 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.GridKanban20 },
                 Description = "Complex data presenter"
             },
             new NavigationCard
             {
                 Name = "ListBox",
                 PageType = typeof(ListBoxPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.AppsListDetail24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.AppsListDetail24 },
                 Description = "Selectable list"
             },
             new NavigationCard
             {
                 Name = "ListView",
                 PageType = typeof(ListViewPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.GroupList24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.GroupList24 },
                 Description = "Selectable list"
             },
             new NavigationCard
             {
                 Name = "TreeView",
                 PageType = typeof(TreeViewPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.TextBulletListTree24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.TextBulletListTree24 },
                 Description = "Hierarchical list control"
             },
         };

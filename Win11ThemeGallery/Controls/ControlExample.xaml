@@ -32,8 +32,8 @@
                         <Border
                             Grid.Row="1"
                             Padding="16"
-                            Background="{x:ThemeResource CardBackgroundFillColorDefaultBrush}"
-                            BorderBrush="{x:ThemeResource CardStrokeColorDefaultBrush}"
+                            Background="{DynamicResource CardStrokeColorDefaultSolidBrush}"
+                            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                             BorderThickness="1,1,1,0"
                             CornerRadius="8,8,0,0">
                             <ContentPresenter Content="{TemplateBinding ExampleContent}" />

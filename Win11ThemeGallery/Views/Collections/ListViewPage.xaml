@@ -95,7 +95,7 @@
                                     Margin="6"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Fill="{x:ThemeResource ControlStrongStrokeColorDefaultBrush}" />
+                                    Fill="{DynamicResource SystemAccentColorPrimaryBrush}" />
                                 <TextBlock
                                     Grid.Row="0"
                                     Grid.Column="1"
@@ -106,7 +106,7 @@
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     Margin="12,0,0,6"
-                                    Foreground="{x:ThemeResource TextFillColorSecondaryBrush}"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                     Text="{Binding Company, Mode=OneWay}" />
                             </Grid>
                         </DataTemplate>

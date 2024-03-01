@@ -29,14 +29,22 @@
     </Grid>
 
     <ScrollViewer Margin="0,0,0,24" Grid.Row="1">
-    <controls:ControlExample
-        Margin="0"
-        HeaderText="A simple RichTextBox"
-        XamlCode="&lt;RichTextBox /&gt;">
-        <RichTextBox />
-    </controls:ControlExample>
+            <StackPanel Margin="0,0,0,24">
+                <controls:ControlExample
+                  Margin="0"
+                  HeaderText="A simple RichTextBox"
+                  XamlCode="&lt;RichTextBox /&gt;">
+                    <RichTextBox/>
+                </controls:ControlExample>
 
-    </ScrollViewer>
+                <controls:ControlExample
+                  Margin="0"
+                  HeaderText="A simple RichTextBox"
+                  XamlCode="&lt;RichTextBox /&gt;">
+                    <RichTextBox/>
+                </controls:ControlExample>
+            </StackPanel>
+        </ScrollViewer>
   </Grid>
 
 </Page>

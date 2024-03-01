@@ -25,7 +25,7 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Expander",
                 PageType = typeof(ExpanderPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
                 Description = "Expander allows to show and hide content"
             },
         };

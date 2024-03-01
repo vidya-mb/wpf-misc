@@ -25,35 +25,35 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Button",
                 PageType = typeof(ButtonPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.ControlButton24 },
+                //Icon = new SymbolIcon { Symbol = SymbolRegular.ControlButton24 },
                 Description = "Simple Button"
             },
             new NavigationCard
             {
                 Name = "CheckBox",
-                PageType = typeof(NavigationPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
+                PageType = typeof(CheckBoxPage),
+                //Icon = new SymbolIcon { Symbol = SymbolRegular.CheckboxChecked24 },
                 Description = "Button with binary choice"
             },
             new NavigationCard
             {
                 Name = "ComboBox",
                 PageType = typeof(ComboBoxPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Filter16 },
+                //Icon = new SymbolIcon { Symbol = SymbolRegular.Filter16 },
                 Description = "Select item from a list"
             },
             new NavigationCard
             {
                 Name = "RadioButton",
                 PageType = typeof(RadioButtonPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.RadioButton24 },
+                //Icon = new SymbolIcon { Symbol = SymbolRegular.RadioButton24 },
                 Description = "Set of mutually exclusive choices"
             },
             new NavigationCard
             {
                 Name = "Slider",
                 PageType = typeof(SliderPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.HandDraw24 },
+                //Icon = new SymbolIcon { Symbol = SymbolRegular.HandDraw24 },
                 Description = "Sliding value selector"
             },
 

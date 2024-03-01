@@ -3,10 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Win11ThemeGallery.Controls"
     xmlns:helpers="clr-namespace:Win11ThemeGallery.Helpers">
-    
-     <Color x:Key="ControlStrokeColorDefault">#0F000000</Color>
-    <Color x:Key="ControlStrokeColorSecondary">#29000000</Color>
-     
+
     <Style x:Key="CardButton" TargetType="{x:Type Button}"
                BasedOn="{StaticResource DefaultUiButtonStyle}">
         <Setter Property="Width" Value="400"/>
@@ -15,21 +12,7 @@
         <Setter Property="Padding" Value="20 10" />
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="40"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>        
-
-        <Setter Property="BorderBrush">
-            <Setter.Value>
-                <LinearGradientBrush MappingMode="Absolute" StartPoint="0,0" EndPoint="0,3">
-                    <LinearGradientBrush.RelativeTransform>
-                        <ScaleTransform CenterY="0.5" ScaleY="-1" />
-                    </LinearGradientBrush.RelativeTransform>
-                    <LinearGradientBrush.GradientStops>
-                        <GradientStop Offset="0.33" Color="{StaticResource ControlStrokeColorSecondary}" />
-                        <GradientStop Offset="1.0" Color="{StaticResource ControlStrokeColorDefault}" />
-                    </LinearGradientBrush.GradientStops>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
 
     <Style x:Key="ControlGroupPageTitle" TargetType="{x:Type TextBlock}"

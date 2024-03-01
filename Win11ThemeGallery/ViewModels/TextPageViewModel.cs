@@ -25,35 +25,35 @@ namespace Win11ThemeGallery.ViewModels
             {
                 Name = "Label",
                 PageType = typeof(LabelPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.TextBaseline20 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.TextBaseline20 },
                 Description = "Caption of an item"
             },
             new NavigationCard
             {
                 Name = "TextBlock",
                 PageType = typeof(TextBlockPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.TextCaseLowercase24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.TextCaseLowercase24 },
                 Description = "Control for displaying text"
             },
             new NavigationCard
             {
                 Name = "TextBox",
                 PageType = typeof(TextBoxPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.TextColor24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.TextColor24 },
                 Description = "Plain text field"
             },
             new NavigationCard
             {
                 Name = "RichTextEdit",
                 PageType = typeof(RichTextEditPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.DrawText24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.DrawText24 },
                 Description = "A rich text editing control"
             },
             new NavigationCard
             {
                 Name = "PasswordBox",
                 PageType = typeof(PasswordBoxPage),
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Password24 },
+               // Icon = newSymbolIcon { Symbol = SymbolRegular.Password24 },
                 Description = "A control for entering passwords"
             },
         };

@@ -23,8 +23,6 @@ public partial class MainWindow : Window
 {
     public MainWindow(MainWindowViewModel viewModel, IServiceProvider serviceProvider, INavigationService navigationService)
     {
-        SystemThemeWatcher.Watch(this);
-        ApplicationThemeManager.Apply(ApplicationTheme.Dark);
         _serviceProvider = serviceProvider;
         ViewModel = viewModel;
         DataContext = this;

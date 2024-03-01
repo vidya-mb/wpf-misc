@@ -9,30 +9,30 @@ namespace Win11ThemeGallery.ViewModels;
 /// </summary>
 public partial class SettingsPageViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private string _pageTitle = "Settings";
+    //[ObservableProperty]
+    //private string _pageTitle = "Settings";
 
-    [ObservableProperty]
-    private ApplicationTheme _currentApplicationTheme = ApplicationTheme.Unknown;
+    //[ObservableProperty]
+    //private ApplicationTheme _currentApplicationTheme = ApplicationTheme.Unknown;
 
-    private void OnThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
-    {
-        // Update the theme if it has been changed elsewhere than in the settings.
-        if (CurrentApplicationTheme != currentApplicationTheme)
-        {
-            CurrentApplicationTheme = currentApplicationTheme;
-        }
-    }
+    //private void OnThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
+    //{
+    //    // Update the theme if it has been changed elsewhere than in the settings.
+    //    if (CurrentApplicationTheme != currentApplicationTheme)
+    //    {
+    //        CurrentApplicationTheme = currentApplicationTheme;
+    //    }
+    //}
 
-    public SettingsPageViewModel()
-    {
-        CurrentApplicationTheme = ApplicationThemeManager.GetAppTheme();
-        ApplicationThemeManager.Changed += OnThemeChanged;
-    }
+    //public SettingsPageViewModel()
+    //{
+    //    CurrentApplicationTheme = ApplicationThemeManager.GetAppTheme();
+    //    ApplicationThemeManager.Changed += OnThemeChanged;
+    //}
 
-    partial void OnCurrentApplicationThemeChanged(ApplicationTheme oldValue, ApplicationTheme newValue)
-    {
-        ApplicationThemeManager.Apply(newValue);
-    }
+    //partial void OnCurrentApplicationThemeChanged(ApplicationTheme oldValue, ApplicationTheme newValue)
+    //{
+    //    ApplicationThemeManager.Apply(newValue);
+    //}
 
 }

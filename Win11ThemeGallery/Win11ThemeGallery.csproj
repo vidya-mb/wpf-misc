@@ -23,7 +23,7 @@
 	</ItemGroup>
 	
 	<PropertyGroup>
-		<WpfRepoRoot>E:\repos\wpf</WpfRepoRoot>
+		<WpfRepoRoot>C:\Users\hmishra\Desktop\Git\azdo\dotnet-wpf</WpfRepoRoot>
 	</PropertyGroup>
 	<Import Project="$(WpfRepoRoot)\eng\wpf-debug.targets" />
 

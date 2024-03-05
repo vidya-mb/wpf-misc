@@ -13,9 +13,7 @@
         Title="{Binding ViewModel.ApplicationTitle}" 
         Height="802" 
         Width="1450"
-        WindowStartupLocation="CenterScreen"
-        WindowBackdropType="Mica"
-        ExtendsContentIntoTitleBar="True">
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -37,11 +35,11 @@
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="BackButton" 
                                 Margin="10 0 5 5"
-                                Content="{x:FontIcon '&#xF0B0;', FontFamily='Segoe Fluent Icons'}"
+                                
                                 Command="{Binding ViewModel.BackCommand}"/>
                         <Button x:Name="ForwardButton" 
                                 Margin="5 0 0 5"
-                                Content="{x:FontIcon '&#xF0AF;', FontFamily='Segoe Fluent Icons'}"
+                                
                                 Command="{Binding ViewModel.ForwardCommand}"/>
                     </StackPanel>
                     <TextBox x:Name="SearchBox" 
@@ -69,7 +67,7 @@
                             Command="{Binding ViewModel.SettingsCommand}">
                         <StackPanel Orientation="Horizontal">
                             <!--<SymbolIcon Symbol="Settings24" />-->
-                            <FontIcon Glyph="&#xE713;" FontFamily="Segoe Fluent Icons" />
+
                             <TextBlock Text="Settings" Margin="10 0 0 0"/>
                         </StackPanel>
                     </Button>
@@ -79,15 +77,5 @@
                 <Frame x:Name="RootContentFrame"/>
             </Border>
         </Grid>
-
-        <TitleBar
-            x:Name="TitleBar"
-            Title="{Binding ViewModel.ApplicationTitle}"
-            Grid.Row="0"
-            CloseWindowByDoubleClickOnIcon="True">
-            <TitleBar.Icon>
-                <ImageIcon Source="pack://application:,,,/Assets/win11.png" />
-            </TitleBar.Icon>
-        </TitleBar>
     </Grid>
 </Window>

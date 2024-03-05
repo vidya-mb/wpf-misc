@@ -26,17 +26,17 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0"  FontSize="28" Padding="12" FontWeight="SemiBold">
                     <!--<SymbolIcon Symbol="Color24" />-->
-                    <FontIcon Glyph="&#xE790;" FontFamily="Segoe Fluent Icons" />
+                    
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center">
                     <TextBlock FontSize="18" FontWeight="SemiBold" Text="System Theme"/>
                     <TextBlock Text="Select which app theme to use" />
                 </StackPanel>
-                <ComboBox Grid.Column="2" MinWidth="200" SelectedIndex="{Binding ViewModel.CurrentApplicationTheme, Converter={StaticResource ThemeToIndexConverter}, Mode=TwoWay}">
+                <!--<ComboBox Grid.Column="2" MinWidth="200" SelectedIndex="{Binding ViewModel.CurrentApplicationTheme, Converter={StaticResource ThemeToIndexConverter}, Mode=TwoWay}">
                     <ComboBoxItem Content="Light" />
                     <ComboBoxItem Content="Dark" />
                     <ComboBoxItem Content="High Contrast" />
-                </ComboBox>
+                </ComboBox>-->
             </Grid>
         </StackPanel>
     </Grid>

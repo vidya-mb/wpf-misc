@@ -120,7 +120,7 @@
                     XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF FontIcon Button&quot; /&gt;">
                     <Button Style="{StaticResource DefaultAccentUiButtonStyle}">
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#x1F308;" />
+                            
                             <TextBlock Text="FontIcon Button" />
                         </StackPanel>
                     </Button>
@@ -141,7 +141,7 @@
                     XamlCode="&lt;Button Appearance=&quot;Primary&quot; /&gt;">
                     <Button>
                         <StackPanel Orientation="Horizontal">
-                            <ImageIcon Height="24" Width="24" Source="pack://application:,,,/Assets/win11.png" />
+                            
                             <TextBlock Text="ImageIcon Button" />
                         </StackPanel>
                     </Button>

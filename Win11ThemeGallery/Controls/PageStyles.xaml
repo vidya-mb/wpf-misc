@@ -4,6 +4,9 @@
     xmlns:controls="clr-namespace:Win11ThemeGallery.Controls"
     xmlns:helpers="clr-namespace:Win11ThemeGallery.Helpers">
 
+    <Color x:Key="ControlStrokeColorDefault">#0F000000</Color>
+    <Color x:Key="ControlStrokeColorSecondary">#29000000</Color>
+     
     <Style x:Key="CardButton" TargetType="{x:Type Button}"
                BasedOn="{StaticResource DefaultUiButtonStyle}">
         <Setter Property="Width" Value="400"/>
@@ -13,6 +16,7 @@
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
     <Style x:Key="ControlGroupPageTitle" TargetType="{x:Type TextBlock}"

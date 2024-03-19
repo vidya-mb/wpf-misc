@@ -45,7 +45,7 @@
             Margin="0,36,0,0"
             HeaderText="A multi-line TextBox."
             XamlCode="&lt;TextBox PlaceholderText=&quot;Type something...&quot;TextWrapping=&quot;Wrap&quot; /&gt;">
-                    <TextBox TextWrapping="Wrap" IsReadOnly="True" />
+                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" />
         </controls:ControlExample>
     </StackPanel>
 

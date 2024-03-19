@@ -14,12 +14,11 @@ namespace Wpf_Window_Styles
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            this.Source = new Uri("Page1.xaml", UriKind.Relative);
         }
     }
 }

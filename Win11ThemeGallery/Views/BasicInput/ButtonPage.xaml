@@ -12,7 +12,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Win11;component/Styles/Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/PresentationFramework.FluentWindows;component/Styles/Button.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate x:Key="ViewBoxCustomButtonContentTemplate">
@@ -77,7 +77,7 @@
                     </Grid>
                 </controls:ControlExample>
 
-                <controls:ControlExample
+                <!--<controls:ControlExample
             Margin="0,32,0,0"
             HeaderText="Button with Icon"
             XamlCode="&lt;Button Content=&quot;Font Icon Button&quot; Icon=&quot;Fluent24&quot; /&gt;">
@@ -90,7 +90,7 @@
                             Grid.Column="0"
                             IsEnabled="{Binding ViewModel.IsUiButtonEnabled, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ButtonPage}, Mode=OneWay}">
                             <StackPanel Orientation="Horizontal">
-                                <!--<SymbolIcon Symbol="Fluent24" />-->
+                                --><!--<SymbolIcon Symbol="Fluent24" />--><!--
                                 <TextBlock Text="Font Icon Button" />
                             </StackPanel>
                         </Button>
@@ -100,7 +100,7 @@
                             CommandParameter="{Binding RelativeSource={RelativeSource Self}, Mode=OneWay}"
                             Content="Disable button" />
                     </Grid>
-                </controls:ControlExample>
+                </controls:ControlExample>-->
 
                 <controls:ControlExample
             Margin="0,32,0,0"
@@ -114,7 +114,7 @@
                     </Button>
                 </controls:ControlExample>
 
-                <controls:ControlExample
+                <!--<controls:ControlExample
                     Margin="0,32,0,0"
                     HeaderText="WPF Button with FontIcon"
                     XamlCode="&lt;Button Appearance=&quot;Primary&quot; Content=&quot;WPF FontIcon Button&quot; /&gt;">
@@ -146,7 +146,7 @@
                         </StackPanel>
                     </Button>
 
-                </controls:ControlExample>
+                </controls:ControlExample>-->
 
                 <!-- <controls:ControlExample
                     Margin="0,32,0,0"

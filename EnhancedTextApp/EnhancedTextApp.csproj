@@ -6,10 +6,19 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
+    <!--<Import Project="E:\repos\wpf\eng\wpf-debug.targets" />-->
+  
   <ItemGroup>
     <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0-beta.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="copilot-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

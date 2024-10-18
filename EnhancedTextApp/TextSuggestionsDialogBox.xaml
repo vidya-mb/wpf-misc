@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:EnhancedTextApp"
              mc:Ignorable="d"
              d:DesignHeight="450"
+             Foreground="{DynamicResource TextFillColorPrimaryBrush}"
              d:DesignWidth="800">
   <Border CornerRadius="4"
           Background="{DynamicResource ComboBoxDropDownBackground}"
@@ -18,7 +19,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
           </Grid.ColumnDefinitions>
-          <Image Source="E:\repos\wpf-misc\EnhancedTextApp\copilot-icon.png"
+          <Image Source="pack://application:,,,/copilot-icon.png"
                  Height="20"
                  Margin="4,0"/>
           <TextBlock Grid.Column="1"
@@ -66,73 +67,94 @@
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="*"/>
               <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <Button x:Name="ElaborateRewriteButton"
                     Command="{x:Static local:TextSuggestionCommands.ElaborateRewrite}"
                     HorizontalAlignment="Stretch"
-                    Margin="0 0 2 0">
+                    Margin="0 0 2 2">
               <Button.Content>
                 <StackPanel Orientation="Vertical">
-                  <TextBlock FontFamily="Segoe Fluent Icons">&#xE740;</TextBlock>
+                  <TextBlock HorizontalAlignment="Center" FontFamily="Segoe Fluent Icons">&#xE740;</TextBlock>
                   <TextBlock FontSize="10">Elaborate</TextBlock>
                 </StackPanel>
               </Button.Content>
             </Button>
-            <Button x:Name="ProfessionalRewriteButton"
-                    Grid.Column="1"
-                    Command="{x:Static local:TextSuggestionCommands.ProfessionalRewrite}"
-                    HorizontalAlignment="Stretch"
-                    Margin="2 0 2 0">
-              <Button.Content>
-                <StackPanel Orientation="Vertical">
-                  <TextBlock FontFamily="Segoe Fluent Icons">&#xE9F9;</TextBlock>
-                  <TextBlock FontSize="10">Professional</TextBlock>
-                </StackPanel>
-              </Button.Content>
-            </Button>
-            <Button x:Name="FriendlyRewriteButton"
-                    Grid.Column="2"
-                    Command="{x:Static local:TextSuggestionCommands.FriendlyRewrite}"
-                    HorizontalAlignment="Stretch"
-                    Margin="2 0 2 0">
-              <Button.Content>
-                <StackPanel Orientation="Vertical">
-                  <TextBlock FontFamily="Segoe Fluent Icons">&#xE899;</TextBlock>
-                  <TextBlock FontSize="10">Friendly</TextBlock>
-                </StackPanel>
-              </Button.Content>
-            </Button>
+            
             <Button x:Name="ConciseRewriteButton"
-                    Grid.Column="3"
+                    Grid.Column="1"
                     Command="{x:Static local:TextSuggestionCommands.ConciseRewrite}"
                     HorizontalAlignment="Stretch"
-                    Margin="2 0 0 0">
+                    Margin="2 0 0 2">
               <Button.Content>
                 <StackPanel Orientation="Vertical">
-                  <TextBlock FontFamily="Segoe Fluent Icons">&#xE73F;</TextBlock>
+                  <TextBlock HorizontalAlignment="Center" FontFamily="Segoe Fluent Icons">&#xE73F;</TextBlock>
                   <TextBlock FontSize="10">Concise</TextBlock>
                 </StackPanel>
               </Button.Content>
             </Button>
+          
+            <Button x:Name="FriendlyRewriteButton"
+                    Grid.Row="1"
+                    Command="{x:Static local:TextSuggestionCommands.FriendlyRewrite}"
+                    HorizontalAlignment="Stretch"
+                    Margin="0 2 2 0">
+              <Button.Content>
+                <StackPanel Orientation="Vertical">
+                  <TextBlock HorizontalAlignment="Center" FontFamily="Segoe Fluent Icons">&#xE899;</TextBlock>
+                  <TextBlock FontSize="10">Friendly</TextBlock>
+                </StackPanel>
+              </Button.Content>
+            </Button>
+            
+            <Button x:Name="ProfessionalRewriteButton"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Command="{x:Static local:TextSuggestionCommands.ProfessionalRewrite}"
+                    HorizontalAlignment="Stretch"
+                    Margin="2 2 0 0">
+              <Button.Content>
+                <StackPanel Orientation="Vertical" >
+                  <TextBlock HorizontalAlignment="Center" FontFamily="Segoe Fluent Icons">&#xE9F9;</TextBlock>
+                  <TextBlock FontSize="10">Professional</TextBlock>
+                </StackPanel>
+              </Button.Content>
+            </Button>
+            
           </Grid>
           <TextBox Grid.Row="3"
                    x:Name="CustomInstructionBox"
                    HorizontalAlignment="Stretch"
                    Height="80"
                    FontSize="12"
-                   Text="Describe your changes ..."
+                   Text="Give custom instructions ..."
                    GotFocus="TextBox_GotFocus"
-                   LostFocus="TextBox_LostFocus"/>
-          <Button Grid.Row="4"
-                  x:Name="CustomRewriteButton"
-                  Margin="0,4"
-                  Content="Modify"
-                  Command="{x:Static local:TextSuggestionCommands.CustomRewrite}"
-                  CommandParameter="{Binding ElementName=CustomInstructionBox, Path=Text}"
-                  Style="{DynamicResource AccentButtonStyle}"
-                  HorizontalAlignment="Right"/>
+                   LostFocus="TextBox_LostFocus"
+                   Margin="0 4 0 0"/>
+
+          <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="ProgressIndicatorBox" Orientation="Vertical" Visibility="Hidden">
+              <TextBlock Text="Generating ..." Margin="0 4 0 6"/>
+              <ProgressBar IsIndeterminate="True"/>
+            </StackPanel>
+
+            <Button x:Name="CustomRewriteButton"
+                    Grid.Column="1"
+                    Margin="4,4,0,0"
+                    Content="Modify"
+                    Command="{x:Static local:TextSuggestionCommands.CustomRewrite}"
+                    CommandParameter="{Binding ElementName=CustomInstructionBox, Path=Text}"
+                    Style="{DynamicResource AccentButtonStyle}"
+                    HorizontalAlignment="Right"/>
+          </Grid>
         </Grid>
       </StackPanel>
     </Grid>

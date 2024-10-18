@@ -11,6 +11,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Input;
 using static EnhancedTextApp.TextSuggestionCommands;
+using static EnhancedTextApp.TextSuggestionCommandHelpers;
 
 namespace EnhancedTextApp
 {
@@ -19,9 +20,11 @@ namespace EnhancedTextApp
 
         static TextSuggestionHelper()
         {
-            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(TextSuggestionCommands.CustomRewrite, OnCustomRewrite));
-            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(TextSuggestionCommands.FriendlyRewrite, OnFriendlyRewrite));
-            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(TextSuggestionCommands.ProfessionalRewrite, OnProfessionalRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(CustomRewrite, ExecuteCustomRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(FriendlyRewrite, ExecuteFriendlyRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(ProfessionalRewrite, ExecuteProfessionalRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(ConciseRewrite, ExecuteConciseRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextBoxBase), new CommandBinding(ElaborateRewrite, ExecuteElaborateRewrite));
 
             LLMClientManager.DeploymentName = "wpf-ai";
         }
@@ -62,16 +65,17 @@ namespace EnhancedTextApp
 
         private static void Adorner_AIButtonClicked(object sender, RoutedEventArgs e)
         {
-            Popup suggestionPopup = new Popup();
-            suggestionPopup.PlacementTarget = sender as UIElement;
-            suggestionPopup.Placement = PlacementMode.Right;
+            var adorner = sender as Adorner;
 
-            var textSuggestionBox = new TextSuggestionsDialogBox();
-            textSuggestionBox.SuggestionTarget = sender as UIElement;
-            suggestionPopup.Child = textSuggestionBox;
+            if (adorner is null) return;
             
-            suggestionPopup.StaysOpen = true;
-            suggestionPopup.IsOpen = true;
+            var textSuggestionBox = new TextSuggestionsDialogBox { SuggestionTarget = adorner.AdornedElement };
+            
+            Popup suggestionPopup = new Popup { PlacementTarget = adorner.AdornedElement, 
+                                                Placement = PlacementMode.Bottom,
+                                                StaysOpen = true,
+                                                Child = textSuggestionBox,
+                                                IsOpen = true};
         }
 
         #endregion

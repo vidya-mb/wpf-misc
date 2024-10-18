@@ -24,7 +24,7 @@ namespace EnhancedTextApp
                 case TextSuggestionCommandId.AutoComplete:
                     return "Autocomplete the following text in 2-3 words: ";
                 case TextSuggestionCommandId.CustomRewrite:
-                    return "Please rewrite the following text in a simple style: ";
+                    return "Please rewrite the following text with the following instructions: \n";
                 case TextSuggestionCommandId.ProfessionalRewrite:
                     return "Please rewrite the following text in a professional style:";
                 case TextSuggestionCommandId.FriendlyRewrite:

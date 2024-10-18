@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static EnhancedTextApp.TextSuggestionCommandHelpers;
 
 namespace EnhancedTextApp
 {
@@ -23,36 +24,11 @@ namespace EnhancedTextApp
     {
         static TextSuggestionsDialogBox()
         {
-            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.CustomRewrite, OnCustomRewrite));
-            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.FriendlyRewrite, OnFriendlyRewrite));
-            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.ProfessionalRewrite, OnProfessionalRewrite));
-            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.ConciseRewrite, OnConciseRewrite));
-            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.ElaborateRewrite, OnElaborateRewrite));
-        }
-
-        private static void OnConciseRewrite(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void OnElaborateRewrite(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void OnProfessionalRewrite(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void OnFriendlyRewrite(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void OnCustomRewrite(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.CustomRewrite, ExecuteCustomRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.FriendlyRewrite, ExecuteFriendlyRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.ProfessionalRewrite, ExecuteProfessionalRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.ConciseRewrite, ExecuteConciseRewrite));
+            CommandManager.RegisterClassCommandBinding(typeof(TextSuggestionsDialogBox), new CommandBinding(TextSuggestionCommands.ElaborateRewrite, ExecuteElaborateRewrite));
         }
 
         public TextSuggestionsDialogBox()
@@ -64,11 +40,24 @@ namespace EnhancedTextApp
             DependencyProperty.Register(
                 nameof(SuggestionTarget),
                 typeof(UIElement),
-                typeof(TextSuggestionsDialogBox),
+                typeof(TextBoxBase),
                 new PropertyMetadata(null, OnTextSuggestionTargetChanged));
 
         private static void OnTextSuggestionTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+            if(e.NewValue != null)
+            {
+                var suggestionDialogBox = d as TextSuggestionsDialogBox;
+                var element = e.NewValue as UIElement;
+
+                if (suggestionDialogBox is null) return;
+
+                suggestionDialogBox.ConciseRewriteButton.CommandTarget = element;
+                suggestionDialogBox.ElaborateRewriteButton.CommandTarget = element;
+                suggestionDialogBox.CustomRewriteButton.CommandTarget = element;
+                suggestionDialogBox.FriendlyRewriteButton.CommandTarget = element;
+                suggestionDialogBox.ProfessionalRewriteButton.CommandTarget = element;
+            }
 
         }
 
@@ -89,7 +78,7 @@ namespace EnhancedTextApp
         {
             if (sender is TextBox tb)
             {
-                if(tb.Text == "Describe your changes ...")
+                if(tb.Text == "Give custom instructions ...")
                 {
                     tb.Text = string.Empty;
                 }
@@ -103,7 +92,7 @@ namespace EnhancedTextApp
             {
                 if(tb.Text == string.Empty)
                 {
-                    tb.Text = "Describe your changes ...";
+                    tb.Text = "Give custom instructions ...";
                     tb.Foreground = new SolidColorBrush(Colors.Gray);
                 }
             }

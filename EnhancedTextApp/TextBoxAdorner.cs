@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace EnhancedTextApp
 {
@@ -16,18 +17,26 @@ namespace EnhancedTextApp
         public TextBoxAdorner(UIElement adornedElement) : base(adornedElement)
         {
             _aiButton = new Button {
-                                Content = new TextBlock
+                                //Content = new TextBlock
+                                //{
+                                //    FontFamily = new FontFamily("Segoe Fluent Icons"),
+                                //    FontSize = 18,
+                                //    Text = "\uE720",
+                                //    VerticalAlignment = VerticalAlignment.Center,
+                                //    HorizontalAlignment = HorizontalAlignment.Center
+                                //},
+                                Content = new Image
                                 {
-                                    FontFamily = new FontFamily("Segoe Fluent Icons"),
-                                    FontSize = 18,
-                                    Text = "\uE720",
-                                    VerticalAlignment = VerticalAlignment.Center,
-                                    HorizontalAlignment = HorizontalAlignment.Center
+                                    Source = new BitmapImage(new Uri("pack://application:,,,/copilot-icon.png")),
+                                    Width=20,
+                                    Height=20,
                                 },
-                                Width = 40,
-                                Height = 40,
+                                Width = 30,
+                                Height = 30,
+                                BorderBrush = Brushes.Transparent,
+                                Background = Brushes.Transparent,
+                                Padding = new Thickness(10),
                                 VerticalAlignment = VerticalAlignment.Center,
-                                Margin = new Thickness(5, 0, 0, 0)
                             };
             _aiButton.Click += OnAIButtonClick;
             AddVisualChild(_aiButton);

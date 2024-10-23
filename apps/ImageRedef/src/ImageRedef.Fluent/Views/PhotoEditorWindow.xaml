@@ -145,7 +145,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <ListView x:Name="EditingModeList"
@@ -176,29 +176,66 @@
                     </Viewbox>
                 </Grid>
 
-                <Grid x:Name="PhotoEditingOptions"
-                    Grid.Column="1">
+                <ScrollViewer Focusable="False"
+                              Grid.Column="1">
+                    <Grid x:Name="PhotoEditingOptions">
+                        <Grid.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}"/>
+                            </Style>
+                        </Grid.Resources>
+
+                        <Border x:Name="MetadataModeOptions">
+                            <StackPanel Margin="10 10 10 0" Width="400" HorizontalAlignment="Left">
+                                <StackPanel Margin="0 0 0 10">
+                                    <Label Content="File Name" />
+                                    <TextBox Text="{Binding ViewModel.Metadata.FileName}" IsReadOnly="True" />
+                                </StackPanel>
+                                <StackPanel Margin="0 0 0 10">
+                                    <Label Content="Directory" />
+                                    <TextBox Text="{Binding ViewModel.Metadata.FileDirectory}" IsReadOnly="True" />
+                                </StackPanel>
+                                <StackPanel Margin="0 0 0 10">
+                                    <Label Content="Created Date" />
+                                    <DatePicker SelectedDate="{Binding ViewModel.Metadata.CreatedDate}" />
+                                </StackPanel>
+                                <StackPanel Margin="0 0 0 10">
+                                    <Label Content="Modified Date" />
+                                    <DatePicker SelectedDate="{Binding ViewModel.Metadata.ModifiedDate}" />
+                                </StackPanel>
+                                <StackPanel Margin="0 0 0 10">
+                                    <Label Content="Bit Depth" />
+                                    <TextBox Text="{Binding ViewModel.Metadata.BitDepth}" IsEnabled="False"/>
+                                </StackPanel>
+                                <StackPanel Margin="0 0 0 10">
+                                    <Label Content="Number of Channels" />
+                                    <TextBox Text="{Binding ViewModel.Metadata.NumOfChannels}" IsEnabled="False" />
+                                </StackPanel>
+                                <StackPanel Margin="0 0 0 10">
+                                    <Label Content="Color Space" />
+                                    <TextBox Text="{Binding ViewModel.Metadata.ColorSpace}" IsEnabled="False" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <Border x:Name="CropModeOptions"
+                                Visibility="Hidden">
+                        
+                        </Border>
+
+                        <Border x:Name="AdjustmentModeOptions"
+                                Visibility="Hidden">
+                        
+                        </Border>
+
+                        <Border x:Name="AnimationModeOptions"
+                                Visibility="Hidden">
+                        
+                        </Border>
                     
-                    <Border x:Name="MetadataModeOptions">
-                        
-                    </Border>
-
-                    <Border x:Name="CropModeOptions"
-                            Visibility="Hidden">
-                        
-                    </Border>
-
-                    <Border x:Name="AdjustmentModeOptions"
-                            Visibility="Hidden">
-                        
-                    </Border>
-
-                    <Border x:Name="AnimationModeOptions"
-                            Visibility="Hidden">
-                        
-                    </Border>
-                    
-                </Grid>
+                    </Grid>
+                </ScrollViewer>
             </Grid>
         </Grid>
     </Grid>

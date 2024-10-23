@@ -10,6 +10,7 @@ namespace ImageRedef.Fluent.ViewModels
         {
             Photo = photo;
             Title = photo.FileName;
+            Metadata = new PhotoMetadata(Photo.FilePath);
         }
 
         [ObservableProperty]
@@ -19,8 +20,19 @@ namespace ImageRedef.Fluent.ViewModels
         private Photo? _photo;
 
         [ObservableProperty]
+        private PhotoMetadata? _metadata;
+
+        [ObservableProperty]
         private int _scale = 100;
 
+        partial void OnPhotoChanged(Photo? oldValue, Photo? newValue)
+        {
+            if(newValue is not null)
+            {
+                Title = newValue.FileName;
+                Metadata = new PhotoMetadata(newValue.FilePath);
+            }
 
+        }
     }
 }

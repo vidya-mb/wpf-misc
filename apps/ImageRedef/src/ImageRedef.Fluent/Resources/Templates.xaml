@@ -1,0 +1,104 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:helpers="clr-namespace:ImageRedef.Fluent.Helpers"
+                    xmlns:models="clr-namespace:ImageRedef.Fluent.Models">
+
+    <helpers:EmptyToVisibilityConverter x:Key="EmptyToVisibilityConverter" />
+
+    <HierarchicalDataTemplate x:Key="NavigationItemTemplate"
+            DataType="{x:Type helpers:NavigationItem}"
+            ItemsSource="{Binding Items}">
+        <Grid x:Name="ItemContainerGrid"
+            MinHeight="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                MaxWidth="16"
+                VerticalAlignment="Center"
+                Focusable="False"
+                FontFamily="{StaticResource SymbolThemeFontFamily}"
+                FontSize="16"
+                Text="{Binding IconGlyph}"
+                Visibility="{Binding IconGlyph, Converter={StaticResource EmptyToVisibilityConverter}}" />
+            <TextBlock
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                Text="{Binding Name}" />
+        </Grid>
+        <HierarchicalDataTemplate.Triggers>
+            <DataTrigger Binding="{Binding HasItems}" Value="False">
+                <Setter TargetName="ItemContainerGrid" Property="Margin" Value="-20 0 0 0" />
+            </DataTrigger> 
+        </HierarchicalDataTemplate.Triggers>
+    </HierarchicalDataTemplate>
+
+    <ItemsPanelTemplate x:Key="PhotoPanelTemplate">
+        <WrapPanel Margin="-4 10"
+                Orientation="Horizontal"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                VirtualizingPanel.IsVirtualizing="True"/>
+    </ItemsPanelTemplate>
+
+    <DataTemplate x:Key="PhotoCardTemplate" DataType="{x:Type models:Photo}">
+        <Border CornerRadius="4" Height="200" Width="200">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding FilePath}" Stretch="UniformToFill" />
+            </Border.Background>
+        </Border>
+    </DataTemplate>
+
+    <Style x:Key="PhotoGalleryItemStyle" TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border
+                        x:Name="Border"
+                        Margin="0"
+                        Padding="0"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}">
+                        <Grid>
+                            <ContentPresenter
+                                Margin="{TemplateBinding Padding}" 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <CheckBox x:Name="SelectionIndicator" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Right"
+                                Visibility="Hidden"
+                                IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}">
+                                <CheckBox.Resources>
+                                    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillUnchecked" 
+                                        Color="{DynamicResource ControlOnImageFillColorDefault}" />
+                                    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillUncheckedPointerOver" 
+                                        Color="{DynamicResource ControlOnImageFillColorDefault}" />
+                                    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillUncheckedPressed" 
+                                        Color="{DynamicResource ControlOnImageFillColorDefault}" />
+                                </CheckBox.Resources>
+                            </CheckBox>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource AccentTextFillColorTertiaryBrush}" />
+                            <Setter TargetName="SelectionIndicator" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="SelectionIndicator" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

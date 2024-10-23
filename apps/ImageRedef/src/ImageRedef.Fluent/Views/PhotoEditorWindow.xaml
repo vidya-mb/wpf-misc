@@ -1,0 +1,205 @@
+<Window x:Class="ImageRedef.Fluent.Views.PhotoEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageRedef.Fluent"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000">
+    <Grid x:Name="RootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid x:Name="TitleBarGrid"
+            Height="44">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image Width="20" 
+                VerticalAlignment="Center" 
+                Source="pack://application:,,,/Assets/WPFGalleryPreviewIcon.png" 
+                Grid.Column="0"/>
+
+            <TextBlock 
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Style="{DynamicResource CaptionTextBlockStyle}"
+                Text="{Binding ViewModel.Title}"/>
+
+        </Grid>   
+        
+        <Grid x:Name="ContentGrid"
+            Grid.Row="1"
+            Background="{DynamicResource ApplicationBackgroundBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="PhotoWindowHeader"
+                  Margin="16 8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" /> 
+                    <ColumnDefinition Width="Auto" /> 
+                    <ColumnDefinition Width="Auto" /> 
+                    <ColumnDefinition Width="Auto" /> 
+                </Grid.ColumnDefinitions>
+
+                <Border x:Name="ViewOptionsBorder"
+                        CornerRadius="8"
+                        Padding="2"
+                        Background="{DynamicResource CardStrokeColorDefaultSolidBrush}"
+                        HorizontalAlignment="Left">
+                    <!--<Border.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="16"
+                            Opacity="0.2"
+                            ShadowDepth="4"/>
+                    </Border.Effect>-->
+                    <Menu x:Name="BasicViewOptions"
+                          
+                          HorizontalAlignment="Left">
+                        <MenuItem x:Name="ZoomInMenuItem"
+                            Margin="-2 -2 0 -2">
+                            <MenuItem.Header>
+                                <TextBlock Style="{StaticResource IconBox}"
+                                    Text="&#xE8A3;" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem x:Name="ZoomOutMenuItem"
+                                  Margin="-6 -2 0 -2">
+                            <MenuItem.Header>
+                                <TextBlock Style="{StaticResource IconBox}"
+                                    Text="&#xE71F;" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem x:Name="ScaleDisplayBox"
+                                  Margin="-6 -2 0 -2"
+                                  IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock
+                                    Text="{Binding ViewModel.Scale, StringFormat='{}{0}%'}" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem x:Name="ResetActionsMenuItem"
+                                  Margin="0 -2 0 -2">
+                            <MenuItem.Header>
+                                <TextBlock
+                                    Text="Reset" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem x:Name="UndoActionMenuItem"
+                                  Margin="-6 -2 0 -2">
+                            <MenuItem.Header>
+                                <TextBlock Style="{StaticResource IconBox}"
+                                    Text="&#xE7A7;" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem x:Name="RedoActionMenuItem"
+                                  Margin="-6 -2 0 -2">
+                            <MenuItem.Header>
+                                <TextBlock Style="{StaticResource IconBox}"
+                                    Text="&#xE7A6;" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </Menu>
+                </Border>
+                
+                <Button x:Name="CopyToClipboardButton"
+                    Margin="4 2"
+                    VerticalAlignment="Stretch"
+                    Grid.Column="1">
+                    <TextBlock Style="{StaticResource IconBox}"
+                        Text="&#xE8C8;" />
+                </Button>
+
+                <Button x:Name="SaveButton"
+                    Grid.Column="2"
+                    VerticalAlignment="Stretch"
+                    Margin="4 2"
+                    Content="Save"
+                    Width="100"
+                    Style="{StaticResource AccentButtonStyle}" />
+
+                <Button x:Name="CancelButton"
+                    Grid.Column="3"
+                    VerticalAlignment="Stretch"
+                    Margin="4 2"
+                    Content="Cancel"
+                    Width="100" />
+
+            </Grid>
+
+            <Grid x:Name="PhotoWindowEditor"
+                Grid.Row="1"
+                Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ListView x:Name="EditingModeList"
+                    VerticalAlignment="Top"
+                    SelectionChanged="EditingModeList_SelectionChanged"
+                    SelectionMode="Single">
+                    <ListView.Resources>
+                        <Style BasedOn="{StaticResource CompactListViewItemStyle}" TargetType="ListViewItem" />
+                    </ListView.Resources>
+                    <ListViewItem x:Name="MetadataMode" Tag="Metadata">
+                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE70F;" />
+                    </ListViewItem>
+                    <ListViewItem x:Name="CropMode" Tag="Crop">
+                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE7A8;" />
+                    </ListViewItem>
+                    <ListViewItem x:Name="AdjustmentMode" Tag="Adjustment">
+                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE706;" />
+                    </ListViewItem>
+                    <ListViewItem x:Name="AnimationMode" Tag="Animation">
+                        <TextBlock Style="{StaticResource IconBox}" Text="&#xF4A5;" />
+                    </ListViewItem>
+                </ListView>
+
+                <Grid x:Name="PhotoViewer"
+                    Grid.Column="2">
+                    <Viewbox Margin="40" Stretch="Uniform">
+                        <Image Source="{Binding ViewModel.Photo.FilePath}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid x:Name="PhotoEditingOptions"
+                    Grid.Column="1">
+                    
+                    <Border x:Name="MetadataModeOptions">
+                        
+                    </Border>
+
+                    <Border x:Name="CropModeOptions"
+                            Visibility="Hidden">
+                        
+                    </Border>
+
+                    <Border x:Name="AdjustmentModeOptions"
+                            Visibility="Hidden">
+                        
+                    </Border>
+
+                    <Border x:Name="AnimationModeOptions"
+                            Visibility="Hidden">
+                        
+                    </Border>
+                    
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -37,7 +37,6 @@ public partial class MainWindow : Window
     {
         if(NavigationList.SelectedItem is NavigationItem navItem)
         {
-            ViewModel.SelectedItem = navItem;
             var galleryViewModel = _serviceProvider.GetRequiredService<ImageGalleryViewModel>();
             galleryViewModel.ServiceProvider = _serviceProvider;
             galleryViewModel.NavigationItem = navItem;

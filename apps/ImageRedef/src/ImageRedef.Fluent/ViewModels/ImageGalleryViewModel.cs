@@ -39,15 +39,17 @@ public partial class ImageGalleryViewModel : ObservableObject
     private ObservableCollection<Photo> _selectedPhotos;
 
     [RelayCommand]
-    public void RemoveSelection()
-    {
-        SelectedPhotos = new ObservableCollection<Photo>();
-    }
-
-    [RelayCommand]
     public void DeletePhotos()
     {
+        // FAKE : Deletion Command
+        foreach(Photo photo in SelectedPhotos)
+        {
+            Photos.Remove(photo);
+        }
 
+        SelectedPhotos.Clear();
+        SelectedPhotosCount = 0;
+        SetInfoText();
     }
 
     [RelayCommand]
@@ -58,12 +60,6 @@ public partial class ImageGalleryViewModel : ObservableObject
 
     [RelayCommand]
     public void CopyPhotos()
-    {
-
-    }
-
-    [RelayCommand]
-    public void EditPhoto()
     {
 
     }
@@ -89,11 +85,13 @@ public partial class ImageGalleryViewModel : ObservableObject
     partial void OnPhotosChanged(ObservableCollection<Photo> value)
     {
         PhotosCount = value?.Count ?? 0;
+        SetInfoText();
     }
 
     partial void OnSelectedPhotosChanged(ObservableCollection<Photo> value)
     {
         SelectedPhotosCount = value?.Count ?? 0;
+        SetInfoText();
     }
 
     private void InitializeData(NavigationItem item)
@@ -108,6 +106,7 @@ public partial class ImageGalleryViewModel : ObservableObject
     {
         Photos = new ObservableCollection<Photo>();
         SelectedPhotos = new ObservableCollection<Photo>();
+        SetInfoText();
     }
 
     private ObservableCollection<Photo> LoadPhotos(NavigationItem navItem)
@@ -134,7 +133,7 @@ public partial class ImageGalleryViewModel : ObservableObject
 
     private void SetInfoText()
     {
-
+        InfoText = $"{PhotosCount} photos";
     }
 
 }

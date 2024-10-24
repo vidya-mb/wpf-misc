@@ -34,7 +34,8 @@
 
                 <MenuItem x:Name="ClearSelectionMenuItem"
                     Margin="-6 -2 0 -2"
-                    Visibility="Collapsed">
+                    Visibility="Collapsed"
+                    Click="ClearSelectionMenuItem_Click">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource IconBox}"
@@ -49,7 +50,8 @@
 
                 <MenuItem x:Name="DeleteMenuItem"
                     Margin="-6 -2 0 -2"
-                    Visibility="Collapsed">
+                    Visibility="Collapsed"
+                    Command="{Binding ViewModel.DeletePhotosCommand}">
                     <MenuItem.Header>
                         <TextBlock Style="{StaticResource IconBox}"
                                 Text="&#xE74D;" />

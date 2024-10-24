@@ -66,10 +66,11 @@
                     Margin="8 0"
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
+                    Style="{DynamicResource AccentButtonStyle}"
                     Command="{Binding ViewModel.AddFolderCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock 
-                            Margin="0 0 4 0"
+                            Margin="0 0 8 0"
                             FontFamily="{StaticResource SymbolThemeFontFamily}"
                             FontSize="16"
                             VerticalAlignment="Center"
@@ -86,7 +87,7 @@
                     Command="{Binding ViewModel.ToggleThemeCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="ThemeButtonIconBox"
-                            Margin="0 0 4 0"
+                            Margin="0 0 8 0"
                             FontFamily="{StaticResource SymbolThemeFontFamily}"
                             VerticalAlignment="Center"
                             FontSize="16"

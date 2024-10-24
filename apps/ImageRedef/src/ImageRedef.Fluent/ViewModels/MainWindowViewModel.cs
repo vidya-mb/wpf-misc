@@ -14,12 +14,6 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     private ICollection<NavigationItem> _navigationList;
 
-    [ObservableProperty]
-    private NavigationItem _selectedItem;
-
-    [ObservableProperty]
-    private ImageGalleryViewModel _galleryViewModel;
-
     [RelayCommand]
     public void AddFolder()
     {
@@ -33,7 +27,10 @@ public partial class MainWindowViewModel : ObservableObject
 
         if(dialog.ShowDialog() == true)
         {
-
+            foreach(string directory in dialog.FolderNames)
+            {
+                NavigationList.Add(PhotosDataSource.CreateNavigationItemFromPath(directory));
+            }
         }
     }
 

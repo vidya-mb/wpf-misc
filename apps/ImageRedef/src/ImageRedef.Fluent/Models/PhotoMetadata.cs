@@ -39,6 +39,9 @@ public partial class PhotoMetadata : ObservableObject
     [ObservableProperty]
     private ImageMagick.Density? _imageDensity;
 
+    [ObservableProperty]
+    private string? _densityString;
+
     public PhotoMetadata() { }
 
     public PhotoMetadata(string path)
@@ -65,6 +68,7 @@ public partial class PhotoMetadata : ObservableObject
         Height = (int)info.Height;
         Width = (int)info.Width;
         ImageDensity = info.Density;
+        DensityString = info.Density?.ToString() ?? "N/A";
 
         using var image = new MagickImage(FilePath);
 

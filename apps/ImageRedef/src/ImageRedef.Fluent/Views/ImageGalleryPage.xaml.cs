@@ -75,5 +75,13 @@ public partial class ImageGalleryPage : Page
         Window window = new PhotoEditorWindow(photoWindowViewModel, _serviceProvider);
         window.Show();
     }
+
+    private void ClearSelectionMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        PhotosListView.UnselectAll();
+        ViewModel.SelectedPhotos.Clear();
+        ViewModel.SelectedPhotosCount = 0;
+        UpdateMenuItems();
+    }
 }
 

@@ -128,7 +128,7 @@
                     Margin="4 2"
                     Content="Save"
                     Width="100"
-                    Style="{StaticResource AccentButtonStyle}" />
+                    Style="{DynamicResource AccentButtonStyle}" />
 
                 <Button x:Name="CancelButton"
                     Grid.Column="3"
@@ -368,10 +368,7 @@
                                     <Slider Margin="0 6 0 0"
                                             Minimum="-45" Maximum="45" Value="0" 
                                             SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}"
-                                            IsSelectionRangeEnabled="True"
-                                            TickFrequency="15"
-                                            IsSnapToTickEnabled="True"
-                                            TickPlacement="Both"/>
+                                            IsSelectionRangeEnabled="True"/>
                                 </StackPanel>
                             </StackPanel>
                         </Border>
@@ -463,7 +460,6 @@
                                 Visibility="Hidden">
                         
                         </Border>
-                    
                     </Grid>
                 </ScrollViewer>
             </Grid>

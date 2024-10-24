@@ -51,7 +51,7 @@
         </Border>
     </DataTemplate>
 
-    <Style x:Key="PhotoGalleryItemStyle" TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+    <Style x:Key="PhotoGalleryItemStyle" TargetType="ListViewItem">
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="4" />
         <Setter Property="BorderThickness" Value="3" />

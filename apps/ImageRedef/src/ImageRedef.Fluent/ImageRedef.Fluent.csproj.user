@@ -2,7 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Page Update="Resources\FluentResourcesLocal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\Templates.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\TextBlockStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

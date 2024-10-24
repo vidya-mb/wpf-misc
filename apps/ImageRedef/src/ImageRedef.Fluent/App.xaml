@@ -6,11 +6,18 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />-->
-                <ResourceDictionary Source="Resources/TextBlockStyles.xaml" />
-                <ResourceDictionary Source="Resources/FluentDependantResources.xaml" />
-                <ResourceDictionary Source="Resources/Styles.xaml" />
-                <ResourceDictionary Source="Resources/Templates.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
+                
+                <!-- Common Styles / Templates used by Aero2 and Fluent variation -->
+                <ResourceDictionary Source="Resources/Common.Styles.xaml" />
+                <ResourceDictionary Source="Resources/Common.Templates.xaml" />
+
+                <!-- Aero2 Resources -->
+                <!--<ResourceDictionary Source="Resources/Aero2.Styles.xaml" />-->
+                
+                <!-- Fluent Resources -->
+                 <ResourceDictionary Source="Resources/Styles.xaml" />
+                <ResourceDictionary Source="Resources/Templates.xaml" /> 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageRedef.Fluent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000">
+        Title="MainWindow" Height="650" Width="1000"
+        Background="Transparent">
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="44" />
@@ -58,54 +59,55 @@
                         Padding="2"
                         Background="{DynamicResource CardStrokeColorDefaultSolidBrush}"
                         HorizontalAlignment="Left">
-                    <!--<Border.Effect>
+                    <Border.Effect>
                         <DropShadowEffect 
                             BlurRadius="16"
                             Opacity="0.2"
                             ShadowDepth="4"/>
-                    </Border.Effect>-->
+                    </Border.Effect>
                     <Menu x:Name="BasicViewOptions"
-                          
+                          Background="Transparent"
                           HorizontalAlignment="Left">
                         <MenuItem x:Name="ZoomInMenuItem"
-                            Margin="-2 -2 0 -2">
+                            Margin="{DynamicResource MenuItemBoundaryMargin}">
                             <MenuItem.Header>
                                 <TextBlock Style="{StaticResource IconBox}"
                                     Text="&#xE8A3;" />
                             </MenuItem.Header>
                         </MenuItem>
                         <MenuItem x:Name="ZoomOutMenuItem"
-                                  Margin="-6 -2 0 -2">
+                                  Margin="{DynamicResource MenuItemNonBoundaryMargin}">
                             <MenuItem.Header>
                                 <TextBlock Style="{StaticResource IconBox}"
                                     Text="&#xE71F;" />
                             </MenuItem.Header>
                         </MenuItem>
                         <MenuItem x:Name="ScaleDisplayBox"
-                                  Margin="-6 -2 0 -2"
+                                  Margin="{DynamicResource MenuItemNonBoundaryMargin}"
                                   IsEnabled="False">
                             <MenuItem.Header>
                                 <TextBlock
-                                    Text="{Binding ViewModel.Scale, StringFormat='{}{0}%'}" />
+                                    Text="{Binding ViewModel.Scale, StringFormat='{}{0}%'}" 
+                                    Margin="{DynamicResource MenuItemHeaderMarginHack}"/>
                             </MenuItem.Header>
                         </MenuItem>
-                        <Separator />
+                        <Separator Width="2"/>
                         <MenuItem x:Name="ResetActionsMenuItem"
-                                  Margin="0 -2 0 -2">
+                                  Margin="{DynamicResource MenuItemBoundaryMargin}">
                             <MenuItem.Header>
                                 <TextBlock
                                     Text="Reset" />
                             </MenuItem.Header>
                         </MenuItem>
                         <MenuItem x:Name="UndoActionMenuItem"
-                                  Margin="-6 -2 0 -2">
+                                  Margin="{DynamicResource MenuItemNonBoundaryMargin}">
                             <MenuItem.Header>
                                 <TextBlock Style="{StaticResource IconBox}"
                                     Text="&#xE7A7;" />
                             </MenuItem.Header>
                         </MenuItem>
                         <MenuItem x:Name="RedoActionMenuItem"
-                                  Margin="-6 -2 0 -2">
+                                  Margin="{DynamicResource MenuItemNonBoundaryMargin}">
                             <MenuItem.Header>
                                 <TextBlock Style="{StaticResource IconBox}"
                                     Text="&#xE7A6;" />
@@ -150,6 +152,7 @@
 
                 <ListView x:Name="EditingModeList"
                     VerticalAlignment="Top"
+                    BorderThickness="0"
                     SelectionChanged="EditingModeList_SelectionChanged"
                     SelectionMode="Single">
                     <ListView.Resources>
@@ -179,7 +182,9 @@
                 <ScrollViewer Focusable="False"
                               Grid.Column="1"
                               Margin="10 0 10 0"
-                              Padding="0 0 20 0">
+                              Padding="0 0 20 0"
+                              HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto">
                     <Grid x:Name="PhotoEditingOptions">
                         <Grid.Resources>
                             <Style TargetType="Label">

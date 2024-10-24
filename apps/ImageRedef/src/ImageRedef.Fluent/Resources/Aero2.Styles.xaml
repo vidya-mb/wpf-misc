@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Thickness x:Key="MenuItemBoundaryMargin">0</Thickness>
+    <Thickness x:Key="MenuItemNonBoundaryMargin">0</Thickness>
+    <Thickness x:Key="MenuItemHeaderMarginHack">0,4</Thickness>
+
+    <Style x:Key="CompactListViewItemStyle" TargetType="ListViewItem">
+        <Setter Property="Padding" Value="4 6" />
+        <Setter Property="Margin" Value="2" />
+    </Style>
+    
+</ResourceDictionary>

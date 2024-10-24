@@ -3,54 +3,6 @@
                     xmlns:helpers="clr-namespace:ImageRedef.Fluent.Helpers"
                     xmlns:models="clr-namespace:ImageRedef.Fluent.Models">
 
-    <helpers:EmptyToVisibilityConverter x:Key="EmptyToVisibilityConverter" />
-
-    <HierarchicalDataTemplate x:Key="NavigationItemTemplate"
-            DataType="{x:Type helpers:NavigationItem}"
-            ItemsSource="{Binding Items}">
-        <Grid x:Name="ItemContainerGrid"
-            MinHeight="30">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="16" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <TextBlock
-                MaxWidth="16"
-                VerticalAlignment="Center"
-                Focusable="False"
-                FontFamily="{StaticResource SymbolThemeFontFamily}"
-                FontSize="16"
-                Text="{Binding IconGlyph}"
-                Visibility="{Binding IconGlyph, Converter={StaticResource EmptyToVisibilityConverter}}" />
-            <TextBlock
-                Grid.Column="2"
-                VerticalAlignment="Center"
-                Text="{Binding Name}" />
-        </Grid>
-        <HierarchicalDataTemplate.Triggers>
-            <DataTrigger Binding="{Binding HasItems}" Value="False">
-                <Setter TargetName="ItemContainerGrid" Property="Margin" Value="-20 0 0 0" />
-            </DataTrigger> 
-        </HierarchicalDataTemplate.Triggers>
-    </HierarchicalDataTemplate>
-
-    <ItemsPanelTemplate x:Key="PhotoPanelTemplate">
-        <WrapPanel Margin="-4 10"
-                Orientation="Horizontal"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                VirtualizingPanel.IsVirtualizing="True"/>
-    </ItemsPanelTemplate>
-
-    <DataTemplate x:Key="PhotoCardTemplate" DataType="{x:Type models:Photo}">
-        <Border CornerRadius="4" Height="200" Width="200">
-            <Border.Background>
-                <ImageBrush ImageSource="{Binding FilePath}" Stretch="UniformToFill" />
-            </Border.Background>
-        </Border>
-    </DataTemplate>
-
     <Style x:Key="PhotoGalleryItemStyle" TargetType="ListViewItem">
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="4" />

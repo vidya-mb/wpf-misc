@@ -3,63 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <SolidColorBrush x:Key="TitleButtonMouseOver" Color="#E5EAEF" />
-    <SolidColorBrush x:Key="TitleCloseButtonMouseOver" Color="#C42B1C"/>
+    <Thickness x:Key="MenuItemBoundaryMargin">-2,-4,0,-4</Thickness>
+    <Thickness x:Key="MenuItemNonBoundaryMargin">-6,-4,0,-4</Thickness>
+    <Thickness x:Key="MenuItemHeaderMarginHack">0</Thickness>
 
-    <Style x:Key="TitleBarButtonBaseStyle" TargetType="Button">
-        <Setter Property="MinWidth" Value="48" />    
-        <Setter Property="MinHeight" Value="32" /> 
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border
-                        x:Name="EnclosingBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        SnapsToDevicePixels="True">
-                        <ContentPresenter
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            RecognizesAccessKey="True"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter> 
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource TitleButtonMouseOver}" />
-            </Trigger>        
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="TitleBarCloseButtonStyle" BasedOn="{StaticResource TitleBarButtonBaseStyle}" TargetType="Button">
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="{StaticResource TitleCloseButtonMouseOver}" />
-            </Trigger>        
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="TitleBarButtonIconBox" TargetType="TextBlock">
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="{StaticResource SymbolThemeFontFamily}" />
-    </Style>
-
-    <Style x:Key="IconBox" TargetType="TextBlock">
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="{StaticResource SymbolThemeFontFamily}" />
-        <Setter Property="Margin" Value="4 0" />
-    </Style>
-
-    <Style x:Key="CompactListViewItemStyle" TargetType="ListViewItem">
+    <Style x:Key="CompactListViewItemStyle" BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
         <Setter Property="MinWidth" Value="40" />
         <Setter Property="Padding" Value="6 0 4 0" />
     </Style>

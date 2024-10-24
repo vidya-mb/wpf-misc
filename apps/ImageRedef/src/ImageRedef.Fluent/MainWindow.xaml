@@ -7,7 +7,8 @@
         xmlns:views="clr-namespace:ImageRedef.Fluent.Views"
         xmlns:helpers="clr-namespace:ImageRedef.Fluent.Helpers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000">
+        Title="MainWindow" Height="650" Width="1000"
+        Background="Transparent">
     <Window.Resources>
         <helpers:ThemeModeToIconGlyphConverter x:Key="ThemeToIconConverter" />
     </Window.Resources>
@@ -58,45 +59,38 @@
                     ItemsSource="{Binding ViewModel.NavigationList}"
                     ItemTemplate="{StaticResource NavigationItemTemplate}" 
                     SelectedItemChanged="NavigationList_SelectedItemChanged"
-                    Loaded="NavigationList_Loaded"
-                    />
+                    Loaded="NavigationList_Loaded" />
 
                 <Button x:Name="AddFolderButton"
                     Grid.Row="1"
-                    Margin="8 0"
+                    Margin="8 0 8 8"
+                    Height="32"
                     HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Left"
+                    HorizontalContentAlignment="Center"
                     Style="{DynamicResource AccentButtonStyle}"
                     Command="{Binding ViewModel.AddFolderCommand}">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock 
-                            Margin="0 0 8 0"
-                            FontFamily="{StaticResource SymbolThemeFontFamily}"
-                            FontSize="16"
-                            VerticalAlignment="Center"
-                            Text="&#xE8F4;"/>
-                        <TextBlock Margin="8 0 0 0" Text="Add Folder" />
+                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE8F4;"/>
+                        <TextBlock Margin="4 0 0 0" Text="Add Folder" />
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="ThemeToggleButton"
+                <!-- NOTE : Enable this while demo transition -->
+                <!-- <Button x:Name="ThemeToggleButton"
                     Grid.Row="2"
-                    Margin="8"
+                    Margin="8 0 8 8"
                     HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Left"
+                    HorizontalContentAlignment="Center"
                     Command="{Binding ViewModel.ToggleThemeCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="ThemeButtonIconBox"
-                            Margin="0 0 8 0"
-                            FontFamily="{StaticResource SymbolThemeFontFamily}"
-                            VerticalAlignment="Center"
-                            FontSize="16"
+                            Style="{StaticResource IconBox}"
                             Text="{Binding ViewModel.CurrentState, Converter={StaticResource ThemeToIconConverter}}" />
                         <TextBlock x:Name="ThemeButtonTextBox"
-                            Margin="8 0 0 0"
+                            Margin="4 0 0 0"
                             Text="{Binding ViewModel.CurrentState.Value}" />
                     </StackPanel>
-                </Button>
+                </Button> -->
                     
             </Grid>
 
@@ -106,7 +100,7 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 CornerRadius="8 0 0 0"
                 Padding="24 16 24 0">
-                <Frame x:Name="RootFrame" />
+                <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/>
             </Border>
         </Grid>
     </Grid>

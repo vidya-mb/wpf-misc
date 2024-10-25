@@ -20,16 +20,13 @@ public partial class ImageGalleryPage : Page
 
     private void PhotosListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (PhotosListView.SelectedItems.Count > 0)
+        var selectedPhotos = new ObservableCollection<Photo>();
+        foreach (Photo photo in PhotosListView.SelectedItems)
         {
-            var selectedPhotos = new ObservableCollection<Photo>();
-            foreach (Photo photo in PhotosListView.SelectedItems)
-            {
-                selectedPhotos.Add(photo);
-            }
-            ViewModel.SelectedPhotos = selectedPhotos;
-            UpdateMenuItems();
+            selectedPhotos.Add(photo);
         }
+        ViewModel.SelectedPhotos = selectedPhotos;
+        UpdateMenuItems();
     }
 
     private void UpdateMenuItems()

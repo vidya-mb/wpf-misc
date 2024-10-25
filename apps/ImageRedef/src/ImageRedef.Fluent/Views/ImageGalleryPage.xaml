@@ -150,6 +150,9 @@
                 ItemContainerStyle="{StaticResource PhotoGalleryItemStyle}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                VirtualizingPanel.IsVirtualizing="True"
+                VirtualizingPanel.IsContainerVirtualizable="True"
+                VirtualizingPanel.VirtualizationMode="Recycling"
                 SelectionMode="Extended"
                 SelectionChanged="PhotosListView_SelectionChanged"/>
         </Grid>

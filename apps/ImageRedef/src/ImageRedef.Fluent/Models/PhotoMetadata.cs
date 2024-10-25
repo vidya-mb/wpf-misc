@@ -1,5 +1,4 @@
 using ImageMagick;
-using MetadataExtractor;
 using System.IO;
 
 namespace ImageRedef.Fluent.Models;
@@ -74,8 +73,5 @@ public partial class PhotoMetadata : ObservableObject
 
         CreatedDate = DateTime.Parse(image.GetAttribute("date:create") ?? "");
         ModifiedDate = DateTime.Parse(image.GetAttribute("date:modify") ?? "");
-
-        var profile = image.GetExifProfile();
     }
-
 }

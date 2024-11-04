@@ -1,5 +1,6 @@
 ﻿using ImageRedef.Fluent.Helpers;
 using ImageRedef.Fluent.Views;
+using System.Windows.Navigation;
 using System.Windows.Shell;
 
 namespace ImageRedef.Fluent;

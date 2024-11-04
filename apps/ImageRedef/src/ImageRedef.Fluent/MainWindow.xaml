@@ -54,6 +54,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
+                
                 <TreeView x:Name="NavigationList"
                     Margin="8"
                     ItemsSource="{Binding ViewModel.NavigationList}"
@@ -100,7 +101,7 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 CornerRadius="8 0 0 0"
                 Padding="24 16 24 0">
-                <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden" />
             </Border>
         </Grid>
     </Grid>

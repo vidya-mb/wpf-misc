@@ -9,7 +9,8 @@
             DataType="{x:Type helpers:NavigationItem}"
             ItemsSource="{Binding Items}">
         <Grid x:Name="ItemContainerGrid"
-            MinHeight="30">
+            MinHeight="30"
+            HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="16" />

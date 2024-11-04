@@ -19,7 +19,7 @@ public partial class MainWindowViewModel : ObservableObject
     {
         OpenFolderDialog dialog = new OpenFolderDialog()
         {
-            Title = "Select folders to display the images...",
+            Title = "Select folders to display the photos...",
             InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
         };
 

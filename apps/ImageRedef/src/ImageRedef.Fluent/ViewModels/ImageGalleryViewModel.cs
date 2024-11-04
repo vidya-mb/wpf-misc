@@ -1,6 +1,10 @@
 using ImageRedef.Fluent.Models;
 using ImageRedef.Fluent.Helpers;
+using Microsoft.Win32;
+
 using ImageRedef.Fluent.ViewModels;
+using System.IO;
+using System.ComponentModel;
 
 public partial class ImageGalleryViewModel : ObservableObject
 {
@@ -16,6 +20,7 @@ public partial class ImageGalleryViewModel : ObservableObject
     }
 
     public IServiceProvider ServiceProvider { get; set; }
+    public ICollectionView PhotosView { get; set; }
 
     [ObservableProperty]
     private int _selectedPhotosCount;
@@ -55,12 +60,47 @@ public partial class ImageGalleryViewModel : ObservableObject
     [RelayCommand]
     public void MovePhotos()
     {
+        OpenFolderDialog dialog = new OpenFolderDialog()
+        {
+            Title = "Select folder to move the photos...",
+            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+        };
 
+        if(dialog.ShowDialog() == true)
+        {
+            foreach(Photo photo in SelectedPhotos)
+            {
+                Photos.Remove(photo);
+                //File.Move(photo.FilePath, Path.Combine(dialog.FolderName, photo.FileName));
+            } 
+
+            SelectedPhotos.Clear();
+            SelectedPhotosCount = 0;
+            SetInfoText();
+        }
     }
 
     [RelayCommand]
     public void CopyPhotos()
     {
+        OpenFolderDialog dialog = new OpenFolderDialog()
+        {
+            Title = "Select folder to move the photos...",
+            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+        };
+
+        if(dialog.ShowDialog() == true)
+        {
+            foreach(Photo photo in SelectedPhotos)
+            {
+                Photos.Remove(photo);
+                //File.Copy(photo.FilePath, Path.Combine(dialog.FolderName, photo.FileName));
+            } 
+
+            SelectedPhotos.Clear();
+            SelectedPhotosCount = 0;
+            SetInfoText();
+        }
 
     }
 
@@ -98,6 +138,7 @@ public partial class ImageGalleryViewModel : ObservableObject
     {
         HeaderText = item.Name;
         Photos = LoadPhotos(item);
+        PhotosView = CollectionViewSource.GetDefaultView(Photos);
         SelectedPhotos = new ObservableCollection<Photo>();
         SetInfoText();
     }

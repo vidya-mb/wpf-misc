@@ -82,6 +82,11 @@
                                 Text="&#xE70D;" />
                         </StackPanel>
                     </MenuItem.Header>
+                        <MenuItem Header="Move"
+                                  Command="{Binding ViewModel.MovePhotosCommand}" />
+                        <MenuItem Header="Copy"
+                                  Command="{Binding ViewModel.CopyPhotosCommand}" />
+                    
                 </MenuItem>
 
                 <MenuItem x:Name="SortMenuItem"

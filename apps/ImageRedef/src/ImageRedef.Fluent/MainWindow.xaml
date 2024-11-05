@@ -54,11 +54,11 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                
+
                 <TreeView x:Name="NavigationList"
                     Margin="8"
                     ItemsSource="{Binding ViewModel.NavigationList}"
-                    ItemTemplate="{StaticResource NavigationItemTemplate}" 
+                    ItemTemplate="{StaticResource NavigationItemTemplate}"
                     SelectedItemChanged="NavigationList_SelectedItemChanged"
                     Loaded="NavigationList_Loaded" />
 
@@ -77,7 +77,7 @@
                 </Button>
 
                 <!-- NOTE : Enable this while demo transition -->
-                <!-- <Button x:Name="ThemeToggleButton"
+                 <Button x:Name="ThemeToggleButton"
                     Grid.Row="2"
                     Margin="8 0 8 8"
                     HorizontalAlignment="Stretch"
@@ -91,7 +91,7 @@
                             Margin="4 0 0 0"
                             Text="{Binding ViewModel.CurrentState.Value}" />
                     </StackPanel>
-                </Button> -->
+                </Button> 
                     
             </Grid>
 

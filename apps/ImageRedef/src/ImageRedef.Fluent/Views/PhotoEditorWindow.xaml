@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageRedef.Fluent"
+        xmlns:controls="clr-namespace:ImageRedef.Fluent.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="1000"
         Background="Transparent">
@@ -115,22 +116,24 @@
                         </MenuItem>
                     </Menu>
                 </Border>
-                
-                <Button x:Name="CopyToClipboardButton"
-                    Margin="4 2"
-                    VerticalAlignment="Stretch"
-                    Grid.Column="1">
-                    <TextBlock Style="{StaticResource IconBox}"
-                        Text="&#xE8C8;" />
-                </Button>
 
-                <Button x:Name="SaveButton"
+                <controls:DropDownButton Width="180"
+                                      Margin="4 2"
+                                      VerticalAlignment="Stretch"
+                                      Grid.Column="1"
+                                      Loaded="DropDownButton_Loaded">
+                    <controls:DropDownButtonItem Content="Copy To Clipboard" Command="{Binding ViewModel.CopyToClipboardCommand}"/>
+                    <controls:DropDownButtonItem Content="Save" Command="{Binding ViewModel.SaveCommand}"/>
+                    <controls:DropDownButtonItem Content="Save As" Command="{Binding ViewModel.SaveAsCommand}"/>
+                </controls:DropDownButton>
+                
+                <!--<Button x:Name="SaveButton"
                     Grid.Column="2"
                     VerticalAlignment="Stretch"
                     Margin="4 2"
                     Content="Save"
                     Width="100"
-                    Style="{DynamicResource AccentButtonStyle}" />
+                    Style="{DynamicResource AccentButtonStyle}" />-->
 
                 <Button x:Name="CancelButton"
                     Grid.Column="3"
@@ -174,7 +177,16 @@
 
                 <Grid x:Name="PhotoViewer"
                     Grid.Column="2">
-                    <Viewbox Margin="40" Stretch="Uniform">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
+                        <!-- Enable this is Fluent mode as the content won't be visible in the fluent toggle switch mode -->
+                        <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Live Preview" Margin="0 0 10 0"/>
+                        <ToggleButton Style="{DynamicResource FluentToggleSwitchStyle}" Content="Live Preview" />
+                    </StackPanel>
+                    <Viewbox Margin="40" Stretch="Uniform" Grid.Row="1">
                         <Image Source="{Binding ViewModel.Photo.FilePath}" />
                     </Viewbox>
                 </Grid>
@@ -236,7 +248,7 @@
                                     </StackPanel>
                                     <StackPanel Grid.Column="1">
                                         <Label Content="Density" />
-                                        <TextBox Text="{Binding ViewModel.Metadata.ImageDensity}" IsEnabled="False" />
+                                        <TextBox Text="{Binding ViewModel.Metadata.DensityString}" IsEnabled="False" />
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>
@@ -258,13 +270,13 @@
                                         <TextBlock Text="Height" 
                                                    Style="{StaticResource BaseTextBlockStyle}"
                                                    Margin="0 0 0 6"/>
-                                        <TextBox Text="{Binding ViewModel.Height}" />
+                                        <TextBox Text="{Binding ViewModel.Metadata.Height}" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="1">
                                         <TextBlock Text="Width" 
                                                    Margin="0 0 0 6"
                                                    Style="{StaticResource BaseTextBlockStyle}"/>
-                                        <TextBox Text="{Binding ViewModel.Width}" />
+                                        <TextBox Text="{Binding ViewModel.Metadata.Width}" />
                                     </StackPanel>
                                     <ToggleButton VerticalAlignment="Bottom"
                                                   Margin="6 0 0 -1"
@@ -367,14 +379,13 @@
                                     </StackPanel>
                                 </Grid>
 
-                                <StackPanel x:Name="CustomRotate" Margin="0 0 0 10">
-                                    <TextBlock Text="Custom Rotate" 
-                                               Style="{StaticResource BaseTextBlockStyle}"/>
-                                    <Slider Margin="0 6 0 0"
-                                            Minimum="-45" Maximum="45" Value="0" 
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}"
-                                            IsSelectionRangeEnabled="True"/>
-                                </StackPanel>
+                                <controls:HeaderedSlider x:Name="CustomRotate"
+                                    Minimum="-45" Maximum="45" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <TextBlock Text="Custom Rotate" 
+                                            Style="{StaticResource BaseTextBlockStyle}"/>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
                             </StackPanel>
                         </Border>
 
@@ -383,81 +394,99 @@
                             <StackPanel Margin="10 10 10 0" Width="300" HorizontalAlignment="Left">
                                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"
                                            Text="Light" Margin="0 0 0 20"/>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE706;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Brightness" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE793;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Exposure" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xF08C;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Contrast" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE945;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Highlights" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE708;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Shadows" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE93C;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Vignette" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
+                                <controls:HeaderedSlider x:Name="BrightnessSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE706;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Brightness" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
+                                <controls:HeaderedSlider x:Name="ExposureSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE793;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Exposure" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
+                                <controls:HeaderedSlider x:Name="ContrastSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xF08C;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Contrast" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
+                                <controls:HeaderedSlider x:Name="HighlightsSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE945;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Highlights" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
+                                <controls:HeaderedSlider x:Name="ShadowsSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE708;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Shadows" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
+                                <controls:HeaderedSlider x:Name="VignetteSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE93C;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Vignette" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
 
                                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"
                                            Text="Colour" Margin="0 0 0 20" />
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xEF3C;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Saturation" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xEA38;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Warmth" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
-                                <StackPanel Margin="0 0 0 10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource IconBox}" Text="&#xEB42;" />
-                                        <TextBlock Margin="4 0 0 0" Text="Tint" />
-                                    </StackPanel>
-                                    <Slider Minimum="-100" Maximum="100" Value="0" IsSelectionRangeEnabled="True"
-                                            SelectionStart="0" SelectionEnd="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-                                </StackPanel>
+
+                                <controls:HeaderedSlider x:Name="SaturationSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xEF3C;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Saturation" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
+                                <controls:HeaderedSlider x:Name="WarmthSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xEA38;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Warmth" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
+                                <controls:HeaderedSlider x:Name="TintSlider"
+                                    Minimum="-100" Maximum="100" Value="0" Margin="0 0 0 10">
+                                    <controls:HeaderedSlider.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource IconBox}" Text="&#xEB42;" />
+                                            <TextBlock Margin="4 0 0 0" Text="Tint" />
+                                        </StackPanel>
+                                    </controls:HeaderedSlider.Header>
+                                </controls:HeaderedSlider>
+
                             </StackPanel>
                         </Border>
 

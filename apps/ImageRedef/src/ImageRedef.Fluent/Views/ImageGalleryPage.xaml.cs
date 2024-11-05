@@ -12,6 +12,11 @@ public partial class ImageGalleryPage : Page
         ViewModel = galleryViewModel;
         DataContext = this;
         InitializeComponent();
+
+        if(ViewModel.PhotosCount == 0)
+        {
+            PhotosListView.Visibility = Visibility.Hidden;
+        }
     }
 
     private IServiceProvider _serviceProvider;

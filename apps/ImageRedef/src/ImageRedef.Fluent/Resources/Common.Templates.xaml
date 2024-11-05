@@ -9,8 +9,7 @@
             DataType="{x:Type helpers:NavigationItem}"
             ItemsSource="{Binding Items}">
         <Grid x:Name="ItemContainerGrid"
-            MinHeight="30"
-            HorizontalAlignment="Stretch">
+            MinHeight="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="16" />
@@ -29,11 +28,6 @@
                 VerticalAlignment="Center"
                 Text="{Binding Name}" />
         </Grid>
-        <!--<HierarchicalDataTemplate.Triggers>
-            <DataTrigger Binding="{Binding HasItems}" Value="False">
-                <Setter TargetName="ItemContainerGrid" Property="Margin" Value="-20 0 0 0" />
-            </DataTrigger> 
-        </HierarchicalDataTemplate.Triggers>-->
     </HierarchicalDataTemplate>
 
     <ItemsPanelTemplate x:Key="PhotoPanelTemplate">
@@ -44,12 +38,5 @@
                 VirtualizingPanel.IsVirtualizing="True"/>
     </ItemsPanelTemplate>
 
-    <DataTemplate x:Key="PhotoCardTemplate" DataType="{x:Type models:Photo}">
-        <Border CornerRadius="4" Height="200" Width="200">
-            <Border.Background>
-                <ImageBrush ImageSource="{Binding FilePath}" Stretch="UniformToFill" />
-            </Border.Background>
-        </Border>
-    </DataTemplate>
 
 </ResourceDictionary>

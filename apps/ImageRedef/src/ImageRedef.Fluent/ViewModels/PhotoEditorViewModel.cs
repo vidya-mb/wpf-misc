@@ -34,5 +34,29 @@ namespace ImageRedef.Fluent.ViewModels
             }
 
         }
+
+        [RelayCommand]
+        public void Save()
+        {
+
+        }
+
+        [RelayCommand]
+        public void SaveAs()
+        {
+
+        }
+
+        [RelayCommand]
+        public void CopyToClipboard()
+        {
+
+        }
+
+        [RelayCommand]
+        public void Rotate()
+        {
+
+        }
     }
 }

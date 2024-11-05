@@ -18,6 +18,11 @@
     <Resource Include="Assets\WPFGalleryPreviewIcon.png" />
   </ItemGroup>
 
+  <!-- Use this switch to disable the switch -->
+  <!--<ItemGroup>
+    <RuntimeHostConfigurationOption Include="Switch.System.Windows.Appearance.DisableFluentThemeWindowBackdrop" Value="true" />
+  </ItemGroup>-->
+  
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="14.0.0" />

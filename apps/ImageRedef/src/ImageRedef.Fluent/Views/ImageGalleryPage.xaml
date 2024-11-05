@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:ImageRedef.Fluent.Views"
+    xmlns:models="clr-namespace:ImageRedef.Fluent.Models"
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     Title="Image Gallery"
     mc:Ignorable="d">
@@ -151,7 +152,6 @@
                 BorderThickness="0"
                 ItemsSource="{Binding ViewModel.Photos}" 
                 ItemsPanel="{StaticResource PhotoPanelTemplate}"
-                ItemTemplate="{StaticResource PhotoCardTemplate}"
                 ItemContainerStyle="{StaticResource PhotoGalleryItemStyle}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -159,7 +159,17 @@
                 VirtualizingPanel.IsContainerVirtualizable="True"
                 VirtualizingPanel.VirtualizationMode="Recycling"
                 SelectionMode="Extended"
-                SelectionChanged="PhotosListView_SelectionChanged"/>
+                SelectionChanged="PhotosListView_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type models:Photo}">
+                        <Border CornerRadius="4" Height="200" Width="200">
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding FilePath}" Stretch="UniformToFill" />
+                            </Border.Background>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
 
     </Grid>

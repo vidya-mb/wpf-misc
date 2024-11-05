@@ -2,10 +2,13 @@ using System.IO;
 
 namespace ImageRedef.Fluent.Models;
 
-public class Photo
+public partial class Photo : ObservableObject
 {
-    public string FileName { get; set; }
-    public string FilePath { get; set; }
+    [ObservableProperty]
+    private string _fileName;
+
+    [ObservableProperty]
+    private string _filePath;
 
     public Photo(string path)
     {

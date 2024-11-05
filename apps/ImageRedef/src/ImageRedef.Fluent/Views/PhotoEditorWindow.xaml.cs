@@ -1,4 +1,5 @@
 using System.Windows.Shell;
+using ImageRedef.Fluent.Controls;
 using ImageRedef.Fluent.ViewModels;
 
 namespace ImageRedef.Fluent.Views;
@@ -75,5 +76,18 @@ public partial class PhotoEditorWindow : Window
                 AnimationModeOptions.Visibility = Visibility.Collapsed;
                 break;
         }
+    }
+
+    private void DropDownButton_Loaded(object sender, RoutedEventArgs e)
+    {
+        if(sender is DropDownButton db)
+        {
+            db.SelectedIndex = 1;
+        }
+    }
+
+    private void CustomRotate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+        Debug.WriteLine("Reached Here");
     }
 }

@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageRedef.Fluent"
+        xmlns:helpers="clr-namespace:ImageRedef.Fluent.Helpers"
         xmlns:controls="clr-namespace:ImageRedef.Fluent.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="1000"
         Background="Transparent">
+    <Window.Resources>
+        <helpers:ThemeModeToIconGlyphConverter x:Key="ThemeToIconConverter" />
+    </Window.Resources>
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="44" />
@@ -153,27 +157,48 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <ListView x:Name="EditingModeList"
-                    VerticalAlignment="Top"
-                    BorderThickness="0"
-                    SelectionChanged="EditingModeList_SelectionChanged"
-                    SelectionMode="Single">
-                    <ListView.Resources>
+                <DockPanel VerticalAlignment="Stretch">
+                    <!-- Enable this while the demo in Fluent mode -->
+                    <!--<Button x:Name="ThemeToggleButton"
+                        DockPanel.Dock="Bottom"
+                        Margin="4 0 4 8"
+                        Padding="0"
+                        Height="32"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Click="ThemeToggleButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="ThemeButtonIconBox"
+                                Style="{StaticResource IconBox}"
+                                Text="{Binding ViewModel.CurrentState, Converter={StaticResource ThemeToIconConverter}}" />
+                        </StackPanel>
+                    </Button>-->
+
+                    <ListView x:Name="EditingModeList"
+                        VerticalAlignment="Top"
+                        DockPanel.Dock="Top"
+                        BorderThickness="0"
+                        SelectionChanged="EditingModeList_SelectionChanged"
+                        SelectionMode="Single">
+                        <ListView.Resources>
                         <Style BasedOn="{StaticResource CompactListViewItemStyle}" TargetType="ListViewItem" />
                     </ListView.Resources>
-                    <ListViewItem x:Name="MetadataMode" Tag="Metadata">
-                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE70F;" />
-                    </ListViewItem>
-                    <ListViewItem x:Name="CropMode" Tag="Crop">
-                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE7A8;" />
-                    </ListViewItem>
-                    <ListViewItem x:Name="AdjustmentMode" Tag="Adjustment">
-                        <TextBlock Style="{StaticResource IconBox}" Text="&#xE706;" />
-                    </ListViewItem>
-                    <ListViewItem x:Name="AnimationMode" Tag="Animation">
+                        <ListViewItem x:Name="MetadataMode" Tag="Metadata">
+                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE70F;" />
+                        </ListViewItem>
+                        <ListViewItem x:Name="CropMode" Tag="Crop">
+                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE7A8;" />
+                        </ListViewItem>
+                        <ListViewItem x:Name="AdjustmentMode" Tag="Adjustment">
+                            <TextBlock Style="{StaticResource IconBox}" Text="&#xE706;" />
+                        </ListViewItem>
+                        <ListViewItem x:Name="AnimationMode" Tag="Animation">
                         <TextBlock Style="{StaticResource IconBox}" Text="&#xF4A5;" />
                     </ListViewItem>
-                </ListView>
+                    </ListView>
+
+                     
+                </DockPanel>
 
                 <Grid x:Name="PhotoViewer"
                     Grid.Column="2">
@@ -183,8 +208,8 @@
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
                         <!-- Enable this is Fluent mode as the content won't be visible in the fluent toggle switch mode -->
-                        <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Live Preview" Margin="0 0 10 0"/>
-                        <ToggleButton Style="{DynamicResource FluentToggleSwitchStyle}" Content="Live Preview" />
+                        <!--<TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Live Preview" Margin="0 0 10 0"/>-->
+                        <ToggleButton Style="{DynamicResource FluentToggleSwitchStyle}" Content="Live Preview" FontWeight="Bold" Padding="10 5"/>
                     </StackPanel>
                     <Viewbox Margin="40" Stretch="Uniform" Grid.Row="1">
                         <Image Source="{Binding ViewModel.Photo.FilePath}" />
@@ -196,7 +221,7 @@
                               Margin="10 0 10 0"
                               Padding="0 0 20 0"
                               HorizontalScrollBarVisibility="Auto"
-                              VerticalScrollBarVisibility="Auto">
+                              VerticalScrollBarVisibility="Visible">
                     <Grid x:Name="PhotoEditingOptions">
                         <Grid.Resources>
                             <Style TargetType="Label">
@@ -206,7 +231,7 @@
                         </Grid.Resources>
 
                         <Border x:Name="MetadataModeOptions">
-                            <StackPanel Margin="10 10 10 0" Width="400" HorizontalAlignment="Left">
+                            <StackPanel Margin="10 10 10 0" Width="360" HorizontalAlignment="Left">
                                 <StackPanel Margin="0 0 0 10">
                                     <Label Content="File Name" />
                                     <TextBox Text="{Binding ViewModel.Metadata.FileName}" IsReadOnly="True" />
@@ -256,7 +281,7 @@
 
                         <Border x:Name="CropModeOptions"
                                 Visibility="Hidden">
-                            <StackPanel Margin="10 10 10 0" Width="300" HorizontalAlignment="Left">
+                            <StackPanel Margin="10 10 10 0" Width="360" HorizontalAlignment="Left">
                                 <TextBlock Style="{StaticResource BaseTextBlockStyle}"
                                            Text="Resize" FontSize="18" 
                                            Margin="0 0 0 16"/>
@@ -286,6 +311,7 @@
                                                   Padding="0"
                                                   IsChecked="True">
                                         <TextBlock Style="{StaticResource IconBox}"
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                    Text="&#xE71B;" />
                                     </ToggleButton>
                                 </Grid>
@@ -391,7 +417,7 @@
 
                         <Border x:Name="AdjustmentModeOptions"
                                 Visibility="Hidden">
-                            <StackPanel Margin="10 10 10 0" Width="300" HorizontalAlignment="Left">
+                            <StackPanel Margin="10 10 10 0" Width="360" HorizontalAlignment="Left">
                                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"
                                            Text="Light" Margin="0 0 0 20"/>
                                 <controls:HeaderedSlider x:Name="BrightnessSlider"
@@ -492,7 +518,8 @@
 
                         <Border x:Name="AnimationModeOptions"
                                 Visibility="Hidden">
-                        
+                            <StackPanel Margin="10 10 10 0" Width="360" />
+
                         </Border>
                     </Grid>
                 </ScrollViewer>

@@ -40,7 +40,7 @@
                     Visibility="Collapsed"
                     Click="ClearSelectionMenuItem_Click">
                     <MenuItem.Header>
-                        <StackPanel Orientation="Horizontal" Margin="{DynamicResource MenuItemHeaderMarginHack}">
+                        <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource IconBox}"
                                 FontSize="12"
                                 Text="&#xE711;" />
@@ -93,7 +93,7 @@
                 <MenuItem x:Name="SortMenuItem"
                     Margin="{DynamicResource MenuItemNonBoundaryMargin}">
                     <MenuItem.Header>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="{DynamicResource MenuItemHeaderMarginHack}">
                             <TextBlock Style="{StaticResource IconBox}"
                                 Text="&#xE8CB;" />
                             <TextBlock Style="{StaticResource IconBox}"

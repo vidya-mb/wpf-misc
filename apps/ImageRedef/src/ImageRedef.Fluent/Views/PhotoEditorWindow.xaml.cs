@@ -90,4 +90,10 @@ public partial class PhotoEditorWindow : Window
     {
         Debug.WriteLine("Reached Here");
     }
+
+    private void ThemeToggleButton_Click(object sender, RoutedEventArgs e)
+    {
+        ViewModel.ToggleTheme();
+        this.ThemeMode = ViewModel.CurrentState;
+    }
 }

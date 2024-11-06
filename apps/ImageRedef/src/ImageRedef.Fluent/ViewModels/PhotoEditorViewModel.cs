@@ -25,6 +25,9 @@ namespace ImageRedef.Fluent.ViewModels
         [ObservableProperty]
         private int _scale = 100;
 
+        [ObservableProperty]
+        private ThemeMode _currentState = ThemeMode.System;
+
         partial void OnPhotoChanged(Photo? oldValue, Photo? newValue)
         {
             if(newValue is not null)
@@ -57,6 +60,23 @@ namespace ImageRedef.Fluent.ViewModels
         public void Rotate()
         {
 
+        }
+
+        [RelayCommand]
+        public void ToggleTheme()
+        {
+            if (CurrentState == ThemeMode.System)
+            {
+                CurrentState = ThemeMode.Light;
+            }
+            else if (CurrentState == ThemeMode.Light)
+            {
+                CurrentState = ThemeMode.Dark;
+            }
+            else
+            {
+                CurrentState = ThemeMode.System;
+            }
         }
     }
 }

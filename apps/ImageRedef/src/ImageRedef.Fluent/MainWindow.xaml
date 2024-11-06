@@ -77,9 +77,10 @@
                 </Button>
 
                 <!-- NOTE : Enable this while demo transition -->
-                 <Button x:Name="ThemeToggleButton"
+                 <!--<Button x:Name="ThemeToggleButton"
                     Grid.Row="2"
                     Margin="8 0 8 8"
+                    Height="32"
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Center"
                     Command="{Binding ViewModel.ToggleThemeCommand}">
@@ -91,7 +92,7 @@
                             Margin="4 0 0 0"
                             Text="{Binding ViewModel.CurrentState.Value}" />
                     </StackPanel>
-                </Button> 
+                </Button>--> 
                     
             </Grid>
 

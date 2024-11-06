@@ -49,7 +49,7 @@
                             <theme:SystemDropShadowChrome x:Name="shadow"
                                 Color="Transparent"
                                 MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                Width="{Binding RenderWidth}">
+                                Width="{TemplateBinding Width}">
                                 <Border x:Name="DropDownBorder"
                                     BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"
                                     Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"

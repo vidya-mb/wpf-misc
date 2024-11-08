@@ -121,7 +121,7 @@
                     </Menu>
                 </Border>
 
-                <controls:DropDownButton Width="180"
+                <!--<controls:DropDownButton Width="180"
                                       Margin="4 2"
                                       VerticalAlignment="Stretch"
                                       Grid.Column="1"
@@ -129,15 +129,15 @@
                     <controls:DropDownButtonItem Content="Copy To Clipboard" Command="{Binding ViewModel.CopyToClipboardCommand}"/>
                     <controls:DropDownButtonItem Content="Save" Command="{Binding ViewModel.SaveCommand}"/>
                     <controls:DropDownButtonItem Content="Save As" Command="{Binding ViewModel.SaveAsCommand}"/>
-                </controls:DropDownButton>
+                </controls:DropDownButton>-->
                 
-                <!--<Button x:Name="SaveButton"
+                <Button x:Name="SaveButton"
                     Grid.Column="2"
                     VerticalAlignment="Stretch"
                     Margin="4 2"
                     Content="Save"
                     Width="100"
-                    Style="{DynamicResource AccentButtonStyle}" />-->
+                     />
 
                 <Button x:Name="CancelButton"
                     Grid.Column="3"

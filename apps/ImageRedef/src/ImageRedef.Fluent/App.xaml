@@ -5,14 +5,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
+
                 <!-- Common Styles / Templates -->
                 <ResourceDictionary Source="Resources/Common.Styles.xaml" />
                 <ResourceDictionary Source="Resources/Common.Templates.xaml" />
 
-                <!-- Aero2 Resources -->
-                <ResourceDictionary Source="Resources/Aero2.Controls.xaml" />
-                <ResourceDictionary Source="Resources/Aero2.Styles.xaml" />
+                <!-- Resources -->
+                <ResourceDictionary Source="Resources/Custom.Controls.xaml" />
+                <ResourceDictionary Source="Resources/Custom.Styles.xaml" />
                 
                 
             </ResourceDictionary.MergedDictionaries>

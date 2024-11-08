@@ -81,5 +81,39 @@
     <Style BasedOn="{StaticResource Aero2DropDownButtonStyle}" TargetType="{x:Type controls:DropDownButton}" />
 
 
-    
+    <Style x:Key="FluentToggleSwitchStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="RootBorder"
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource ControlStrongStrokeColorDefaultBrush}"
+                            CornerRadius="11"
+                            Height="22"
+                            Width="45"
+                            Padding="2">
+                            <Border x:Name="Thumb"
+                                Background="{DynamicResource ControlStrongStrokeColorDefaultBrush}"
+                                Height="14"
+                                Width="14"
+                                CornerRadius="7"
+                                Margin="0"
+                                HorizontalAlignment="Left" />
+                        </Border>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Thumb" Property="HorizontalAlignment" Value="Right" />
+                            <Setter TargetName="Thumb" Property="Background" Value="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
+                            <Setter TargetName="RootBorder" Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
 </ResourceDictionary>

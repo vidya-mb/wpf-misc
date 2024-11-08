@@ -1,0 +1,36 @@
+﻿
+# Comments
+
+TAB: Demo
+
+- Fluent Import
+
+<ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Theme/Fluent.xaml" />
+</ResourceDictionary.MergedDictionaries>
+
+- Update Card styles
+
+<Style x:Key="CardBackgroundStyle" TargetType="Border">
+    <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+</Style>
+
+- OpenFolderDialog
+
+var folderDialog = new OpenFolderDialog();
+
+
+- Win Notifications
+
+ var appNotification = new AppNotificationBuilder()
+                      .AddText("A new firmware update is available.")
+                      .AddButton(new AppNotificationButton("Install now")
+                      .AddArgument("action", "ToastClick")
+                      .SetButtonStyle(AppNotificationButtonStyle.Success)).BuildNotification();
+
+ notificationManager.Show(appNotification);
+
+

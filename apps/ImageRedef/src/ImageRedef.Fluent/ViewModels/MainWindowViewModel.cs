@@ -5,7 +5,7 @@ public partial class MainWindowViewModel : ObservableObject
 {
     public MainWindowViewModel()
     {
-        NavigationList = PhotosDataSource.DefaultNavigationList();
+        NavigationList = PhotosDataSource.NavigationListFromConfig();
     }
 
     [ObservableProperty]

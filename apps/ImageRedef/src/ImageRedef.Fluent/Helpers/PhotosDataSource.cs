@@ -1,11 +1,28 @@
 
 using System.IO;
+using System.Text.Json;
 using ImageRedef.Fluent.Models;
 
 namespace ImageRedef.Fluent.Helpers;
 
 public static class PhotosDataSource
 {
+    class JsonConfig
+    {
+        public ObservableCollection<NavigationItem> NavigationList { get; set; }
+    }
+
+    public static ObservableCollection<NavigationItem> NavigationListFromConfig()
+    {
+        var configFilePath = "config.json";
+        if (!File.Exists(configFilePath)) return DefaultNavigationList();
+        var jsonContent = File.ReadAllText(configFilePath);
+
+        var navListFromConfig = JsonSerializer.Deserialize<JsonConfig>(jsonContent,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+        return navListFromConfig?.NavigationList ?? DefaultNavigationList();
+    }
     public static ObservableCollection<NavigationItem> DefaultNavigationList()
     {
         ObservableCollection<NavigationItem> navItems; 

@@ -14,7 +14,7 @@ public partial class App : Application
             services.AddSingleton<MainWindow>();
             services.AddSingleton<MainWindowViewModel>();
             services.AddTransient<ImageGalleryPage>();
-            services.AddTransient<ImageGalleryViewModel>();
+            services.AddTransient<ProImageGalleryViewModel>();
             services.AddTransient<PhotoEditorWindow>();
             services.AddTransient<PhotoEditorViewModel>();
 

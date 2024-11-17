@@ -38,9 +38,10 @@ public partial class MainWindow : Window
     {
         if(NavigationList.SelectedItem is NavigationItem navItem)
         {
-            var galleryViewModel = _serviceProvider.GetRequiredService<ImageGalleryViewModel>();
+            var galleryViewModel = _serviceProvider.GetRequiredService<ProImageGalleryViewModel>();
             galleryViewModel.ServiceProvider = _serviceProvider;
             galleryViewModel.NavigationItem = navItem;
+            galleryViewModel.InitializeData(navItem);
             Page page = new ImageGalleryPage(galleryViewModel, _serviceProvider);
             RootFrame.Navigate(page);
         }

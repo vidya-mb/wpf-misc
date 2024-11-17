@@ -145,7 +145,7 @@
                 Text="{Binding ViewModel.InfoText}" />
         </Grid>
 
-        <Grid x:Name="GalleryView"
+        <!--<Grid x:Name="GalleryView"
             Grid.Row="1">
             <ListView
                 x:Name="PhotosListView"
@@ -170,7 +170,32 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </Grid>
+        </Grid>-->
 
+        <Grid x:Name="GalleryView"  Grid.Row="1">
+            <ScrollViewer PanningMode="Both">
+                <ItemsControl x:Name="ImageList" ItemsSource="{Binding ViewModel.Images}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="5" 
+                        BorderThickness="1" 
+                        BorderBrush="Gray"
+                        Padding="3">
+                                <Image Source="{Binding ImageSource}" 
+                           Width="200" 
+                           Height="200" 
+                           Stretch="Uniform"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>

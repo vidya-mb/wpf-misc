@@ -6,24 +6,24 @@ namespace ImageRedef.Fluent.Views;
 
 public partial class ImageGalleryPage : Page
 {
-    public ImageGalleryPage(ImageGalleryViewModel galleryViewModel, IServiceProvider serviceProvider)
+    public ImageGalleryPage(ProImageGalleryViewModel galleryViewModel, IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
         ViewModel = galleryViewModel;
         DataContext = this;
         InitializeComponent();
 
-        if(ViewModel.PhotosCount == 0)
-        {
-            PhotosListView.Visibility = Visibility.Hidden;
-        }
+        //if(ViewModel.PhotosCount == 0)
+        //{
+        //    PhotosListView.Visibility = Visibility.Hidden;
+        //}
     }
 
     private IServiceProvider _serviceProvider;
 
-    public ImageGalleryViewModel ViewModel { get; }
+    public ProImageGalleryViewModel ViewModel { get; }
 
-    private void PhotosListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    /*private void PhotosListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var selectedPhotos = new ObservableCollection<Photo>();
         foreach (Photo photo in PhotosListView.SelectedItems)
@@ -32,7 +32,7 @@ public partial class ImageGalleryPage : Page
         }
         ViewModel.SelectedPhotos = selectedPhotos;
         UpdateMenuItems();
-    }
+    }*/
 
     private void UpdateMenuItems()
     {
@@ -73,17 +73,22 @@ public partial class ImageGalleryPage : Page
         }
 
         var photoWindowViewModel = _serviceProvider.GetRequiredService<PhotoEditorViewModel>();
-        photoWindowViewModel.Photo = ViewModel.SelectedPhotos.First();
+        //photoWindowViewModel.Photo = ViewModel.SelectedPhotos.First();
         Window window = new PhotoEditorWindow(photoWindowViewModel, _serviceProvider);
         window.Show();
     }
 
     private void ClearSelectionMenuItem_Click(object sender, RoutedEventArgs e)
     {
-        PhotosListView.UnselectAll();
+        //PhotosListView.UnselectAll();
         ViewModel.SelectedPhotos.Clear();
         ViewModel.SelectedPhotosCount = 0;
         UpdateMenuItems();
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+
     }
 }
 

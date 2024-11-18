@@ -16,7 +16,9 @@ public partial class ImageGalleryViewModel : ObservableObject
     public ImageGalleryViewModel(NavigationItem navigationItem)
     {
         NavigationItem = navigationItem;
-        InitializeData(navigationItem);
+        //InitializeData(navigationItem);
+
+        _ = InitializeDataAsync(navigationItem);
     }
 
     public IServiceProvider ServiceProvider { get; set; }
@@ -36,6 +38,9 @@ public partial class ImageGalleryViewModel : ObservableObject
 
     [ObservableProperty]
     private string _infoText;
+
+    [ObservableProperty]
+    private bool _isLoading;
 
     [ObservableProperty]
     private ObservableCollection<Photo> _photos;
@@ -119,7 +124,7 @@ public partial class ImageGalleryViewModel : ObservableObject
     partial void OnNavigationItemChanged(NavigationItem? oldValue, NavigationItem newValue)
     {
         ResetData();
-        InitializeData(newValue);
+        _ = InitializeDataAsync(newValue);
     }
 
     partial void OnPhotosChanged(ObservableCollection<Photo> value)
@@ -134,14 +139,6 @@ public partial class ImageGalleryViewModel : ObservableObject
         SetInfoText();
     }
 
-    private void InitializeData(NavigationItem item)
-    {
-        HeaderText = item.Name;
-        Photos = LoadPhotos(item);
-        PhotosView = CollectionViewSource.GetDefaultView(Photos);
-        SelectedPhotos = new ObservableCollection<Photo>();
-        SetInfoText();
-    }
 
     private void ResetData()
     {
@@ -149,6 +146,23 @@ public partial class ImageGalleryViewModel : ObservableObject
         SelectedPhotos = new ObservableCollection<Photo>();
         SetInfoText();
     }
+
+    private async Task InitializeDataAsync(NavigationItem item)
+    {
+        HeaderText = item.Name;
+        IsLoading = true;
+
+        await foreach (var photo in LoadPhotosAsync(item))
+        {
+            Photos.Add(photo);
+        }
+
+        IsLoading = false;
+        PhotosView = CollectionViewSource.GetDefaultView(Photos);
+        SelectedPhotos = new ObservableCollection<Photo>();
+        SetInfoText();
+    }
+
 
     private ObservableCollection<Photo> LoadPhotos(NavigationItem navItem)
     {
@@ -172,9 +186,27 @@ public partial class ImageGalleryViewModel : ObservableObject
         return photos;
     }
 
-    private void SetInfoText()
+    private IAsyncEnumerable<Photo> LoadPhotosAsync(NavigationItem navItem)
     {
-        InfoText = $"{PhotosCount} photos";
+        ArgumentNullException.ThrowIfNull(navItem);
+
+        return Impl(navItem);
+
+        static IAsyncEnumerable<Photo> Impl(NavigationItem navItem) => navItem.ItemType switch
+        {
+            NavigationItemType.AllPhotos => PhotosDataSource.GetAllPhotosAsync(),
+            NavigationItemType.Favourite => PhotosDataSource.GetFavouritePhotosAsync(),
+            NavigationItemType.Folder => PhotosDataSource.GetPhotosAsync(navItem.FilePath),
+            _ => _DefaultCase()
+        };
+
+        static async IAsyncEnumerable<Photo> _DefaultCase()
+        {
+            yield return new Photo("");
+        }
+
     }
+
+    private void SetInfoText() => InfoText = $"{Photos?.Count} photos";
 
 }

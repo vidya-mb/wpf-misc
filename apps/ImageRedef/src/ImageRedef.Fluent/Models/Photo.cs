@@ -10,6 +10,13 @@ public partial class Photo : ObservableObject
     [ObservableProperty]
     private string _filePath;
 
+    [ObservableProperty]
+    private BitmapImage _imageSource;
+    
+    [ObservableProperty]
+    private bool _isLoading;
+
+
     public Photo(string path)
     {
         FilePath = path;
@@ -20,16 +27,12 @@ public partial class Photo : ObservableObject
     {
         string extension = Path.GetExtension(path).ToLower();
 
-        switch(extension)
+        return extension switch
         {
-            case ".jpeg":
-            case ".jpg":
-                return MediaType.Jpeg;
-            case ".png":
-                return MediaType.Png;
-            default:
-                return MediaType.Unknown;
-        }
+            ".jpeg" or ".jpg" => MediaType.Jpeg,
+            ".png" => MediaType.Png,
+            _ => MediaType.Unknown,
+        };
     }
 
 }

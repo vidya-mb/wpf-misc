@@ -13,10 +13,10 @@ public partial class ImageGalleryPage : Page
         DataContext = this;
         InitializeComponent();
 
-        if(ViewModel.PhotosCount == 0)
-        {
-            PhotosListView.Visibility = Visibility.Hidden;
-        }
+        //if (ViewModel.PhotosCount == 0)
+        //{
+        //    PhotosListView.Visibility = Visibility.Hidden;
+        //}
     }
 
     private IServiceProvider _serviceProvider;
@@ -85,5 +85,7 @@ public partial class ImageGalleryPage : Page
         ViewModel.SelectedPhotosCount = 0;
         UpdateMenuItems();
     }
+
+    
 }
 

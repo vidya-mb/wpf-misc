@@ -70,7 +70,7 @@
                                 Text="&#xE771;" />
                     </MenuItem.Header>
                 </MenuItem>
-                
+
                 <MenuItem x:Name="MoveCopyMenuItem"
                     Margin="{DynamicResource MenuItemNonBoundaryMargin}"
                     Visibility="Collapsed">
@@ -83,11 +83,11 @@
                                 Text="&#xE70D;" />
                         </StackPanel>
                     </MenuItem.Header>
-                        <MenuItem Header="Move"
+                    <MenuItem Header="Move"
                                   Command="{Binding ViewModel.MovePhotosCommand}" />
-                        <MenuItem Header="Copy"
+                    <MenuItem Header="Copy"
                                   Command="{Binding ViewModel.CopyPhotosCommand}" />
-                    
+
                 </MenuItem>
 
                 <MenuItem x:Name="SortMenuItem"
@@ -143,6 +143,7 @@
                 Margin="0 0 0 4"
                 Style="{DynamicResource BodyTextBlockStyle}"
                 Text="{Binding ViewModel.InfoText}" />
+
         </Grid>
 
         <Grid x:Name="GalleryView"
@@ -155,6 +156,7 @@
                 ItemContainerStyle="{StaticResource PhotoGalleryItemStyle}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ScrollViewer.PanningMode="VerticalFirst"
                 VirtualizingPanel.IsVirtualizing="True"
                 VirtualizingPanel.IsContainerVirtualizable="True"
                 VirtualizingPanel.VirtualizationMode="Recycling"
@@ -164,13 +166,27 @@
                     <DataTemplate DataType="{x:Type models:Photo}">
                         <Border CornerRadius="4" Height="200" Width="200">
                             <Border.Background>
-                                <ImageBrush ImageSource="{Binding FilePath}" Stretch="UniformToFill" />
+                                <ImageBrush ImageSource="{Binding ImageSource}" Stretch="UniformToFill" />
                             </Border.Background>
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
+
+        <!--<Grid Background="LightGray" 
+              Grid.Row="1"
+              Opacity="0.4"
+            Visibility="{Binding ViewModel.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel HorizontalAlignment="Center" 
+                VerticalAlignment="Center">
+                <ProgressBar IsIndeterminate="True" 
+                   Width="100" Height="2" 
+                   Margin="0,0,0,10"/>
+                <TextBlock Text="Loading images..." 
+                 Foreground="White"/>
+            </StackPanel>
+        </Grid>-->
 
     </Grid>
 </Page>

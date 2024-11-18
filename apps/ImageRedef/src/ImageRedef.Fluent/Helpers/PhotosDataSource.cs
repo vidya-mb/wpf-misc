@@ -1,6 +1,7 @@
 
 using System.IO;
 using System.Text.Json;
+using ImageMagick.Drawing;
 using ImageRedef.Fluent.Models;
 
 namespace ImageRedef.Fluent.Helpers;
@@ -25,7 +26,7 @@ public static class PhotosDataSource
     }
     public static ObservableCollection<NavigationItem> DefaultNavigationList()
     {
-        ObservableCollection<NavigationItem> navItems; 
+        ObservableCollection<NavigationItem> navItems;
         navItems = new ObservableCollection<NavigationItem>
         {
             new NavigationItem { IconGlyph = "\uE7C5", Name = "All Photos",
@@ -49,7 +50,7 @@ public static class PhotosDataSource
         item.Items = new ObservableCollection<NavigationItem>();
 
         string[] subDirectories = Directory.GetDirectories(directory);
-        foreach(string subDirectory in subDirectories)
+        foreach (string subDirectory in subDirectories)
         {
             item.Items.Add(CreateNavigationItemFromPath(subDirectory));
         }
@@ -64,9 +65,9 @@ public static class PhotosDataSource
         ObservableCollection<Photo> photos = new ObservableCollection<Photo>();
         IEnumerable<string> files = Directory.GetFiles(directory);
 
-        foreach(string file in files)
+        foreach (string file in files)
         {
-            if(Photo.GetMediaType(file) != MediaType.Unknown)
+            if (Photo.GetMediaType(file) != MediaType.Unknown)
             {
                 Photo photo = new Photo(file);
                 photos.Add(photo);
@@ -85,6 +86,65 @@ public static class PhotosDataSource
     {
         return GetPhotos(UserPicturesPath);
     }
+
+
+    public static IAsyncEnumerable<Photo> GetAllPhotosAsync()
+    {
+        return GetPhotosAsync(UserPicturesPath);
+    }
+
+    public static IAsyncEnumerable<Photo> GetFavouritePhotosAsync()
+    {
+        return GetPhotosAsync(UserPicturesPath);
+    }
+
+
+    public static async IAsyncEnumerable<Photo> GetPhotosAsync(string directory)
+    {
+        ArgumentNullException.ThrowIfNull(directory);
+
+        string[] supportedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+
+        var files = Directory.GetFiles(directory)
+            .Where(file => supportedExtensions.Contains(Path.GetExtension(file).ToLower()));
+
+        foreach (var file in files)
+        {
+            var photo = await Task.Run(() => LoadBitmapCachedImage(file));
+            yield return photo;
+        }
+    }
+
+    private static Photo LoadBitmapCachedImage(string filePath)
+    {
+        var photo = new Photo(filePath) { };
+
+        try
+        {
+            var bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.CacheOption = BitmapCacheOption.OnLoad;
+            bitmap.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+            bitmap.UriSource = new Uri(filePath);
+            bitmap.DecodePixelWidth = 200; // Reduce memory usage by loading smaller versions
+            bitmap.EndInit();
+            bitmap.Freeze(); // Important for cross-thread usage
+
+            photo.ImageSource = bitmap;
+        }
+        catch
+        {
+            //ignore the exception
+        }
+
+        return photo;
+
+    }
+
+
+
+
+
 
     private static string UserPicturesPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 }

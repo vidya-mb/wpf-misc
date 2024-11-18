@@ -6,14 +6,14 @@ namespace ImageRedef.Fluent.Views;
 
 public partial class ImageGalleryPage : Page
 {
-    public ImageGalleryPage(ProImageGalleryViewModel galleryViewModel, IServiceProvider serviceProvider)
+    public ImageGalleryPage(ImageGalleryViewModel galleryViewModel, IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
         ViewModel = galleryViewModel;
         DataContext = this;
         InitializeComponent();
 
-        //if(ViewModel.PhotosCount == 0)
+        //if (ViewModel.PhotosCount == 0)
         //{
         //    PhotosListView.Visibility = Visibility.Hidden;
         //}
@@ -21,9 +21,9 @@ public partial class ImageGalleryPage : Page
 
     private IServiceProvider _serviceProvider;
 
-    public ProImageGalleryViewModel ViewModel { get; }
+    public ImageGalleryViewModel ViewModel { get; }
 
-    /*private void PhotosListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void PhotosListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var selectedPhotos = new ObservableCollection<Photo>();
         foreach (Photo photo in PhotosListView.SelectedItems)
@@ -32,7 +32,7 @@ public partial class ImageGalleryPage : Page
         }
         ViewModel.SelectedPhotos = selectedPhotos;
         UpdateMenuItems();
-    }*/
+    }
 
     private void UpdateMenuItems()
     {
@@ -86,9 +86,6 @@ public partial class ImageGalleryPage : Page
         UpdateMenuItems();
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-
-    }
+    
 }
 

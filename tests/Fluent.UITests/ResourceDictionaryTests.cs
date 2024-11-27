@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using FluentAssertions.Execution;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,97 +15,61 @@ namespace Fluent.UITests;
 public class ResourceDictionaryTests
 {
     [WpfTheory]
-    [MemberData(nameof(Fluent_RD_SourceList))]
+    [MemberData(nameof(ThemeDictionarySourceList))]
     public void Fluent_ResourceDictionary_LoadTests(string source)
     {
         LoadFluentResourceDictionary(source);
     }
 
-    [WpfFact]
-    public void Fluent_ResourceDictionary_MatchKeysTest()
+    [WpfTheory]
+    [MemberData(nameof(GetColorDictionary_MatchKeys_TestData))]
+    public void Fluent_ColorDictionary_MatchKeysTest(string firstSource, string secondSource)
     {
-        ResourceDictionary fluentLightDictionary = LoadFluentResourceDictionary((string)Fluent_RD_SourceList[1][0]);
-        ResourceDictionary fluentDarkDictionary = LoadFluentResourceDictionary((string)Fluent_RD_SourceList[2][0]);
-        //ResourceDictionary? fluentHighContrastDictionary = LoadFluentResourceDictionary((string)Fluent_RD_SourceList[2][0]);
+        ResourceDictionary dictionary1 = LoadFluentResourceDictionary(firstSource);
+        ResourceDictionary dictionary2 = LoadFluentResourceDictionary(secondSource);
 
-        // Extract count and list of keys
-        List<string> fluentStringResourceKeys = new List<string>();
-        List<object> fluentObjectResourceKeys = new List<object>();
-        int fluentResourceKeysCount = GetResourceKeysFromResourceDictionary(fluentLightDictionary,
-            out fluentStringResourceKeys, out fluentObjectResourceKeys);
+        int colorDictionary1KeysCount = GetResourceKeysFromResourceDictionary(dictionary1,
+            out List<string> dictionary1StringKeys, out List<object> dictionary1ObjectKeys);
 
-        // Checking that keys collection should not be null, and count should not be 0
-        fluentResourceKeysCount.Should().NotBe(0);
+        int colorDictionary2KeysCount = GetResourceKeysFromResourceDictionary(dictionary2,
+            out List<string> dictionary2StringKeys, out List<object> dictionary2ObjectKeys);
 
-        int fluentDarkResourceKeysCount = GetResourceKeysFromResourceDictionary(fluentDarkDictionary,
-            out List<string> fluentDarkStringResourceKeys, out List<object> fluentDarkObjectResourceKeys);
+        List<string> dictionary1ExtraStringKeys = dictionary1StringKeys.Except(dictionary2StringKeys).ToList();
+        List<string> dictionary2ExtraStringKeys = dictionary2StringKeys.Except(dictionary1StringKeys).ToList();
 
-        Match_ResourceKeys(fluentStringResourceKeys, fluentDarkStringResourceKeys).Should().BeTrue();
-        Match_ResourceKeys(fluentObjectResourceKeys, fluentDarkObjectResourceKeys).Should().BeTrue();
-        fluentResourceKeysCount.Should().Be(fluentDarkResourceKeysCount);
+        List<object> dictionary1ExtraObjectKeys = dictionary1ObjectKeys.Except(dictionary2ExtraStringKeys).ToList();
+        List<object> dictionary2ExtraObjectKeys = dictionary2ObjectKeys.Except(dictionary1ObjectKeys).ToList();
 
-        // Add test for HC ResourceDictionary
+        Log_ExtraKeys(dictionary1ExtraStringKeys, $"Dictionary 1 : {firstSource} extra keys");
+        Log_ExtraKeys(dictionary2ExtraStringKeys, $"Dictionary 2 : {secondSource} extra keys");
+
+        using (new AssertionScope())
+        {
+            dictionary1ExtraStringKeys.Should().BeEmpty();
+            dictionary2ExtraStringKeys.Should().BeEmpty();
+            dictionary1ExtraObjectKeys.Should().BeEmpty();
+            dictionary2ExtraObjectKeys.Should().BeEmpty();
+        }
     }
 
-    private bool Match_ResourceKeys(List<object> expectedKeys, List<object> actualKeys)
+    private void Log_ExtraKeys(List<string> dictionary1ExtraStringKeys, string v)
     {
-        int missingCount = 0;
-        foreach(object key in actualKeys)
+        Console.WriteLine(v);
+        if(dictionary1ExtraStringKeys.Count == 0)
         {
-            bool found = false;
-            foreach(object value in expectedKeys)
-            {
-                if(key.Equals(value))
-                {
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found)
-            {
-                Console.WriteLine($"{key.ToString()} not found");
-                Console.WriteLine(nameof(key));
-                missingCount++;
-            }
+            Console.WriteLine("None\n");
+            return;
         }
-        Console.WriteLine($"Missing Count : {missingCount}");
-        return missingCount == 0;
+
+        foreach(string key in dictionary1ExtraStringKeys)
+        {
+            Console.WriteLine(key);
+        }
+        Console.WriteLine();
     }
 
-    private bool Match_ResourceKeys(List<string> expectedKeys, List<string> actualKeys)
-    {
-        foreach (string key in actualKeys)
-        {
-            int index = expectedKeys.FindIndex(x => x == key);
-            if (index == -1)
-            {
-                Console.WriteLine($"{key} not found");
-                return false;
-            }
-        }
 
-        foreach (string key in expectedKeys)
-        {
-            int index = actualKeys.FindIndex(x => x == key);
-            if (index == -1)
-            {
-                Console.WriteLine($"{key} not found");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public static IList<object[]> Fluent_RD_SourceList
-    = new List<object[]>
-        {
-            new object[] { "/PresentationFramework.Fluent;component/Themes/Fluent.xaml" },
-            new object[] { "/PresentationFramework.Fluent;component/Themes/Fluent.Light.xaml" },
-            new object[] { "/PresentationFramework.Fluent;component/Themes/Fluent.Dark.xaml" },
-            new object[] { "/PresentationFramework.Fluent;component/Themes/Fluent.HC.xaml" }
-        };
+    #region Helper Methods
 
     private static ResourceDictionary LoadFluentResourceDictionary(string source)
     {
@@ -138,4 +103,44 @@ public class ResourceDictionaryTests
 
         return resourceDictionaryKeysCount;
     }
+
+    #endregion
+
+
+    #region Test Data
+
+    public static IEnumerable<object[]> GetColorDictionary_MatchKeys_TestData()
+    {
+        int count = ColorDictionarySourceList.Count;
+        for (int i = 0; i < count; i++)
+        {
+            for (int j = i + 1; j < count; j++)
+            {
+                yield return new object[] { ColorDictionarySourceList[i], ColorDictionarySourceList[j] };
+            }
+        }
+    }
+
+    public static IList<object[]> ThemeDictionarySourceList
+        = new List<object[]>
+            {
+                new object[] { $"{ThemeDictionaryPath}/Fluent.xaml" },
+                new object[] { $"{ThemeDictionaryPath}/Fluent.Light.xaml" },
+                new object[] { $"{ThemeDictionaryPath}/Fluent.Dark.xaml" },
+                new object[] { $"{ThemeDictionaryPath}/Fluent.HC.xaml" },
+            };
+
+    public static IList<string> ColorDictionarySourceList
+        = new List<string>
+        {
+            $"{ColorDictionaryPath}/Light.xaml",
+            $"{ColorDictionaryPath}/Dark.xaml",
+            $"{ColorDictionaryPath}/HC.xaml"
+        };
+
+    private const string ThemeDictionaryPath = @"/PresentationFramework.Fluent;component/Themes";
+    private const string ColorDictionaryPath = @"/PresentationFramework.Fluent;component/Resources/Theme";
+
+    #endregion
+
 }

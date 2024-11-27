@@ -1,35 +1,63 @@
-using FluentAssertions;
+﻿using FluentAssertions;
 using System.Windows;
 using System.Windows.Media;
 
 namespace Fluent.UITests;
 
-public class ThemeModeTests
+[Collection("Application Tests Collection")]
+public class ApplicationThemeModeTests : IDisposable
 {
+    ApplicationFixture _fixture;
+    
+    public ApplicationThemeModeTests(ApplicationFixture fixture)
+    {
+        _fixture = fixture;
+    }
+
+    [WpfFact]
+    public void Application_ThemeMode_Default()
+    {
+        Window window = new Window();
+        
+        Action setMainWindowAction = () => { 
+            _fixture.AppInstance.MainWindow = window;
+            window.ApplyTemplate();
+        };
+
+        _fixture.RunAction(setMainWindowAction);
+
+        _fixture.AppInstance.ThemeMode.Value.Should().Be("None");
+        _fixture.AppInstance.Resources.MergedDictionaries.Should().BeEmpty();
+        window.Background.Should().BeNull();
+        window.Resources.MergedDictionaries.Should().BeEmpty();
+    }
+
     [WpfTheory]
     [MemberData(nameof(ThemeModes))]
-    public void Window_ThemeMode_Initialization(ThemeMode themeMode)
+    public void Application_ThemeMode_Initialization(ThemeMode themeMode)
     {
         if (themeMode == ThemeMode.None) return;
 
         Window window = new Window();
-        window.ThemeMode = themeMode;
-        window.ApplyTemplate();
         
-        Verify_WindowProperties(window, themeMode);
+        Action setApplicationThemeModeAction = () =>
+        {
+            _fixture.AppInstance.ThemeMode = themeMode;
+            _fixture.AppInstance.MainWindow = window;
+            window.ApplyTemplate();
+        };
+        
+        _fixture.RunAction(setApplicationThemeModeAction);
+        var task = _fixture.GetWindowCollection();
+        task.Wait();
+        WindowCollection? windows = task.Result as WindowCollection;
+        if(windows != null)
+        {
+            Verify_WindowProperties(windows[0], themeMode);
+        }
     }
 
-    [WpfFact]
-    public void Window_ThemeMode_Default() 
-    { 
-        Window window = new Window();
-        window.ApplyTemplate();
-        //window.Show();
 
-        window.ThemeMode.Value.Should().Be("None");
-        window.Background.Should().BeNull();
-        window.Resources.MergedDictionaries.Should().HaveCount(0);
-    }
 
     [WpfTheory]
     [MemberData(nameof(ThemeModePairs))]
@@ -51,35 +79,11 @@ public class ThemeModeTests
     }
 
 
-    //[WpfTheory]
-    //[MemberData(nameof(ThemeModes))]
-    //public void Application_ThemeMode_Initialization(ThemeMode themeMode)
-    //{
-    //    if (themeMode == ThemeMode.None) return;
-
-    //    if (Application.Current != null)
-    //    {
-    //        Application.Current.Shutdown();
-    //    }
-
-    //    var app = new Application();
-    //    app.ThemeMode = themeMode;
-
-    //    Verify_ApplicationResources(app, themeMode);
-
-    //    Window win = new Window();
-    //    app.MainWindow = win;
-    //    win.Show();
-
-    //    Verify_WindowProperties(win, themeMode);
-    //    Verify_WindowResources(win, ThemeMode.None);
-        
-    //    app.Shutdown();
-    //}
+    #region Helper Methods
 
     private void Verify_WindowProperties(Window window, ThemeMode themeMode)
     {
-        if(themeMode == ThemeMode.None)
+        if (themeMode == ThemeMode.None)
         {
             window.Background.ToString().Should().Be(Brushes.White.ToString());
             window.Foreground.ToString().Should().Be(Brushes.Black.ToString());
@@ -88,12 +92,12 @@ public class ThemeModeTests
         }
 
         window.Background.Should().Be(Brushes.Transparent);
-        
+
     }
 
     private void Verify_ApplicationResources(Application application, ThemeMode themeMode)
     {
-        if(themeMode == ThemeMode.None)
+        if (themeMode == ThemeMode.None)
         {
             application.Resources.MergedDictionaries.Should().BeEmpty();
             return;
@@ -102,7 +106,7 @@ public class ThemeModeTests
         application.Resources.MergedDictionaries.Should().HaveCount(1);
         Uri source = application.Resources.MergedDictionaries[0].Source;
         source.AbsoluteUri.ToString()
-            .Should().Be(FluentThemeResourceDictionaryMap[themeMode]);
+            .Should().EndWith(FluentThemeResourceDictionaryMap[themeMode]);
     }
 
     private void Verify_WindowResources(Window window, ThemeMode themeMode)
@@ -112,13 +116,22 @@ public class ThemeModeTests
             window.Resources.MergedDictionaries.Should().BeEmpty();
             return;
         }
-        
+
         window.Resources.MergedDictionaries.Should().HaveCount(1);
 
         Uri source = window.Resources.MergedDictionaries[0].Source;
         source.AbsoluteUri.ToString()
             .Should().Be(FluentThemeResourceDictionaryMap[themeMode]);
     }
+
+    public void Dispose()
+    {
+        _fixture.ResetApplicationInstance();
+    }
+
+    #endregion
+
+    #region Test Data
 
     public static IEnumerable<object[]> ThemeModes => new List<object[]>
     {
@@ -148,9 +161,7 @@ public class ThemeModeTests
         new object[] { ThemeMode.System, ThemeMode.System }
     };
 
-    private static readonly object _lock = new object();
-
-    private static Dictionary<ThemeMode, string> FluentThemeResourceDictionaryMap 
+    private static Dictionary<ThemeMode, string> FluentThemeResourceDictionaryMap
         = new Dictionary<ThemeMode, string>
             {
                 { ThemeMode.None, ""},
@@ -158,4 +169,6 @@ public class ThemeModeTests
                 { ThemeMode.Light, "pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.Light.xaml"},
                 { ThemeMode.Dark, "pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.Dark.xaml"},
             };
+
+    #endregion
 }

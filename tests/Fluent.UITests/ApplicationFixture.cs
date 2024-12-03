@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FluentAssertions;
+using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,51 +13,146 @@ namespace Fluent.UITests;
 
 public class ApplicationFixture : IDisposable
 {
-    public ApplicationFixture() 
+    public ApplicationFixture()
     {
-        AppInstance = new Application();
-    }
-
-    public void CreateApplicationInstance()
-    {
-        if(AppInstance == null)
+        var waitForApplicationRun = new TaskCompletionSource<bool>();
+        Thread thread = new Thread(() =>
         {
-            AppInstance = new Application();
-        }
+            Application application = new Application();
+            application.Startup += (s, e) => { waitForApplicationRun.SetResult(true); };
+            application.Run();
+            Dispatcher.Run();
+        });
+
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        waitForApplicationRun.Task.Wait();
+        App = Application.Current;
     }
 
     public void ResetApplicationInstance()
     {
-        AppInstance.Dispatcher.BeginInvoke(() => { 
-            AppInstance.ThemeMode = ThemeMode.None;
-            AppInstance.MainWindow = null;
-            if (AppInstance.Resources.Count > 0 
-                || AppInstance.Resources.MergedDictionaries.Count > 0)
+        Execute(() =>
+        {
+            App.ThemeMode = ThemeMode.None;
+            App.MainWindow = null;
+            if (App.Resources.Count > 0
+                || App.Resources.MergedDictionaries.Count > 0)
             {
-                AppInstance.Resources.Clear();
+                App.Resources.Clear();
             }
-        }, System.Windows.Threading.DispatcherPriority.ContextIdle);
+        });
     }
 
-    public void RunAction(Action action)
+    public void Execute(Action action)
     {
-        AppInstance.Dispatcher.BeginInvoke(action, System.Windows.Threading.DispatcherPriority.ContextIdle);
+        Execute(Application.Current.Dispatcher, action);
     }
 
-    public DispatcherOperation GetWindowCollection()
+    private void Execute(Dispatcher dispatcher, Action action)
     {
-        DispatcherOperation task = AppInstance.Dispatcher.BeginInvoke(() => {
-            return AppInstance.Windows;
-        }, DispatcherPriority.Send);
-        return task;
+        Exception exception = null;
+        if (dispatcher.CheckAccess())
+        {
+            action();
+        }
+        else
+        {
+            var workComplete = new AutoResetEvent(false);
+            dispatcher.InvokeAsync(() =>
+            {
+                try
+                {
+                    action();
+                }
+                catch (Exception e)
+                {
+                    exception = e;
+                    throw;
+                }
+                finally // Unblock calling thread even if action() throws
+                {
+                    workComplete.Set();
+                }
+            });
+
+            workComplete.WaitOne();
+            if (exception != null)
+            {
+                throw exception;
+            }
+        }
+
+    }
+
+    private T ExecuteFunc<T>(Func<T> func)
+    {
+        return ExecuteFunc<T>(Application.Current.Dispatcher, func);
+    }
+
+    private T? ExecuteFunc<T>(Dispatcher dispatcher, Func<T> func)
+    {
+        Exception exception = null;
+        T? result = default(T);
+        if (dispatcher.CheckAccess())
+        {
+            result = func();
+        }
+        else
+        {
+            var workComplete = new AutoResetEvent(false);
+            dispatcher.InvokeAsync(() =>
+            {
+                try
+                {
+                    result = func();
+                }
+                catch (Exception e)
+                {
+                    exception = e;
+                    throw;
+                }
+                finally // Unblock calling thread even if action() throws
+                {
+                    workComplete.Set();
+                }
+            });
+
+            workComplete.WaitOne();
+            if (exception != null)
+            {
+                throw exception;
+            }
+
+        }
+        return result;
+    }
+
+    public Window GetMainWindow()
+    {
+
+        Window window = ExecuteFunc<Window>(() =>
+        {
+            return Application.Current.MainWindow;
+        });
+        return window;
     }
 
     public void Dispose()
     {
-        AppInstance.Shutdown();
+        Execute(() =>
+        {
+            Application.Current.Shutdown();
+        });
     }
 
-    public Application AppInstance { get; private set; }
+    internal void VerifyThemeModeAndResources(string themeMode, int mergedDictionariesCount)
+    {
+        Application.Current.ThemeMode.Value.Should().Be(themeMode);
+        Application.Current.Resources.MergedDictionaries.Count.Should().Be(mergedDictionariesCount);
+    }
+
+    public Application App { get; private set; }
 }
 
 [CollectionDefinition("Application Tests Collection", DisableParallelization = true)]
@@ -64,4 +161,24 @@ public class ApplicationTestsCollection : ICollectionFixture<ApplicationFixture>
     // This class has no code, and is never created. Its purpose is simply
     // to be the place to apply [CollectionDefinition] and all the
     // ICollectionFixture<> interfaces.
+}
+
+internal static class DispatcherHelper
+{
+    public static void DoEvents(DispatcherPriority priority = DispatcherPriority.Background)
+    {
+        DispatcherFrame frame = new DispatcherFrame();
+        Dispatcher.CurrentDispatcher.BeginInvoke(
+            priority,
+            new DispatcherOperationCallback(ExitFrame),
+            frame);
+        Dispatcher.PushFrame(frame);
+    }
+
+    private static object ExitFrame(object f)
+    {
+        ((DispatcherFrame)f).Continue = false;
+         
+        return null;
+    }
 }

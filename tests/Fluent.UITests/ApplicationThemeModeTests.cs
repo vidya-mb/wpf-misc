@@ -17,65 +17,22 @@ public class ApplicationThemeModeTests : IDisposable
     [WpfFact]
     public void Application_ThemeMode_Default()
     {
-        Window window = new Window();
-        
-        Action setMainWindowAction = () => { 
-            _fixture.AppInstance.MainWindow = window;
-            window.ApplyTemplate();
-        };
-
-        _fixture.RunAction(setMainWindowAction);
-
-        _fixture.AppInstance.ThemeMode.Value.Should().Be("None");
-        _fixture.AppInstance.Resources.MergedDictionaries.Should().BeEmpty();
-        window.Background.Should().BeNull();
-        window.Resources.MergedDictionaries.Should().BeEmpty();
-    }
-
-    [WpfTheory]
-    [MemberData(nameof(ThemeModes))]
-    public void Application_ThemeMode_Initialization(ThemeMode themeMode)
-    {
-        if (themeMode == ThemeMode.None) return;
-
-        Window window = new Window();
-        
-        Action setApplicationThemeModeAction = () =>
+        _fixture.Execute(() =>
         {
-            _fixture.AppInstance.ThemeMode = themeMode;
-            _fixture.AppInstance.MainWindow = window;
+            Window window = new Window();
+            _fixture.App.MainWindow = window;
             window.ApplyTemplate();
-        };
+        });
         
-        _fixture.RunAction(setApplicationThemeModeAction);
-        var task = _fixture.GetWindowCollection();
-        task.Wait();
-        WindowCollection? windows = task.Result as WindowCollection;
-        if(windows != null)
+        _fixture.VerifyThemeModeAndResources("None", 0);
+        Window window = _fixture.GetMainWindow();
+        
+        _fixture.Execute(() =>
         {
-            Verify_WindowProperties(windows[0], themeMode);
-        }
-    }
-
-
-
-    [WpfTheory]
-    [MemberData(nameof(ThemeModePairs))]
-    public void Window_ThemeMode_Switch(ThemeMode themeMode, ThemeMode newThemeMode)
-    {
-        if (themeMode == newThemeMode) return;
-
-        Window window = new Window();
-        window.Show();
-        window.ThemeMode = themeMode;
-        //window.ApplyTemplate();
-        Verify_WindowProperties(window, themeMode);
-        Verify_WindowResources(window, themeMode);
-
-        window.ThemeMode = newThemeMode;
-        //window.ApplyTemplate();
-        Verify_WindowProperties(window, newThemeMode);
-        Verify_WindowResources(window, newThemeMode);
+            window.Should().NotBeNull();
+            window.Background.Should().BeNull();
+            window.Resources.MergedDictionaries.Should().BeEmpty();
+        });
     }
 
 

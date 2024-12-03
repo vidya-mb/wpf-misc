@@ -21,7 +21,7 @@ public class ApplicationFixture : IDisposable
             Application application = new Application();
             application.Startup += (s, e) => { waitForApplicationRun.SetResult(true); };
             application.Run();
-            Dispatcher.Run();
+            //Dispatcher.Run();
         });
 
         thread.SetApartmentState(ApartmentState.STA);
@@ -87,7 +87,7 @@ public class ApplicationFixture : IDisposable
 
     private T ExecuteFunc<T>(Func<T> func)
     {
-        return ExecuteFunc<T>(Application.Current.Dispatcher, func);
+        return ExecuteFunc(Application.Current.Dispatcher, func);
     }
 
     private T? ExecuteFunc<T>(Dispatcher dispatcher, Func<T> func)
@@ -146,14 +146,9 @@ public class ApplicationFixture : IDisposable
         });
     }
 
-    internal void VerifyThemeModeAndResources(string themeMode, int mergedDictionariesCount)
-    {
-        Application.Current.ThemeMode.Value.Should().Be(themeMode);
-        Application.Current.Resources.MergedDictionaries.Count.Should().Be(mergedDictionariesCount);
-    }
-
     public Application App { get; private set; }
 }
+
 
 [CollectionDefinition("Application Tests Collection", DisableParallelization = true)]
 public class ApplicationTestsCollection : ICollectionFixture<ApplicationFixture>
@@ -163,22 +158,3 @@ public class ApplicationTestsCollection : ICollectionFixture<ApplicationFixture>
     // ICollectionFixture<> interfaces.
 }
 
-internal static class DispatcherHelper
-{
-    public static void DoEvents(DispatcherPriority priority = DispatcherPriority.Background)
-    {
-        DispatcherFrame frame = new DispatcherFrame();
-        Dispatcher.CurrentDispatcher.BeginInvoke(
-            priority,
-            new DispatcherOperationCallback(ExitFrame),
-            frame);
-        Dispatcher.PushFrame(frame);
-    }
-
-    private static object ExitFrame(object f)
-    {
-        ((DispatcherFrame)f).Continue = false;
-         
-        return null;
-    }
-}

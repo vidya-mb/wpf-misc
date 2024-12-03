@@ -50,34 +50,6 @@ public class WindowThemeModeTests
         Verify_WindowResources(window, newThemeMode);
     }
 
-    //[WpfTheory]
-    //[MemberData(nameof(ThemeModes))]
-    //public void Application_ThemeMode_Initialization(ThemeMode themeMode)
-    //{
-    //    if (themeMode == ThemeMode.None) return;
-
-    //    if (Application.Current != null)
-    //    {
-    //        Application.Current.Shutdown();
-    //    }
-
-    //    var app = new Application();
-    //    app.ThemeMode = themeMode;
-
-    //    Verify_ApplicationResources(app, themeMode);
-
-    //    Window win = new Window();
-    //    app.MainWindow = win;
-    //    win.Show();
-
-    //    Verify_WindowProperties(win, themeMode);
-    //    Verify_WindowResources(win, ThemeMode.None);
-
-    //    app.Shutdown();
-    //}
-
-
-
     #region Helper Methods
 
     private void Verify_WindowProperties(Window window, ThemeMode themeMode)

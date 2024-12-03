@@ -23,15 +23,57 @@ public class ApplicationThemeModeTests : IDisposable
             _fixture.App.MainWindow = window;
             window.ApplyTemplate();
         });
-        
-        _fixture.VerifyThemeModeAndResources("None", 0);
-        Window window = _fixture.GetMainWindow();
-        
+
         _fixture.Execute(() =>
         {
+            _fixture.App.ThemeMode.Value.Should().Be("None");
+            _fixture.App.Resources.MergedDictionaries.Count.Should().Be(0);
+            
+            Window window = _fixture.App.MainWindow;
             window.Should().NotBeNull();
             window.Background.Should().BeNull();
             window.Resources.MergedDictionaries.Should().BeEmpty();
+        });
+
+        _fixture.ResetApplicationInstance();
+    }
+
+    [WpfTheory]
+    [MemberData(nameof(ThemeModes))]
+    public void Application_ThemeMode_Initialization_Tests(ThemeMode themeMode)
+    {
+        if (themeMode == ThemeMode.None) return;
+
+        _fixture.Execute(() =>
+        {
+            Window window = new Window();
+            _fixture.App.ThemeMode = themeMode;
+            _fixture.App.MainWindow = window;
+            window.Show();
+        });
+
+        _fixture.Execute(() =>
+        {
+            _fixture.App.ThemeMode.Value.Should().Be(themeMode.Value);
+            _fixture.App.Resources.MergedDictionaries.Count().Should().Be(1);
+            Uri source = _fixture.App.Resources.MergedDictionaries[0].Source;
+            source.AbsoluteUri.ToString().Should().Be(FluentThemeResourceDictionaryMap[themeMode]);
+
+            Window window = _fixture.App.MainWindow;
+            window.Should().NotBeNull();
+            window.Background.Should().Be(Brushes.Transparent);
+            window.Resources.MergedDictionaries.Count.Should().Be(0);
+        });
+    }
+
+    [WpfTheory]
+    [MemberData(nameof(ThemeModePairs))]
+    public void Application_ThemeMode_Switch_Tests(ThemeMode themeMode, ThemeMode newThemeMode)
+    {
+        if (themeMode == newThemeMode) return;
+
+        _fixture.Execute(() =>
+        {
         });
     }
 

@@ -35,7 +35,6 @@ public class ApplicationThemeModeTests : IDisposable
             window.Resources.MergedDictionaries.Should().BeEmpty();
         });
 
-        _fixture.ResetApplicationInstance();
     }
 
     [WpfTheory]
@@ -54,11 +53,8 @@ public class ApplicationThemeModeTests : IDisposable
 
         _fixture.Execute(() =>
         {
-            _fixture.App.ThemeMode.Value.Should().Be(themeMode.Value);
-            _fixture.App.Resources.MergedDictionaries.Count().Should().Be(1);
-            Uri source = _fixture.App.Resources.MergedDictionaries[0].Source;
-            source.AbsoluteUri.ToString().Should().Be(FluentThemeResourceDictionaryMap[themeMode]);
-
+            Verify_ApplicationProperties(_fixture.App, themeMode);
+            Verify_WindowProperties(_fixture.App.MainWindow, themeMode);
             Window window = _fixture.App.MainWindow;
             window.Should().NotBeNull();
             window.Background.Should().Be(Brushes.Transparent);
@@ -72,13 +68,85 @@ public class ApplicationThemeModeTests : IDisposable
     {
         if (themeMode == newThemeMode) return;
 
+        _fixture.Execute(() => {
+            Window window = new Window();
+            _fixture.App.ThemeMode = themeMode;
+            _fixture.App.MainWindow = window;
+            window.Show();
+        });
+
         _fixture.Execute(() =>
         {
+            Verify_ApplicationProperties(_fixture.App, themeMode);
+            Verify_WindowResources(_fixture.App.MainWindow, ThemeMode.None);
+            Verify_WindowProperties(_fixture.App.MainWindow, ThemeMode.None, themeMode);
+        });
+
+        _fixture.Execute(() =>
+        {
+            _fixture.App.ThemeMode = newThemeMode;
+        });
+
+
+        _fixture.Execute(() =>
+        {
+            Verify_ApplicationProperties(_fixture.App, newThemeMode);
+            Verify_WindowResources(_fixture.App.MainWindow, ThemeMode.None);
+            Verify_WindowProperties(_fixture.App.MainWindow, ThemeMode.None, newThemeMode);
         });
     }
 
 
+    [WpfTheory]
+    [MemberData(nameof(ThemeModePairs))]
+    public void Application_Window_ThemeMode_Initialization(ThemeMode appThemeMode, ThemeMode windowThemeMode)
+    {
+        _fixture.Execute(() =>
+        {
+            Window window = new Window() { ThemeMode = windowThemeMode };
+            _fixture.App.ThemeMode = appThemeMode;
+            _fixture.App.MainWindow = window;
+            window.Show();
+        });
+
+        _fixture.Execute(() =>
+        {
+            Verify_ApplicationProperties(_fixture.App, appThemeMode);
+            Verify_WindowResources(_fixture.App.MainWindow, windowThemeMode);
+            Verify_WindowProperties(_fixture.App.MainWindow, windowThemeMode, appThemeMode);
+        });
+    }
+
     #region Helper Methods
+
+
+    private void Verify_ApplicationProperties(Application app, ThemeMode t)
+    { 
+        if(t == ThemeMode.None)
+        {
+            app.Resources.MergedDictionaries.Should().BeEmpty();
+            app.ThemeMode.Value.Should().Be(t.Value);
+            return;
+        }
+
+        app.ThemeMode.Value.Should().Be(t.Value);
+        app.Resources.MergedDictionaries.Should().HaveCount(1);
+        Uri source = app.Resources.MergedDictionaries[0].Source;
+        source.AbsoluteUri.ToString().Should().EndWith(FluentThemeResourceDictionaryMap[t]);
+    }
+
+    private void Verify_WindowProperties(Window window, ThemeMode windowThemeMode, ThemeMode appThemeMode)
+    {
+        if (windowThemeMode == ThemeMode.None && appThemeMode == ThemeMode.None)
+        {
+            Verify_WindowProperties(window, windowThemeMode);
+        }
+
+        ThemeMode t = windowThemeMode;
+        if (t == ThemeMode.None) { t = appThemeMode; }
+        Verify_WindowProperties(window, t);
+
+    }
 
     private void Verify_WindowProperties(Window window, ThemeMode themeMode)
     {
@@ -91,21 +159,6 @@ public class ApplicationThemeModeTests : IDisposable
         }
 
         window.Background.Should().Be(Brushes.Transparent);
-
-    }
-
-    private void Verify_ApplicationResources(Application application, ThemeMode themeMode)
-    {
-        if (themeMode == ThemeMode.None)
-        {
-            application.Resources.MergedDictionaries.Should().BeEmpty();
-            return;
-        }
-
-        application.Resources.MergedDictionaries.Should().HaveCount(1);
-        Uri source = application.Resources.MergedDictionaries[0].Source;
-        source.AbsoluteUri.ToString()
-            .Should().EndWith(FluentThemeResourceDictionaryMap[themeMode]);
     }
 
     private void Verify_WindowResources(Window window, ThemeMode themeMode)

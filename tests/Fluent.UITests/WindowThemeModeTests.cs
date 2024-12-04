@@ -24,7 +24,7 @@ public class WindowThemeModeTests
     { 
         Window window = new Window();
         window.ApplyTemplate();
-        //window.Show();
+        //Window.Show();
 
         window.ThemeMode.Value.Should().Be("None");
         window.Background.Should().BeNull();
@@ -40,12 +40,12 @@ public class WindowThemeModeTests
         Window window = new Window();
         window.Show();
         window.ThemeMode = themeMode;
-        //window.ApplyTemplate();
+        //Window.ApplyTemplate();
         Verify_WindowProperties(window, themeMode);
         Verify_WindowResources(window, themeMode);
 
         window.ThemeMode = newThemeMode;
-        //window.ApplyTemplate();
+        //Window.ApplyTemplate();
         Verify_WindowProperties(window, newThemeMode);
         Verify_WindowResources(window, newThemeMode);
     }

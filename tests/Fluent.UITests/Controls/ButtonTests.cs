@@ -16,6 +16,25 @@ public class ButtonTests : BaseControlTests, IDisposable
         AddControlToView(TestButton);
     }
 
+    [WpfFact]
+    [MemberData(nameof(ThemeModes))]
+    public void Button_Initialization_Test(ThemeMode themeMode)
+    {
+        TestWindow.ThemeMode = themeMode;
+        
+    }
+
+
+    [WpfFact]
+    [MemberData(nameof(ThemeModes))]
+    public void Button_IsEnabled_False_Test(ThemeMode themeMode)
+    {
+
+    }
+
+
+
+
     public override Style FindControlStyle(ThemeMode mode)
     {
         return base.FindControlStyle(mode);
@@ -34,7 +53,21 @@ public class ButtonTests : BaseControlTests, IDisposable
     public void Dispose()
     {
         RemoveControlFromView(TestButton);
+        TestWindow.ThemeMode = ThemeMode.None;
     }
 
     private Button TestButton {  get; set; }
+
+
+
+    #region Test Data
+
+    public static IEnumerable<object[]> ColorModes_TestData => new List<object[]>
+    {
+        new object[] { ColorModes.Light },
+        new object[] { ColorModes.Dark },
+        new object[] { ColorModes.HC }
+    };
+
+    #endregion
 }

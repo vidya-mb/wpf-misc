@@ -2,7 +2,7 @@ using FluentAssertions;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Fluent.UITests;
+namespace Fluent.UITests.ThemeMode;
 
 public class WindowThemeModeTests
 {
@@ -15,13 +15,13 @@ public class WindowThemeModeTests
         Window window = new Window();
         window.ThemeMode = themeMode;
         window.ApplyTemplate();
-        
+
         Verify_WindowProperties(window, themeMode);
     }
 
     [WpfFact]
-    public void Window_ThemeMode_Default() 
-    { 
+    public void Window_ThemeMode_Default()
+    {
         Window window = new Window();
         window.ApplyTemplate();
         //Window.Show();
@@ -54,7 +54,7 @@ public class WindowThemeModeTests
 
     private void Verify_WindowProperties(Window window, ThemeMode themeMode)
     {
-        if(themeMode == ThemeMode.None)
+        if (themeMode == ThemeMode.None)
         {
             window.Background.ToString().Should().Be(Brushes.White.ToString());
             window.Foreground.ToString().Should().Be(Brushes.Black.ToString());
@@ -63,12 +63,12 @@ public class WindowThemeModeTests
         }
 
         window.Background.Should().Be(Brushes.Transparent);
-        
+
     }
 
     private void Verify_ApplicationResources(Application application, ThemeMode themeMode)
     {
-        if(themeMode == ThemeMode.None)
+        if (themeMode == ThemeMode.None)
         {
             application.Resources.MergedDictionaries.Should().BeEmpty();
             return;
@@ -87,7 +87,7 @@ public class WindowThemeModeTests
             window.Resources.MergedDictionaries.Should().BeEmpty();
             return;
         }
-        
+
         window.Resources.MergedDictionaries.Should().HaveCount(1);
 
         Uri source = window.Resources.MergedDictionaries[0].Source;
@@ -127,7 +127,7 @@ public class WindowThemeModeTests
         new object[] { ThemeMode.System, ThemeMode.System }
     };
 
-    private static Dictionary<ThemeMode, string> FluentThemeResourceDictionaryMap 
+    private static Dictionary<ThemeMode, string> FluentThemeResourceDictionaryMap
         = new Dictionary<ThemeMode, string>
             {
                 { ThemeMode.None, ""},

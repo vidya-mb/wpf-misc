@@ -15,7 +15,7 @@ public class BaseControlTests : IClassFixture<ControlTestsFixture>
     {
         _fixture = fixture;
         _fixture.ResetWindows();
-        foreach(ColorModes mode in Enum.GetValues(typeof(ColorModes)))
+        foreach(ColorMode mode in Enum.GetValues(typeof(ColorMode)))
         {
             TestWindows.Add(mode, _fixture.Windows[(int)mode]);
         }
@@ -36,40 +36,67 @@ public class BaseControlTests : IClassFixture<ControlTestsFixture>
 
     }
 
-    public void AddControlToView(FrameworkElement fe)
+    public void AddControlToView(Window window, FrameworkElement fe)
     {
-        StackPanel? panel = TestWindow?.Content as StackPanel;
+        StackPanel? panel = window?.Content as StackPanel;
         panel.Should().NotBeNull();
         panel.Children.Add(fe);
     }
 
-    public void RemoveControlFromView(FrameworkElement fe)
+    public void RemoveControlFromView(Window window, FrameworkElement fe)
     {
-        StackPanel? panel = TestWindow?.Content as StackPanel;
+        StackPanel? panel = window?.Content as StackPanel;
         panel.Should().NotBeNull();
         panel.Children?.Remove(fe);
     }
 
-    public void ClearView()
+    public void ClearView(Window window)
     {
-        StackPanel? panel = TestWindow?.Content as StackPanel;
+        StackPanel? panel = window?.Content as StackPanel;
         panel.Should().NotBeNull();
         panel.Children.Clear();
     }
 
+    protected void SetWindowColorMode(Window window, ColorMode colorMode)
+    {
+        switch(colorMode)
+        {
+            case ColorMode.Light:
+                window.ThemeMode = ThemeMode.Light;
+                break;
+            case ColorMode.Dark:
+                window.ThemeMode = ThemeMode.Dark;
+                break;
+            case ColorMode.HC:
+                window.ThemeMode = ThemeMode.System;
+                Uri highContrastDictionaryUri = new Uri(@"/PresentationFramework.Fluent;component/Themes/Fluent.HC.xaml");
+                ResourceDictionary? highContrastDictionary = Application.LoadComponent(highContrastDictionaryUri) as ResourceDictionary;
+                if (highContrastDictionary != null)
+                {
+                    window.Resources.MergedDictionaries.Add(highContrastDictionary);
+                }
+                break;
+        }
+    }
 
+    protected void ResetWindowColorMode(Window window)
+    {
+        window.ThemeMode = ThemeMode.None;
+        window.Resources.Clear();
+        window.Resources.MergedDictionaries.Clear();
+    }
 
     private ControlTestsFixture _fixture;
-    public Dictionary<ColorModes, Window> TestWindows { get; private set; } = new Dictionary<ColorModes, Window>();
+    public Dictionary<ColorMode, Window> TestWindows { get; private set; } = new Dictionary<ColorMode, Window>();
 
     public static IEnumerable<object[]> ColorModes_TestData => new List<object[]>
     {
-        new object[] { ColorModes.Light },
-        new object[] { ColorModes.Dark },
-        new object[] { ColorModes.HC }
+        new object[] { ColorMode.Light },
+        new object[] { ColorMode.Dark },
+        new object[] { ColorMode.HC }
     };
 
-    public enum ColorModes
+    public enum ColorMode
     { 
         Light,
         Dark,

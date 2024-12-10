@@ -2,13 +2,13 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace Fluent.UITests;
+namespace Fluent.UITests.ThemeMode;
 
 [Collection("Application Tests Collection")]
 public class ApplicationThemeModeTests : IDisposable
 {
     ApplicationFixture _fixture;
-    
+
     public ApplicationThemeModeTests(ApplicationFixture fixture)
     {
         _fixture = fixture;
@@ -28,7 +28,7 @@ public class ApplicationThemeModeTests : IDisposable
         {
             _fixture.App.ThemeMode.Value.Should().Be("None");
             _fixture.App.Resources.MergedDictionaries.Count.Should().Be(0);
-            
+
             Window window = _fixture.App.MainWindow;
             window.Should().NotBeNull();
             window.Background.Should().BeNull();
@@ -68,7 +68,8 @@ public class ApplicationThemeModeTests : IDisposable
     {
         if (themeMode == newThemeMode) return;
 
-        _fixture.Execute(() => {
+        _fixture.Execute(() =>
+        {
             Window window = new Window();
             _fixture.App.ThemeMode = themeMode;
             _fixture.App.MainWindow = window;
@@ -121,8 +122,8 @@ public class ApplicationThemeModeTests : IDisposable
 
 
     private void Verify_ApplicationProperties(Application app, ThemeMode t)
-    { 
-        if(t == ThemeMode.None)
+    {
+        if (t == ThemeMode.None)
         {
             app.Resources.MergedDictionaries.Should().BeEmpty();
             app.ThemeMode.Value.Should().Be(t.Value);

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Fluent.UITests.Controls;
 
@@ -12,21 +13,23 @@ public class ButtonTests : BaseControlTests, IDisposable
 {
     public ButtonTests(ControlTestsFixture fixture) : base(fixture)
     {
-        TestButton = new Button();
-        AddControlToView(TestButton);
+        foreach(ColorMode colorMode in Enum.GetValues(typeof(ColorMode)))
+        {
+            TestButtons[colorMode] = new Button();
+            AddControlToView(TestWindows[colorMode], TestButtons[colorMode]);
+        }
     }
 
     [WpfFact]
-    [MemberData(nameof(ThemeModes))]
-    public void Button_Initialization_Test(ThemeMode themeMode)
+    [MemberData(nameof(ColorModes_TestData))]
+    public void Button_Initialization_Test(ColorMode colorMode)
     {
-        TestWindow.ThemeMode = themeMode;
-        
+        Button button = TestButtons[colorMode];
     }
 
 
     [WpfFact]
-    [MemberData(nameof(ThemeModes))]
+    [MemberData(nameof(ColorModes_TestData))]
     public void Button_IsEnabled_False_Test(ThemeMode themeMode)
     {
 
@@ -47,27 +50,22 @@ public class ButtonTests : BaseControlTests, IDisposable
 
     public override void VerifyControlProperties(UIElement element, Dictionary<DependencyProperty, object> expectedProperties)
     {
-        base.VerifyControlProperties(element, expectedProperties);
+        
     }
 
     public void Dispose()
     {
-        RemoveControlFromView(TestButton);
-        TestWindow.ThemeMode = ThemeMode.None;
+        foreach (ColorMode colorMode in Enum.GetValues(typeof(ColorMode)))
+        {
+            RemoveControlFromView(TestWindows[colorMode], TestButtons[colorMode]);
+            ResetWindowColorMode(TestWindows[colorMode]);
+        }
     }
 
-    private Button TestButton {  get; set; }
-
-
+    private Dictionary<ColorMode,Button> TestButtons {  get; set; } = new Dictionary<ColorMode,Button>();
 
     #region Test Data
 
-    public static IEnumerable<object[]> ColorModes_TestData => new List<object[]>
-    {
-        new object[] { ColorModes.Light },
-        new object[] { ColorModes.Dark },
-        new object[] { ColorModes.HC }
-    };
 
     #endregion
 }

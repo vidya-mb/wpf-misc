@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace Fluent.UITests;
+namespace Fluent.UITests.ThemeMode;
 
 
 public class ApplicationFixture : IDisposable
@@ -93,7 +93,7 @@ public class ApplicationFixture : IDisposable
     private T? ExecuteFunc<T>(Dispatcher dispatcher, Func<T> func)
     {
         Exception exception = null;
-        T? result = default(T);
+        T? result = default;
         if (dispatcher.CheckAccess())
         {
             result = func();
@@ -131,7 +131,7 @@ public class ApplicationFixture : IDisposable
     public Window GetMainWindow()
     {
 
-        Window window = ExecuteFunc<Window>(() =>
+        Window window = ExecuteFunc(() =>
         {
             return Application.Current.MainWindow;
         });

@@ -1,17 +1,9 @@
 ﻿using FluentAssertions;
 using FluentAssertions.Execution;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using Application = System.Windows.Application;
 
-namespace Fluent.UITests;
+namespace Fluent.UITests.ResourceTests;
 public class ResourceDictionaryTests
 {
     [WpfTheory]
@@ -52,24 +44,23 @@ public class ResourceDictionaryTests
         }
     }
 
+    #region Helper Methods
+
     private void Log_ExtraKeys(List<string> dictionary1ExtraStringKeys, string v)
     {
         Console.WriteLine(v);
-        if(dictionary1ExtraStringKeys.Count == 0)
+        if (dictionary1ExtraStringKeys.Count == 0)
         {
             Console.WriteLine("None\n");
             return;
         }
 
-        foreach(string key in dictionary1ExtraStringKeys)
+        foreach (string key in dictionary1ExtraStringKeys)
         {
             Console.WriteLine(key);
         }
         Console.WriteLine();
     }
-
-
-    #region Helper Methods
 
     private static ResourceDictionary LoadFluentResourceDictionary(string source)
     {

@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Brush = System.Windows.Media.Brush;
 
-namespace Fluent.UITests
+namespace Fluent.UITests.ControlTests
 {
     public class UnitTest1
     {
@@ -28,7 +28,7 @@ namespace Fluent.UITests
             Border? border = rb.Template.FindName("RootBorder", rb) as Border;
             Assert.NotNull(border);
             Brush br = border.Background as Brush;
-            if(br is SolidColorBrush scb)
+            if (br is SolidColorBrush scb)
             {
                 Assert.Equal(scb.Color, Colors.Transparent);
             }

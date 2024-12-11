@@ -8,6 +8,7 @@
     <NoWarn>$(NoWarn);WPF0001</NoWarn>
     <Platforms>AnyCPU;x64</Platforms>
     <PlatformTarget>x64</PlatformTarget>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <!--<Import Project="C:\work\repos\wpf\eng\wpf-debug.targets" />-->
@@ -26,6 +27,10 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ControlTests\Data\" />
   </ItemGroup>
 
 </Project>

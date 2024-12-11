@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-
+﻿
 namespace Fluent.UITests.Utilities;
 
 public static class FluentTestData
 {
-    public static IEnumerable<object[]> ThemeModes => new List<object[]>
+    public static List<ThemeMode> ThemeModes => new List<ThemeMode>
     {
-        new object[] { ThemeMode.None },
-        new object[] { ThemeMode.Dark },
-        new object[] { ThemeMode.Light },
-        new object[] { ThemeMode.System }
+        ThemeMode.None,
+        ThemeMode.Light,
+        ThemeMode.Dark,
+        ThemeMode.System
     };
 
-
-    public static IEnumerable<object[]> ThemeModePairs => new List<object[]>
+    public static List<object[]> ThemeModePairs => new List<object[]>
     {
         new object[] { ThemeMode.None, ThemeMode.None },
         new object[] { ThemeMode.None, ThemeMode.Light },

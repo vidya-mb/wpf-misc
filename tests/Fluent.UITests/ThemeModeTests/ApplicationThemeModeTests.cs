@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace Fluent.UITests.ThemeMode;
+namespace Fluent.UITests.ThemeModeTests;
 
 [Collection("Application Tests Collection")]
 public class ApplicationThemeModeTests : IDisposable

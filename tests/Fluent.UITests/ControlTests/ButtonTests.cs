@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Fluent.UITests.Controls;
+namespace Fluent.UITests.ControlTests;
 
 public class ButtonTests : BaseControlTests, IDisposable
 {
@@ -25,6 +25,7 @@ public class ButtonTests : BaseControlTests, IDisposable
     public void Button_Initialization_Test(ColorMode colorMode)
     {
         Button button = TestButtons[colorMode];
+        VerifyControlProperties(button, )
     }
 
 
@@ -58,7 +59,7 @@ public class ButtonTests : BaseControlTests, IDisposable
         foreach (ColorMode colorMode in Enum.GetValues(typeof(ColorMode)))
         {
             RemoveControlFromView(TestWindows[colorMode], TestButtons[colorMode]);
-            ResetWindowColorMode(TestWindows[colorMode]);
+            ResetWindow(TestWindows[colorMode]);
         }
     }
 
@@ -66,6 +67,7 @@ public class ButtonTests : BaseControlTests, IDisposable
 
     #region Test Data
 
+    public static 
 
     #endregion
 }

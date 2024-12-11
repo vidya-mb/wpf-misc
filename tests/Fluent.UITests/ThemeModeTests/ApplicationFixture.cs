@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace Fluent.UITests.ThemeMode;
+namespace Fluent.UITests.ThemeModeTests;
 
 
 public class ApplicationFixture : IDisposable

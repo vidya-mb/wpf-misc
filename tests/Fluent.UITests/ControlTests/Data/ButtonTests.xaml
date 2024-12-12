@@ -4,7 +4,7 @@
                     xmlns:utils="clr-namespace:Fluent.UITests.TestUtilities">
     <ResourceDictionary.MergedDictionaries>
         
-        <utils:TestResourceDictionary Name="ButtonTests_Light">
+        <utils:TestResourceDictionary Name="Light">
             <utils:TestResourceDictionary.MergedDictionaries>
                 <utils:TestResourceDictionary Source="/Fluent.UITests;component/ResourceTests/Data/Light.Test.xaml" />
 
@@ -60,15 +60,9 @@
 
                 <utils:TestResourceDictionary Name="Disabled">
 
-                    <!-- Button Control Properties -->
-                    <SolidColorBrush x:Key="Button_Background" Color="{StaticResource ControlFillColorDefault}" />
-                    <SolidColorBrush x:Key="Button_Foreground" Color="{StaticResource TextFillColorPrimary}" />
-                    <sys:Boolean x:Key="Button_Focusable">True</sys:Boolean>
-
-
                     <!-- Button : ContentBorder Properties -->
-                    <SolidColorBrush x:Key="ContentBorder_Background" Color="{StaticResource ControlFillColorDefault}" />
-                    <SolidColorBrush x:Key="ContentPresenter_Foreground" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ContentBorder_Background" Color="{StaticResource ControlFillColorDisabled}" />
+                    <SolidColorBrush x:Key="ContentPresenter_Foreground" Color="{StaticResource TextFillColorDisabled}" />
                     <!--<SolidColorBrush x:Key="ContentBorder_BorderBrush" Color="" />-->
 
 
@@ -80,7 +74,7 @@
             </utils:TestResourceDictionary.MergedDictionaries>
         </utils:TestResourceDictionary>
 
-        <utils:TestResourceDictionary Name="ButtonTests_Dark">
+        <utils:TestResourceDictionary Name="Dark">
             <utils:TestResourceDictionary.MergedDictionaries>
                 <utils:TestResourceDictionary Source="/Fluent.UITests;component/ResourceTests/Data/Dark.Test.xaml" />
 
@@ -136,15 +130,9 @@
 
                 <utils:TestResourceDictionary Name="Disabled">
 
-                     <!--Button Control Properties--> 
-                    <SolidColorBrush x:Key="Button_Background" Color="{StaticResource ControlFillColorDefault}" />
-                    <SolidColorBrush x:Key="Button_Foreground" Color="{StaticResource TextFillColorPrimary}" />
-                    <sys:Boolean x:Key="Button_Focusable">True</sys:Boolean>
-
-
-                     <!--Button : ContentBorder Properties--> 
-                    <SolidColorBrush x:Key="ContentBorder_Background" Color="{StaticResource ControlFillColorDefault}" />
-                    <SolidColorBrush x:Key="ContentPresenter_Foreground" Color="{StaticResource TextFillColorPrimary}" />
+                    <!--Button : ContentBorder Properties-->
+                    <SolidColorBrush x:Key="ContentBorder_Background" Color="{StaticResource ControlFillColorDisabled}" />
+                    <SolidColorBrush x:Key="ContentPresenter_Foreground" Color="{StaticResource TextFillColorDisabled}" />
                     <!--<SolidColorBrush x:Key="ContentBorder_BorderBrush" Color="" />-->
 
 
@@ -156,7 +144,7 @@
             </utils:TestResourceDictionary.MergedDictionaries>
         </utils:TestResourceDictionary>
 
-        <utils:TestResourceDictionary Name="ButtonTests_HC">
+        <utils:TestResourceDictionary Name="HC">
             <utils:TestResourceDictionary.MergedDictionaries>
                 <utils:TestResourceDictionary Source="/Fluent.UITests;component/ResourceTests/Data/HC.Test.xaml" />
 
@@ -206,12 +194,6 @@
                 </utils:TestResourceDictionary>
 
                 <utils:TestResourceDictionary Name="Disabled">
-
-                     <!--Button Control Properties--> 
-                    <SolidColorBrush x:Key="Button_Background" Color="{StaticResource SystemColorWindowColor}" />
-                    <SolidColorBrush x:Key="Button_Foreground" Color="{StaticResource SystemColorGrayTextColor}" />
-                    <sys:Boolean x:Key="Button_Focusable">True</sys:Boolean>
-
 
                      <!--Button : ContentBorder Properties--> 
                     <SolidColorBrush x:Key="ContentBorder_Background" Color="{StaticResource SystemColorWindowColor}" />

@@ -11,7 +11,7 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <!--<Import Project="C:\work\repos\wpf\eng\wpf-debug.targets" />-->
+  <Import Project="C:\work\repos\wpf\eng\wpf-debug.targets" />
   
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.2" />

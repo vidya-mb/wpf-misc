@@ -84,13 +84,13 @@ public class BaseControlTests : IDisposable
 
     protected ResourceDictionary GetTestDataDictionary(ColorMode colorMode, string testDictionaryName, string baseDictionaryName = "Default")
     {
-        TestResourceDictionary? colorDictionary = GetTestDictionary(TestDataResourceDictionary, $"{colorMode}");
+        TestDictionary? colorDictionary = GetTestDictionary(TestDataResourceDictionary, $"{colorMode}");
         colorDictionary.Should().NotBeNull();
 
         ResourceDictionary rd = new ResourceDictionary();
 
-        TestResourceDictionary? baseDictionary = GetTestDictionary(colorDictionary, baseDictionaryName);
-        TestResourceDictionary? testDataDictionary = GetTestDictionary(colorDictionary, testDictionaryName);
+        TestDictionary? baseDictionary = GetTestDictionary(colorDictionary, baseDictionaryName);
+        TestDictionary? testDataDictionary = GetTestDictionary(colorDictionary, testDictionaryName);
 
         if (baseDictionary is not null)
         {
@@ -122,13 +122,13 @@ public class BaseControlTests : IDisposable
 
     #region Private Methods
 
-    private TestResourceDictionary? GetTestDictionary(ResourceDictionary resourceDictionary, string dictionaryName)
+    private TestDictionary? GetTestDictionary(ResourceDictionary resourceDictionary, string dictionaryName)
     {
         if (string.IsNullOrEmpty(dictionaryName)) return null;
 
         foreach (ResourceDictionary dictionary in resourceDictionary.MergedDictionaries)
         {
-            if (dictionary is TestResourceDictionary testDicitonary)
+            if (dictionary is TestDictionary testDicitonary)
             {
                 if (testDicitonary.Name == dictionaryName)
                 {

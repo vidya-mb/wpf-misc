@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fluent.UITests.TestUtilities;
 
-public class TestResourceDictionary : ResourceDictionary
+public class TestDictionary : ResourceDictionary
 {
     public string? Name { get; set; } 
 }

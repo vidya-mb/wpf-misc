@@ -36,7 +36,7 @@ public class ButtonTests : BaseControlTests
         SetColorMode(TestWindow, colorMode);
         TestButton.IsEnabled = false;
         TestWindow.Show();
-        Thread.Sleep(4000);
+
         ResourceDictionary rd = GetTestDataDictionary(colorMode, "Disabled");
         VerifyControlProperties(TestButton, rd);
     }

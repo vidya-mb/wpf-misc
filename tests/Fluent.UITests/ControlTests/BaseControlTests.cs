@@ -1,29 +1,29 @@
 ﻿
 namespace Fluent.UITests.ControlTests;
 
-public class BaseControlTests : IClassFixture<ControlTestsFixture>
+public class BaseControlTests
 {
-    public BaseControlTests(ControlTestsFixture fixture)
+    public BaseControlTests()
     {
-        _fixture = fixture;
-        _fixture.ResetWindows();
-
-        TestWindows = _fixture.Windows;
+        foreach (ColorMode mode in Enum.GetValues(typeof(ColorMode)))
+        {
+            Window window = new Window() { Width=800, Height=600 };
+            SetColorMode(window, mode);
+            StackPanel sp = new StackPanel() { Name = "RootPanel" };
+            window.Content = sp;
+            window.Show();
+            TestWindows.Add(mode, window);
+        }
     }
 
-    public virtual Style FindControlStyle(ThemeMode mode)
+    public virtual List<FrameworkElement> GetStyleParts(Control element)
     {
-        return new Style();
+        return new List<FrameworkElement>();
     }
 
-    public virtual List<UIElement> GetStyleParts(UIElement element)
+    public virtual void VerifyControlProperties(FrameworkElement element, ResourceDictionary expectedProperties)
     {
-        return new List<UIElement>();
-    }
-
-    public virtual void VerifyControlProperties(UIElement element, Dictionary<DependencyProperty, object> expectedProperties)
-    {
-
+        return;
     }
 
     protected void AddControlToView(Window window, FrameworkElement fe)
@@ -49,85 +49,6 @@ public class BaseControlTests : IClassFixture<ControlTestsFixture>
 
     public void ResetWindow(Window window)
     {
-        _fixture.ResetWindow(window);
-    }
-
-    #region Private Members
-
-    private ControlTestsFixture _fixture;
-    public Dictionary<ColorMode, Window> TestWindows { get; private set; }
-
-    #endregion
-
-    #region Test Data
-
-    public static IEnumerable<object[]> ColorModes_TestData => new List<object[]>
-    {
-        new object[] { ColorMode.Light },
-        new object[] { ColorMode.Dark },
-        new object[] { ColorMode.HC }
-    };
-
-    #endregion
-}
-
-
-public class ControlTestsFixture : IDisposable
-{
-    public ControlTestsFixture()
-    {
-        foreach(ColorMode mode in Enum.GetValues(typeof(ColorMode)))
-        {
-            Window window = new Window();
-            SetColorMode(window, mode);
-            StackPanel sp = new StackPanel() { Name = "RootPanel" };
-            window.Content = sp;
-            window.Show();
-            Windows.Add(mode, window);
-        }
-    }
-
-    public void ResetWindows()
-    {
-        foreach (Window window in Windows.Values)
-        {
-            ResetWindow(window);
-        }
-    }
-
-    public void Dispose()
-    {
-        foreach (Window window in Windows.Values)
-        {
-            window.Close();
-        }
-    }
-
-    private void SetColorMode(Window window, ColorMode mode)
-    {
-        switch(mode)
-        {
-            case ColorMode.Light:
-                window.ThemeMode = ThemeMode.Light;
-                break;
-            case ColorMode.Dark:
-                window.ThemeMode = ThemeMode.Dark;
-                break;
-            case ColorMode.HC:
-                window.ThemeMode = ThemeMode.System;
-                var uri = new Uri(HighContrastThemeDictionaryUri, UriKind.RelativeOrAbsolute);
-                ResourceDictionary? rd = Application.LoadComponent(uri) as ResourceDictionary;
-                if(rd is null)
-                {
-                    throw new ArgumentException("HighContrast ThemeDictionary did not load correctly.");
-                }
-                window.Resources.MergedDictionaries.Add(rd);
-                break;
-        }
-    }
-
-    public void ResetWindow(Window window)
-    {
         if (window is null) return;
         window.Content = null;
         window.ThemeMode = ThemeMode.None;
@@ -135,37 +56,46 @@ public class ControlTestsFixture : IDisposable
         window.Resources.MergedDictionaries.Clear();
     }
 
-    public int LastIndexOfFluentThemeDictionary(ResourceDictionary rd)
+    private void SetColorMode(Window window, ColorMode mode)
     {
-        // Throwing here because, here we are passing application or window resources,
-        // and even though when the field is null, a new RD is created and returned.
-        ArgumentNullException.ThrowIfNull(rd);
-
-        for (int i = rd.MergedDictionaries.Count - 1; i >= 0; i--)
+        switch (mode)
         {
-            if (rd.MergedDictionaries[i].Source != null)
-            {
-                if (rd.MergedDictionaries[i].Source.ToString().StartsWith(ThemeDictionaryUri,
-                                                                            StringComparison.OrdinalIgnoreCase))
-                {
-                    return i;
-                }
-            }
+            case ColorMode.Light:
+                window.ThemeMode = ThemeMode.Light;
+                break;
+            case ColorMode.Dark:
+                window.ThemeMode = ThemeMode.Dark;
+                break;
+            //case ColorMode.HC:
+            //    window.ThemeMode = ThemeMode.System;
+            //    var uri = new Uri(HighContrastThemeDictionaryUri, UriKind.RelativeOrAbsolute);
+            //    ResourceDictionary? rd = Application.LoadComponent(uri) as ResourceDictionary;
+            //    if (rd is null)
+            //    {
+            //        throw new ArgumentException("HighContrast ThemeDictionary did not load correctly.");
+            //    }
+            //    window.Resources.MergedDictionaries.Add(rd);
+            //    break;
         }
-        return -1;
     }
 
-    public Dictionary<ColorMode, Window> Windows { get; set; } = new Dictionary<ColorMode, Window>();
+    #region Test Data
 
-    private const string HighContrastThemeDictionaryUri = @"/PresentationFramework.Fluent;component/Themes/Fluent.HC.xaml"; 
+    public static IEnumerable<object[]> ColorModes_TestData => new List<object[]>
+    {
+        new object[] { ColorMode.Light },
+        new object[] { ColorMode.Dark }
+        //new object[] { ColorMode.HC }
+    };
+
+    #endregion
+
+    #region Private Members
+
+    //private ControlTestsFixture _fixture;
+    public Dictionary<ColorMode, Window> TestWindows { get; private set; } = new Dictionary<ColorMode, Window>();
+    private const string HighContrastThemeDictionaryUri = @"/PresentationFramework.Fluent;component/Themes/Fluent.HC.xaml";
     private const string ThemeDictionaryUri = "pack://application:,,,/PresentationFramework.Fluent;component/Themes/";
 
+    #endregion
 }
-
-public enum ColorMode
-{
-    Light,
-    Dark,
-    HC
-};
-

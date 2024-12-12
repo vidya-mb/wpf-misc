@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-using FluentAssertions.Execution;
-using System.Windows;
+﻿using FluentAssertions.Execution;
 using Application = System.Windows.Application;
 
 namespace Fluent.UITests.ResourceTests;

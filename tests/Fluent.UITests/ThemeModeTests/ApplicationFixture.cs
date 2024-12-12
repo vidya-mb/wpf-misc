@@ -21,7 +21,6 @@ public class ApplicationFixture : IDisposable
             Application application = new Application();
             application.Startup += (s, e) => { waitForApplicationRun.SetResult(true); };
             application.Run();
-            //Dispatcher.Run();
         });
 
         thread.SetApartmentState(ApartmentState.STA);

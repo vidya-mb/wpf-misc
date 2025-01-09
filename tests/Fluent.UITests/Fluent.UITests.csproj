@@ -11,7 +11,7 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <Import Project="C:\work\repos\wpf\eng\wpf-debug.targets" />
+  <Import Project="D:\WPFMain\wpf\eng\wpf-debug.targets" />
   
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
@@ -27,10 +27,6 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ControlTests\Data\" />
   </ItemGroup>
 
 </Project>

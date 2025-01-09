@@ -141,10 +141,12 @@ namespace Fluent.UITests.ControlTests
                 part_checkbox.Padding.Should().Be(expectedProperties["CheckBox_Padding"]);
                 part_checkbox.MinHeight.Should().Be((Double)expectedProperties["CheckBox_Height"]);
                 part_checkbox.MinWidth.Should().Be((Double)expectedProperties["CheckBox_MinWidth"]);
-                //part_checkbox.Width.Should().Be((Double)expectedProperties["CheckBox_MinWidth"]);
+                part_checkbox.FontWeight.Should().Be(expectedProperties["CheckBox_Fontweight"]);
+                part_checkbox.Cursor.Should().Be(expectedProperties["CheckBox_Cursor"]);
+                part_checkbox.IsTabStop.Should().Be((bool)expectedProperties["Checkbox_IsTabStop"]);
                 //rootborder
-                //part_RootBorder.Should().NotBeNull();
-               
+                part_RootBorder.Should().NotBeNull();
+                part_RootBorder.CornerRadius.Should().Be(expectedProperties["CheckBox_CornerRadius"]);
                 //content icon border
                 part_ControlIconBorder.Should().NotBeNull();
                 BrushComparer.Equal(part_ControlIconBorder.Background, (Brush)expectedProperties["CheckBoxBackground_Fill"]).Should().BeTrue();
@@ -175,6 +177,8 @@ namespace Fluent.UITests.ControlTests
                 //Textblock
                 part_TextBlock.Should().NotBeNull();
                 part_TextBlock.FontSize.Should().Be((Double)expectedProperties["CheckBoxIconSize"]);
+                part_TextBlock.Visibility.Should().Be((Visibility)expectedProperties["CheckboxTextblock_Visibility"]);
+                part_TextBlock.Text.Should().Be((String)expectedProperties["CheckBoxTextblock_Text"]);
             }
         }
         #endregion

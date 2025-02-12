@@ -7,11 +7,85 @@
         <ut:TestDictionary.MergedDictionaries>
             <ut:TestDictionary Source="/Fluent.UITests;component/ResourceTests/Data/Light.Test.xaml" />
 
-            <ut:TestDictionary Name="Default">
-               
-            </ut:TestDictionary>
+                <ut:TestDictionary Name="Default">
+                    <!-- Richtextbox enabled Control Properties -->                    
+                    <SolidColorBrush x:Key="RichTextBoxForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="RichTextBoxCaretBrush" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="RichTextBoxBackground" Color="{StaticResource ControlFillColorDefault}" />
+                    <!--<SolidColorBrush x:Key="RichTextBoxBorderBrush" Color="" />-->                                  
+                    <HorizontalAlignment x:Key="RichTextBox_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="RichTextBox_VerticalAlignment">Stretch</VerticalAlignment>
+                    <sys:Double x:Key="RichTextBox_MinHeight">34</sys:Double>                   
+                    <Thickness x:Key="RichTextBoxBorderThickness">1</Thickness>
+                    <Thickness x:Key="RichTextBoxPadding">6,4</Thickness>
+                    <!--<FontFamily x:Key="RichTextBoxFontFamily">Segoe UI</FontFamily>-->
+                    <!--<TextWrapping x:Key="RichTextBoxTextWrapping">Wrap</TextWrapping>-->
+                    
+                    <!-- RichTextBox : MainBorder Properties -->
+                    <Thickness x:Key="MainBorder_RichTextBoxPadding">0</Thickness>
+                    <SolidColorBrush x:Key="MainBorder_RichTextBoxBackground" Color="{StaticResource ControlFillColorDefault}" />
+                    <!--<SolidColorBrush x:Key="RichTextBoxBorderBrush" Color="" />-->
+                    <Thickness x:Key="MainBorder_RichTextBoxThickness">1</Thickness>
+                    <CornerRadius x:Key="MainBorder_RichTextBoxCornerRadius">4</CornerRadius>
+                    <sys:Boolean x:Key="MainBorder_RichTextBoxFocusable">False</sys:Boolean>                
+                
+                    <!--PART_ContentHost : ScrollViewer-->
+                    <Thickness x:Key="PART_ContentHost_RichTextBoxMargin">0,0,2,0</Thickness>
+                    <Thickness x:Key="PART_ContentHost_RichTextBoxPadding">6,4</Thickness>
+                    <!--<HorizontalAlignment x:Key="PART_ContentHost_RichTextBoxHorizontalContentAlignment"></HorizontalAlignment>
+                    <VerticalAlignment x:Key="PART_ContentHost_RichTextBoxVerticalContentAlignment"></VerticalAlignment>-->
+                    <SolidColorBrush x:Key="PART_ContentHost_RichTextBoxForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <ScrollBarVisibility x:Key="PART_ContentHost_RichTextBox_HorizontalScrollBarVisibility">Disabled</ScrollBarVisibility>
+                    <ScrollBarVisibility x:Key="PART_ContentHost_RichTextBox_VerticalScrollBarVisibility">Auto</ScrollBarVisibility>
 
-        </ut:TestDictionary.MergedDictionaries>
+                    <!-- TextBox : AccentBorder Properties -->
+                    <HorizontalAlignment x:Key="accentBorder_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="accentBorder_VerticalAlignment">Stretch</VerticalAlignment>
+                    <SolidColorBrush x:Key="accentBorder_BorderBrush" Color="{StaticResource ControlStrokeColorDefault}" />
+                    <Thickness x:Key="accentBorder_Thickness">0,0,0,1</Thickness>
+                    <CornerRadius x:Key="accentBorder_CornerRadius">4,4,4,4</CornerRadius>
+
+                </ut:TestDictionary>
+
+                <ut:TestDictionary Name="Disabled">
+                    
+                    <SolidColorBrush x:Key="RichTextBoxForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <!--<SolidColorBrush x:Key="RichTextBoxBorderBrush" Color="" />-->
+                    <SolidColorBrush x:Key="RichTextBoxBackground" Color="{StaticResource ControlFillColorDefault}" />
+
+                </ut:TestDictionary>
+                <ut:TestDictionary Name="PointerOver">
+
+
+
+                </ut:TestDictionary>
+                <ut:TestDictionary Name="Focused">
+                    <SolidColorBrush x:Key="accentBorder_BorderBrush" Color="{StaticResource SystemAccentColorDark1}" />
+                    <Thickness x:Key="accentBorder_Thickness">0,0,0,2</Thickness>
+                    <SolidColorBrush x:Key="RichTextBoxBackground" Color="{StaticResource ControlFillColorInputActive}" />
+                    <SolidColorBrush x:Key="MainBorder_RichTextBoxBackground" Color="{StaticResource ControlFillColorInputActive}" />
+
+
+                </ut:TestDictionary>
+                <ut:TestDictionary Name="CustomizedBrush">
+                    <SolidColorBrush x:Key="RichTextBoxBackground" Color="Aqua" />
+                    <SolidColorBrush x:Key="RichTextBoxForeground" Color="Maroon" />
+                    <!--<SolidColorBrush x:Key="RichTextBoxBorderBrush" Color="Green" />-->
+                    <SolidColorBrush x:Key="RichTextBoxCaretBrush" Color="Yellow" />
+                    <SolidColorBrush x:Key="MainBorder_RichTextBoxBackground" Color="Aqua"/>
+                    <SolidColorBrush x:Key="PART_ContentHost_RichTextBoxForeground" Color="Maroon"/>
+                </ut:TestDictionary>
+
+                <ut:TestDictionary Name="CustomRichTextBox">
+                    <Thickness x:Key="RichTextBoxBorderThickness">4</Thickness>
+                    <Thickness x:Key="RichTextBoxPadding">8,5,10,10</Thickness>
+                    <Thickness x:Key="PART_ContentHost_RichTextBoxPadding">8,5,10,10</Thickness>
+                    <Thickness x:Key="MainBorder_RichTextBoxThickness">4</Thickness>
+                    <HorizontalAlignment x:Key="RichTextBox_HorizontalAlignment">Right</HorizontalAlignment>
+                    <VerticalAlignment x:Key="RichTextBox_VerticalAlignment">Bottom</VerticalAlignment>
+                    <sys:Double x:Key="RichTextBox_MinHeight">40</sys:Double>                   
+                </ut:TestDictionary>
+            </ut:TestDictionary.MergedDictionaries>
     </ut:TestDictionary>
 
     <ut:TestDictionary Name="Dark">

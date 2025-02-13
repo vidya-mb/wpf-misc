@@ -1,0 +1,144 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:ut="clr-namespace:Fluent.UITests.TestUtilities">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ut:TestDictionary Name="Light">
+            <ut:TestDictionary.MergedDictionaries>
+                <ut:TestDictionary Source="/Fluent.UITests;component/ResourceTests/Data/Light.Test.xaml" />
+
+                <ut:TestDictionary Name="Default">
+
+                   
+                    <!--ListBoxItem properties-->
+                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="Transparent"/>
+                    <Thickness x:Key="ListBoxItemPadding">12</Thickness>
+                    <Thickness x:Key="ListBoxItemMargin">10</Thickness>
+                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
+                    <SolidColorBrush x:Key="ListBoxItemBorderBrush" Color="Transparent" />
+                    <CornerRadius x:Key="ListBoxItemCornerRadius">15</CornerRadius>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>
+
+
+
+                </ut:TestDictionary>
+
+                <ut:TestDictionary Name="IsSelected">
+                    <SolidColorBrush x:Key="ListBoxItemSelectedBackgroundThemeBrush" Color="#00FFFFFF" />
+                    <SolidColorBrush x:Key="ListBoxItemSelectedForegroundThemeBrush" Color="#E4000000" />
+                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="#E4000000" />
+                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="#00FFFFFF"/>
+                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>
+                  
+
+
+
+                </ut:TestDictionary>
+
+
+            </ut:TestDictionary.MergedDictionaries>
+        </ut:TestDictionary>
+
+        <ut:TestDictionary Name="Dark">
+            <ut:TestDictionary.MergedDictionaries>
+                <ut:TestDictionary Source="/Fluent.UITests;component/ResourceTests/Data/Dark.Test.xaml" />
+
+                <ut:TestDictionary Name="Default">
+
+                   
+
+                    <!--ListBoxItem properties-->
+                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="Transparent"/>
+                    <Thickness x:Key="ListBoxItemPadding">12</Thickness>
+                    <Thickness x:Key="ListBoxItemMargin">10</Thickness>
+                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
+                    <SolidColorBrush x:Key="ListBoxItemBorderBrush" Color="Transparent" />
+                    <CornerRadius x:Key="ListBoxItemCornerRadius">15</CornerRadius>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>
+
+
+
+
+
+                </ut:TestDictionary>
+                
+                <ut:TestDictionary Name="IsSelected">
+                    <SolidColorBrush x:Key="ListBoxItemSelectedBackgroundThemeBrush" Color="#00FFFFFF" />
+                    <SolidColorBrush x:Key="ListBoxItemSelectedForegroundThemeBrush" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="#00FFFFFF"/>
+                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>
+
+
+
+
+                </ut:TestDictionary>
+
+
+            </ut:TestDictionary.MergedDictionaries>
+        </ut:TestDictionary>
+
+        <ut:TestDictionary Name="HC">
+            <ut:TestDictionary.MergedDictionaries>
+                <ut:TestDictionary Source="/Fluent.UITests;component/ResourceTests/Data/HC.Test.xaml" />
+
+                <ut:TestDictionary Name="Default">
+
+                    <!--ListBoxItem properties-->
+                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="Transparent" />
+                    <Thickness x:Key="ListBoxItemPadding">12</Thickness>
+                    <Thickness x:Key="ListBoxItemMargin">10</Thickness>
+                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
+                    <SolidColorBrush x:Key="ListBoxItemBorderBrush" Color="Transparent" />
+                    <CornerRadius x:Key="ListBoxItemCornerRadius">15</CornerRadius>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>
+
+                   
+
+
+
+                </ut:TestDictionary>
+                <ut:TestDictionary Name="IsSelected">
+                    <SolidColorBrush x:Key="ListBoxItemSelectedBackgroundThemeBrush" Color="#00FFFFFF" />
+                    <SolidColorBrush x:Key="ListBoxItemSelectedForegroundThemeBrush" Color="#E4000000" />
+                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="#00FFFFFF"/>
+                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
+                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
+                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>
+
+
+
+
+                </ut:TestDictionary>
+
+            </ut:TestDictionary.MergedDictionaries>
+        </ut:TestDictionary>
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

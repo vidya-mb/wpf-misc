@@ -57,6 +57,7 @@ namespace Fluent.UITests.ControlTests
             return templateParts;
         }
 
+
         public override void VerifyControlProperties(FrameworkElement element, ResourceDictionary expectedProperties)
         {
             ListBoxItem? listboxItems = element as ListBoxItem;
@@ -65,35 +66,38 @@ namespace Fluent.UITests.ControlTests
 
             List<FrameworkElement> parts = GetStyleParts(listboxItems);
 
-            ListBoxItem? part_ListBoxItem  = parts[0] as ListBoxItem;
-            Border? part_ContentBorder = parts[1] as Border;
-
+            ListBoxItem? part_ListBoxItem = parts[0] as ListBoxItem;
+            //Border? part_ContentBorder = parts[1] as Border;
 
             using (new AssertionScope())
             {
-                part_ListBoxItem.Should().NotBeNull();
 
-                BrushComparer.Equal(part_ListBoxItem.Background, (Brush)expectedProperties["ListBoxItemBackground"]).Should().BeTrue();
-                if (!BrushComparer.Equal(part_ListBoxItem.Background, (Brush)expectedProperties["ListBoxItemBackground"]))
-                {
-                    Console.WriteLine("part_ListBoxItem.Background does not match expected value");
-                    BrushComparer.LogBrushDifference(part_ListBoxItem.Background, (Brush)expectedProperties["ListBoxItemBackground"]);
-                }
-
-                BrushComparer.Equal(part_ListBoxItem.Foreground, (Brush)expectedProperties["ListBoxItemForeground"]).Should().BeTrue();
-                if (!BrushComparer.Equal(part_ListBoxItem.Foreground, (Brush)expectedProperties["ListBoxItemForeground"]))
-                {
-                    Console.WriteLine("part_ListBoxItem.Foreground does not match expected value");
-                    BrushComparer.LogBrushDifference(part_ListBoxItem.Foreground, (Brush)expectedProperties["ListBoxItemForeground"]);
-                }
-                part_ListBoxItem.BorderThickness.Should().Be((Thickness)expectedProperties["ListBoxItemBorderThickness"]);
-                part_ListBoxItem.HorizontalAlignment.Should().Be((HorizontalAlignment)expectedProperties["ListBoxIem_HorizontalAlignment"]);
-                part_ListBoxItem.VerticalAlignment.Should().Be((VerticalAlignment)expectedProperties["ListBoxIem_VerticalAlignment"]);
-                part_ListBoxItem.HorizontalContentAlignment.Should().Be((HorizontalAlignment?)expectedProperties["ListBoxIem_HorizontalContentAlignment"]);
-                part_ListBoxItem.VerticalContentAlignment.Should().Be((VerticalAlignment?)expectedProperties["ListBoxIem_VerticalContentAlignment"]);
-               
-
+                VerifyCheckBoxProperties(part_ListBoxItem, expectedProperties);
             }
+        }
+
+        private static void VerifyCheckBoxProperties(ListBoxItem? part_ListBoxItem, ResourceDictionary expectedProperties)
+        {
+            part_ListBoxItem.Should().NotBeNull();
+
+            BrushComparer.Equal(part_ListBoxItem.Background, (Brush)expectedProperties["ListBoxItemBackground"]).Should().BeTrue();
+            if (!BrushComparer.Equal(part_ListBoxItem.Background, (Brush)expectedProperties["ListBoxItemBackground"]))
+            {
+                Console.WriteLine("part_ListBoxItem.Background does not match expected value");
+                BrushComparer.LogBrushDifference(part_ListBoxItem.Background, (Brush)expectedProperties["ListBoxItemBackground"]);
+            }
+
+            BrushComparer.Equal(part_ListBoxItem.Foreground, (Brush)expectedProperties["ListBoxItemForeground"]).Should().BeTrue();
+            if (!BrushComparer.Equal(part_ListBoxItem.Foreground, (Brush)expectedProperties["ListBoxItemForeground"]))
+            {
+                Console.WriteLine("part_ListBoxItem.Foreground does not match expected value");
+                BrushComparer.LogBrushDifference(part_ListBoxItem.Foreground, (Brush)expectedProperties["ListBoxItemForeground"]);
+            }
+            part_ListBoxItem.BorderThickness.Should().Be((Thickness)expectedProperties["ListBoxItemBorderThickness"]);
+            part_ListBoxItem.HorizontalAlignment.Should().Be((HorizontalAlignment)expectedProperties["ListBoxIem_HorizontalAlignment"]);
+            part_ListBoxItem.VerticalAlignment.Should().Be((VerticalAlignment)expectedProperties["ListBoxIem_VerticalAlignment"]);
+            part_ListBoxItem.HorizontalContentAlignment.Should().Be((HorizontalAlignment?)expectedProperties["ListBoxIem_HorizontalContentAlignment"]);
+            part_ListBoxItem.VerticalContentAlignment.Should().Be((VerticalAlignment?)expectedProperties["ListBoxIem_VerticalContentAlignment"]);
 
 
         }

@@ -18,23 +18,12 @@
                     <VerticalAlignment x:Key="ListBox_VerticalAlignment">Stretch</VerticalAlignment>
                     <Thickness x:Key="ListBoxPadding">10</Thickness>
                     <HorizontalAlignment x:Key="HorizontalContentAlignment">Left</HorizontalAlignment>
-                    <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxBorder" Color="{StaticResource TextFillColorPrimary}" />
                     <sys:Double x:Key="ListBox_Minwidth">0</sys:Double>
                     <sys:Double x:Key="ListBox_MinHeight">0</sys:Double>
                     <sys:Boolean x:Key="ListBoxCanContentScroll">True</sys:Boolean>
-                    
-                    <!--ListBoxItem properties--><!--
-                    <SolidColorBrush x:Key="ContentBorder_ListBoxItemForeground" Color="{StaticResource TextFillColorPrimaryBrush}" />
-                    <SolidColorBrush x:Key="ContentBorder_ListBoxItemBackground" Color="Transparent" />
-                    <Thickness x:Key="ContentBorder_ListBoxItemPadding">12</Thickness>
-                    <Thickness x:Key="ContentBorder_ListBoxItemMargin">10</Thickness>
-                    <Thickness x:Key="ContentBorder_ListBoxItemBorderThickness">10</Thickness>
-                    <SolidColorBrush x:Key="ContentBorder_ListBoxItemBorderBrush" Color="Transparent" />
-                    <CornerRadius x:Key="ContentBorder_ListBoxItemCornerRadius">15</CornerRadius>
-                    <HorizontalAlignment x:Key="ContentBorder_ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
-                    <VerticalAlignment x:Key="ContentBorder_ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
-                    <VerticalAlignment x:Key="ContentBorder_ListBoxIem_VerticalAlignment">bottom</VerticalAlignment>
-                    <HorizontalAlignment x:Key="ContentBorder_ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>-->
+                    <SolidColorBrush x:Key="ListBox_PrimaryBrush" Color="Red" />
+
 
 
                     <!--PART_ContentHost : ScrollViewer-->
@@ -44,8 +33,12 @@
                     <ScrollBarVisibility x:Key="PART_ContentHost_ListBox_VerticalScrollBarVisibility">Auto</ScrollBarVisibility>
                     <Thickness x:Key="PART_ContentHost_ListBox_Padding">0</Thickness>
 
+                    <!--Border-->
+                    <Thickness x:Key="Border_ListBoxBorderThemeThickness">0</Thickness>
+                    <SolidColorBrush x:Key="Border_ListBoxBackground" Color="#FFF2F2F2" />
+                    <!--<SolidColorBrush x:Key="Border_ListBoxBorder" Color="#FFA9A9A9" />-->
 
-                      
+
                 </ut:TestDictionary>
                 
                 <ut:TestDictionary Name="CustomListbox">
@@ -56,14 +49,17 @@
 
                     <sys:Double x:Key="ListBox_Minwidth">100</sys:Double>
                     <sys:Double x:Key="ListBox_MinHeight">30</sys:Double>
-                    <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="Red" />
-                    <SolidColorBrush x:Key="ListBoxBackground" Color="Black" />
+                    <SolidColorBrush x:Key="ListBox_PrimaryBrush" Color="Red" />
+                    <!--<SolidColorBrush x:Key="ListBoxBackground" Color="Black" />-->
                     <!--<SolidColorBrush x:Key="ContentBorder_TextControlBackground" Color="Black" />-->
                     <HorizontalAlignment x:Key="ListBox_HorizontalAlignment">Left</HorizontalAlignment>
                     <HorizontalAlignment x:Key="HorizontalContentAlignment">Left</HorizontalAlignment>
                     <VerticalAlignment x:Key="ListBox_VerticalAlignment">Top</VerticalAlignment>
                     <VerticalAlignment x:Key="VerticalContentAlignment">bottom</VerticalAlignment>
                     <!--<Visibility x:Key="ClearButton_Visibility">Visible</Visibility>-->
+                    <Thickness x:Key="Border_ListBoxBorderThemeThickness">0</Thickness>
+                    <SolidColorBrush x:Key="Border_ListBoxBackground" Color="#FFF2F2F2" />
+
                 </ut:TestDictionary>
 
 
@@ -85,12 +81,10 @@
                     <Thickness x:Key="ListBoxPadding">10</Thickness>
                     <sys:Double x:Key="ListBox_Minwidth">0</sys:Double>
                     <sys:Double x:Key="ListBox_MinHeight">0</sys:Double>
-                    <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxBorder" Color="{StaticResource TextFillColorPrimary}" />
                     <HorizontalAlignment x:Key="HorizontalContentAlignment">Left</HorizontalAlignment>
                     <sys:Boolean x:Key="ListBoxCanContentScroll">True</sys:Boolean>
-
-
-
+                    <SolidColorBrush x:Key="ListBox_PrimaryBrush" Color="Red" />
 
                     <!--PART_ContentHost : ScrollViewer-->
                     <VerticalAlignment x:Key="PART_ContentHost_ListBox_VerticalAlignment">Stretch</VerticalAlignment>
@@ -99,18 +93,10 @@
                     <ScrollBarVisibility x:Key="PART_ContentHost_ListBox_VerticalScrollBarVisibility">Auto</ScrollBarVisibility>
                     <Thickness x:Key="PART_ContentHost_ListBox_Padding">0</Thickness>
 
-                    <!--ListBoxItem properties--><!--
-                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="Blue" />
-                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="Transparent" />
-                    <Thickness x:Key="ListBoxItemPadding">12</Thickness>
-                    <Thickness x:Key="ListBoxItemMargin">10</Thickness>
-                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
-                    <SolidColorBrush x:Key="ListBoxItemBorderBrush" Color="Transparent" />
-                    <CornerRadius x:Key="ListBoxItemCornerRadius">15</CornerRadius>
-                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
-                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
-                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
-                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>-->
+                    <!--Border-->
+                    <Thickness x:Key="Border_ListBoxBorderThemeThickness">0 </Thickness>
+                    <SolidColorBrush x:Key="Border_ListBoxBackground" Color="#0DFFFFFF" />
+                    <!--<SolidColorBrush x:Key="Border_ListBoxBorder" Color="#FFA9A9A9" />-->
 
                 </ut:TestDictionary>
 
@@ -122,18 +108,19 @@
 
                     <sys:Double x:Key="ListBox_Minwidth">100</sys:Double>
                     <sys:Double x:Key="ListBox_MinHeight">30</sys:Double>
-                    <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="Red" />
-                    <SolidColorBrush x:Key="ListBoxBackground" Color="Black" />
+                    <SolidColorBrush x:Key="ListBox_PrimaryBrush" Color="Red" />
+                    <!--<SolidColorBrush x:Key="ListBoxBackground" Color="Black" />-->
                     <!--<SolidColorBrush x:Key="ContentBorder_TextControlBackground" Color="Black" />-->
                     <HorizontalAlignment x:Key="ListBox_HorizontalAlignment">Left</HorizontalAlignment>
                     <HorizontalAlignment x:Key="HorizontalContentAlignment">Left</HorizontalAlignment>
                     <VerticalAlignment x:Key="ListBox_VerticalAlignment">Top</VerticalAlignment>
                     <VerticalAlignment x:Key="VerticalContentAlignment">bottom</VerticalAlignment>
                     <!--<Visibility x:Key="ClearButton_Visibility">Visible</Visibility>-->
+                    <Thickness x:Key="Border_ListBoxBorderThemeThickness">0</Thickness>
+                    <SolidColorBrush x:Key="Border_ListBoxBackground" Color="#0DFFFFFF" />
 
                 </ut:TestDictionary>
 
-               
             </ut:TestDictionary.MergedDictionaries>
         </ut:TestDictionary>
 
@@ -151,28 +138,16 @@
                     <Thickness x:Key="ListBoxPadding">10</Thickness>
                     <sys:Double x:Key="ListBox_Minwidth">0</sys:Double>
                     <sys:Double x:Key="ListBox_MinHeight">0</sys:Double>
-                    <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="{StaticResource TextFillColorPrimary}" />
+                    <SolidColorBrush x:Key="ListBoxBorder" Color="{StaticResource TextFillColorPrimary}" />
                     <HorizontalAlignment x:Key="HorizontalContentAlignment">Left</HorizontalAlignment>
                     <sys:Boolean x:Key="ListBoxCanContentScroll">True</sys:Boolean>
-
-                    <!--ListBoxItem properties--><!--
-                    <SolidColorBrush x:Key="ListBoxItemForeground" Color="Blue" />
-                    <SolidColorBrush x:Key="ListBoxItemBackground" Color="Transparent" />
-                    <Thickness x:Key="ListBoxItemPadding">12</Thickness>
-                    <Thickness x:Key="ListBoxItemMargin">10</Thickness>
-                    <Thickness x:Key="ListBoxItemBorderThickness">10</Thickness>
-                    <SolidColorBrush x:Key="ListBoxItemBorderBrush" Color="Transparent" />
-                    <CornerRadius x:Key="ListBoxItemCornerRadius">15</CornerRadius>
-                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalAlignment">Stretch</HorizontalAlignment>
-                    <VerticalAlignment x:Key="ListBoxIem_VerticalContentAlignment">Center</VerticalAlignment>
-                    <VerticalAlignment x:Key="ListBoxIem_VerticalAlignment">Stretch</VerticalAlignment>
-                    <HorizontalAlignment x:Key="ListBoxIem_HorizontalContentAlignment">Left</HorizontalAlignment>-->
+                    <SolidColorBrush x:Key="ListBox_PrimaryBrush" Color="Red" />
 
 
-
-
-
-
+                    <!--Border-->
+                    <Thickness x:Key="Border_ListBoxBorderThemeThickness">0</Thickness>
+                    <SolidColorBrush x:Key="Border_ListBoxBackground" Color="#0DFFFFFF" />
+                    <!--<SolidColorBrush x:Key="Border_ListBoxBorder" Color="#FFA9A9A9" />-->
 
 
                     <!--<x:Boolean x:Key="ListBoxCanContentScroll">True</x:Boolean>-->
@@ -184,8 +159,6 @@
                     <ScrollBarVisibility x:Key="PART_ContentHost_ListBox_VerticalScrollBarVisibility">Auto</ScrollBarVisibility>
                     <Thickness x:Key="PART_ContentHost_ListBox_Padding">0</Thickness>
 
-
-
                 </ut:TestDictionary>
 
                 <ut:TestDictionary Name="CustomListbox">
@@ -196,14 +169,17 @@
 
                     <sys:Double x:Key="ListBox_Minwidth">100</sys:Double>
                     <sys:Double x:Key="ListBox_MinHeight">30</sys:Double>
-                    <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="Red" />
-                    <SolidColorBrush x:Key="ListBoxBackground" Color="Black" />
+                    <SolidColorBrush x:Key="ListBox_PrimaryBrush" Color="Red" />
+                    <!--<SolidColorBrush x:Key="ListBoxBackground" Color="Black" />-->
                     <!--<SolidColorBrush x:Key="ContentBorder_TextControlBackground" Color="Black" />-->
                     <HorizontalAlignment x:Key="ListBox_HorizontalAlignment">Left</HorizontalAlignment>
                     <HorizontalAlignment x:Key="HorizontalContentAlignment">Left</HorizontalAlignment>
                     <VerticalAlignment x:Key="ListBox_VerticalAlignment">Top</VerticalAlignment>
                     <VerticalAlignment x:Key="VerticalContentAlignment">bottom</VerticalAlignment>
+
                     <!--<Visibility x:Key="ClearButton_Visibility">Visible</Visibility>-->
+                    <Thickness x:Key="Border_ListBoxBorderThemeThickness">0</Thickness>
+                    <SolidColorBrush x:Key="Border_ListBoxBackground" Color="#FFF2F2F2" />
 
                 </ut:TestDictionary>
 

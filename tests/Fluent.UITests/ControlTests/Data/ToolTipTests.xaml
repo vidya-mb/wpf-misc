@@ -1,0 +1,116 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:ut="clr-namespace:Fluent.UITests.TestUtilities">
+    <ResourceDictionary.MergedDictionaries>
+
+        <ut:TestDictionary Name="Light">
+            <ut:TestDictionary.MergedDictionaries>
+                <ut:TestDictionary Source="/Fluent.UITests;component/ResourceTests/Data/Light.Test.xaml" />
+
+                <ut:TestDictionary Name="Default">
+
+                    <sys:String x:Key="ToolTip_Width">Auto</sys:String>
+                    <sys:String x:Key="ToolTip_Height">Auto</sys:String>
+                    <sys:Double x:Key="ToolTip_MaxWidth">320</sys:Double>
+                    <SolidColorBrush x:Key="ToolTipBackground" Color="{StaticResource AcrylicBackgroundFillColorDefault}" />
+                    <SolidColorBrush x:Key="ToolTipBorderBrush" Color="{StaticResource SurfaceStrokeColorFlyout}" />
+                    <Thickness x:Key="ToolTip_BorderThemeThickness">1</Thickness>                    
+                    <CornerRadius x:Key="ToolTip_CornerRadius">4</CornerRadius>
+                    <DropShadowEffect x:Key="ToolTipDropShadowEffect"
+                                BlurRadius="30"
+                                Direction="0"
+                                Opacity="0.4"
+                                ShadowDepth="0"
+                                Color="#202020" />
+                    <sys:Boolean x:Key="ToolTip_SnapsToDevicePixels">True</sys:Boolean>
+
+                    <!--ContentPresenter properties-->
+                    <Thickness x:Key="ContentPresenter_ToolTipBorderPadding">9,6,9,8</Thickness>
+                    <HorizontalAlignment x:Key="ContentPresenter_HorizontalContentAlignment">Left</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ContentPresenter_VerticalContentAlignment">Top</VerticalAlignment>
+
+                    <!--Textblock properties-->
+                    <TextWrapping x:Key="TextBlock_TextWrapping">WrapWithOverflow</TextWrapping>
+                    <sys:Double x:Key="TextBlock_Fontsize">12</sys:Double>
+                    <TextAlignment x:Key="TextBlock_TextAlignment">Justify</TextAlignment>
+                    <SolidColorBrush x:Key="TextBlock_Foreground" Color="{StaticResource TextFillColorPrimary}" />
+
+                </ut:TestDictionary>              
+
+            </ut:TestDictionary.MergedDictionaries>
+        </ut:TestDictionary>
+
+        <ut:TestDictionary Name="Dark">
+            <ut:TestDictionary.MergedDictionaries>
+                <ut:TestDictionary Source="/Fluent.UITests;component/ResourceTests/Data/Dark.Test.xaml" />
+
+                <ut:TestDictionary Name="Default">
+                    <sys:String x:Key="ToolTip_Width">Auto</sys:String>
+                    <sys:String x:Key="ToolTip_Height">Auto</sys:String>
+                    <sys:Double x:Key="ToolTip_MaxWidth">320</sys:Double>
+                    <SolidColorBrush x:Key="ToolTipBackground" Color="{StaticResource AcrylicBackgroundFillColorDefault}" />
+                    <SolidColorBrush x:Key="ToolTipBorderBrush" Color="{StaticResource SurfaceStrokeColorFlyout}" />
+                    <Thickness x:Key="ToolTip_BorderThemeThickness">1</Thickness>
+                    <CornerRadius x:Key="ToolTip_CornerRadius">4</CornerRadius>
+                    <DropShadowEffect x:Key="ToolTipDropShadowEffect"
+               BlurRadius="30"
+               Direction="0"
+               Opacity="0.4"
+               ShadowDepth="0"
+               Color="#202020" />
+                    <sys:Boolean x:Key="ToolTip_SnapsToDevicePixels">True</sys:Boolean>
+
+                    <!--ContentPresenter properties-->
+                    <Thickness x:Key="ContentPresenter_ToolTipBorderPadding">9,6,9,8</Thickness>
+                    <HorizontalAlignment x:Key="ContentPresenter_HorizontalContentAlignment">Left</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ContentPresenter_VerticalContentAlignment">Top</VerticalAlignment>
+
+                    <!--Textblock properties-->
+                    <TextWrapping x:Key="TextBlock_TextWrapping">WrapWithOverflow</TextWrapping>
+                    <sys:Double x:Key="TextBlock_Fontsize">12</sys:Double>
+                    <TextAlignment x:Key="TextBlock_TextAlignment">Justify</TextAlignment>
+                    <SolidColorBrush x:Key="TextBlock_Foreground" Color="{StaticResource TextFillColorPrimary}" />
+
+                </ut:TestDictionary>              
+
+            </ut:TestDictionary.MergedDictionaries>
+        </ut:TestDictionary>
+
+        <ut:TestDictionary Name="HC">
+            <ut:TestDictionary.MergedDictionaries>
+                <ut:TestDictionary Source="/Fluent.UITests;component/ResourceTests/Data/HC.Test.xaml" />
+
+                <ut:TestDictionary Name="Default">
+                    <sys:String x:Key="ToolTip_Width">Auto</sys:String>
+                    <sys:String x:Key="ToolTip_Height">Auto</sys:String>
+                    <sys:Double x:Key="ToolTip_MaxWidth">320</sys:Double>
+                    <SolidColorBrush x:Key="ToolTipBackground" Color="{StaticResource SystemColorWindowColor}" />
+                    <SolidColorBrush x:Key="ToolTipBorderBrush" Color="{StaticResource SystemColorWindowTextColor}" />
+                    <Thickness x:Key="ToolTip_BorderThemeThickness">1</Thickness>
+                    <CornerRadius x:Key="ToolTip_CornerRadius">4</CornerRadius>
+                    <DropShadowEffect x:Key="ToolTipDropShadowEffect"
+                        BlurRadius="30"
+                        Direction="0"
+                        Opacity="0.4"
+                        ShadowDepth="0"
+                        Color="#202020" />
+                    <sys:Boolean x:Key="ToolTip_SnapsToDevicePixels">True</sys:Boolean>
+
+                    <!--ContentPresenter properties-->
+                    <Thickness x:Key="ContentPresenter_ToolTipBorderPadding">9,6,9,8</Thickness>
+                    <HorizontalAlignment x:Key="ContentPresenter_HorizontalContentAlignment">Left</HorizontalAlignment>
+                    <VerticalAlignment x:Key="ContentPresenter_VerticalContentAlignment">Top</VerticalAlignment>
+
+                    <!--Textblock properties-->
+                    <TextWrapping x:Key="TextBlock_TextWrapping">WrapWithOverflow</TextWrapping>
+                    <sys:Double x:Key="TextBlock_Fontsize">12</sys:Double>
+                    <TextAlignment x:Key="TextBlock_TextAlignment">Justify</TextAlignment>
+                    <SolidColorBrush x:Key="TextBlock_Foreground" Color="{StaticResource SystemColorWindowTextColor}" />
+
+                </ut:TestDictionary>               
+
+            </ut:TestDictionary.MergedDictionaries>
+        </ut:TestDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
